@@ -1,1 +1,1 @@
-[{"title":"209. Minimum Size Subarray Sum","date":"2018.07.24","uri":"2018/07/24/209-Minimum-Size-Subarray-Sum/","excerpt":""},{"title":"38. Count And Say","date":"2018.07.24","uri":"2018/07/24/Count-And-Say/","excerpt":""}]
+[{"title":"38. Count And Say","date":"2018.07.24","uri":"2018/07/24/38-Count-And-Say/","excerpt":""},{"title":"209. Minimum Size Subarray Sum","date":"2018.07.24","uri":"2018/07/24/209-Minimum-Size-Subarray-Sum/","excerpt":""}]
