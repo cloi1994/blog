@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>80. Remove Duplicates from Sorted Array II | Note</title>
+  <title>56. Merge Intervals | Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
-<meta name="keywords" content="Easy,Basic">
+  <meta name="description" content="Given a collection of intervals, merge all overlapping intervals. Example 1: Input: [[1,3],[2,6],[8,10],[15,18]]Output: [[1,6],[8,10],[15,18]]Explanation: Since intervals [1,3] and [2,6] overlaps, mer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="80. Remove Duplicates from Sorted Array II">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/index.html">
+<meta property="og:title" content="56. Merge Intervals">
+<meta property="og:url" content="http://yoursite.com/2018/07/24/56-Merge-Intervals/index.html">
 <meta property="og:site_name" content="Note">
-<meta property="og:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta property="og:description" content="Given a collection of intervals, merge all overlapping intervals. Example 1: Input: [[1,3],[2,6],[8,10],[15,18]]Output: [[1,6],[8,10],[15,18]]Explanation: Since intervals [1,3] and [2,6] overlaps, mer">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T01:07:41.743Z">
+<meta property="og:updated_time" content="2018-07-25T02:02:38.026Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
-<meta name="twitter:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta name="twitter:title" content="56. Merge Intervals">
+<meta name="twitter:description" content="Given a collection of intervals, merge all overlapping intervals. Example 1: Input: [[1,3],[2,6],[8,10],[15,18]]Output: [[1,6],[8,10],[15,18]]Explanation: Since intervals [1,3] and [2,6] overlaps, mer">
   
     <link rel="alternate" href="/atom.xml" title="Note" type="application/atom+xml">
   
@@ -69,10 +68,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-80-Remove-Duplicates-from-Sorted-Array-II" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-56-Merge-Intervals" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" class="article-date">
-  <time datetime="2018-07-25T00:54:56.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/24/56-Merge-Intervals/" class="article-date">
+  <time datetime="2018-07-25T02:00:00.000Z" itemprop="datePublished">2018-07-24</time>
 </a>
     
   </div>
@@ -83,7 +82,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      80. Remove Duplicates from Sorted Array II
+      56. Merge Intervals
     </h1>
   
 
@@ -93,46 +92,55 @@
       
         <!-- Table of Contents -->
         
-        <p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Given nums = [1,1,1,2,2,3],</p>
-<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.</p>
-<p>It doesn’t matter what you leave beyond the returned length.</p>
+        <p>Given a collection of intervals, merge all overlapping intervals.</p>
+<p>Example 1:</p>
+<p>Input: [[1,3],[2,6],[8,10],[15,18]]<br>Output: [[1,6],[8,10],[15,18]]<br>Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].<br>Example 2:</p>
+<p>Input: [[1,4],[4,5]]<br>Output: [[1,5]]<br>Explanation: Intervals [1,4] and [4,5] are considerred overlapping.</p>
 <p><br></p>
-<p>Remove Duplicates from Sorted Array I</p>
-<p>有个slow pointer 指向要替换的位置，如有符合的条件就slower++并替换，不符合就跳过</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i<span class="number">-1</span>] != nums[i]:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> start</span><br></pre></td></tr></table></figure>
-<p>Remove Duplicates from Sorted Array II</p>
-<p>同理，只不过是看前2个</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span>
+<p>先sort by start time, 如果 res[-1].end &gt;= intervals[i].start 就修改之前的end.<br>如果不是就 insert to res.</p>
+<pre><code class="python"><span class="comment"># Definition for an interval.</span>
+<span class="comment"># class Interval(object):</span>
+<span class="comment">#     def __init__(self, s=0, e=0):</span>
+<span class="comment">#         self.start = s</span>
+<span class="comment">#         self.end = e</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self, intervals)</span>:</span>
         <span class="string">"""</span>
-<span class="string">        :type nums: List[int]</span>
-<span class="string">        :rtype: int</span>
+<span class="string">        :type intervals: List[Interval]</span>
+<span class="string">        :rtype: List[Interval]</span>
 <span class="string">        """</span>
 
-        <span class="keyword">if</span> <span class="keyword">not</span> nums <span class="keyword">or</span> len(nums) &lt; <span class="number">2</span>:
-            <span class="keyword">return</span> len(nums)
+        <span class="function"><span class="keyword">def</span> <span class="title">cmpfuc</span><span class="params">(x,y)</span>:</span>
 
-        start = <span class="number">2</span>
+            <span class="keyword">return</span> x.start - y.start
 
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(nums)):
-            <span class="keyword">if</span> nums[start<span class="number">-2</span>] != nums[i]:
-                nums[start] = nums[i]
-                start += <span class="number">1</span>
 
-        <span class="keyword">return</span> start
+
+        <span class="keyword">if</span> <span class="keyword">not</span> intervals:
+            <span class="keyword">return</span> []
+
+        intervals.sort(cmp=cmpfuc)
+
+        res = [intervals[<span class="number">0</span>]]
+
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(intervals)):
+
+            <span class="keyword">if</span> res[<span class="number">-1</span>].end &gt;= intervals[i].start:
+                res[<span class="number">-1</span>].end = max(intervals[i].end, res[<span class="number">-1</span>].end)
+            <span class="keyword">else</span>:
+                res.append(intervals[i])
+
+        <span class="keyword">return</span> res
 </code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk0hi9g300071kvns4w5g3mn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/24/56-Merge-Intervals/" data-id="cjk0hi9g300051kvni2bzuko2" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
-
     </footer>
   </div>
   
@@ -181,19 +189,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/24/78-Subsets/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          78. Subsets
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/24/209-Minimum-Size-Subarray-Sum/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/24/253-Meeting-Rooms-II/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">209. Minimum Size Subarray Sum</div>
+      <div class="article-nav-title">253. Meeting Rooms II</div>
     </a>
   
 </nav>

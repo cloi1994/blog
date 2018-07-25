@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>80. Remove Duplicates from Sorted Array II | Note</title>
+  <title>78. Subsets | Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
-<meta name="keywords" content="Easy,Basic">
+  <meta name="description" content="Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets. Example: Input: nums = [1,2,3]Output:[  [3],  [1],  [2],">
+<meta name="keywords" content="Medium,dfs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="80. Remove Duplicates from Sorted Array II">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/index.html">
+<meta property="og:title" content="78. Subsets">
+<meta property="og:url" content="http://yoursite.com/2018/07/24/78-Subsets/index.html">
 <meta property="og:site_name" content="Note">
-<meta property="og:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta property="og:description" content="Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets. Example: Input: nums = [1,2,3]Output:[  [3],  [1],  [2],">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T01:07:41.743Z">
+<meta property="og:updated_time" content="2018-07-25T01:38:39.617Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
-<meta name="twitter:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta name="twitter:title" content="78. Subsets">
+<meta name="twitter:description" content="Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets. Example: Input: nums = [1,2,3]Output:[  [3],  [1],  [2],">
   
     <link rel="alternate" href="/atom.xml" title="Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-80-Remove-Duplicates-from-Sorted-Array-II" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-78-Subsets" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" class="article-date">
-  <time datetime="2018-07-25T00:54:56.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/24/78-Subsets/" class="article-date">
+  <time datetime="2018-07-25T01:34:03.000Z" itemprop="datePublished">2018-07-24</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      80. Remove Duplicates from Sorted Array II
+      78. Subsets
     </h1>
   
 
@@ -93,45 +93,24 @@
       
         <!-- Table of Contents -->
         
-        <p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Given nums = [1,1,1,2,2,3],</p>
-<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.</p>
-<p>It doesn’t matter what you leave beyond the returned length.</p>
+        <p>Given a set of distinct integers, nums, return all possible subsets (the power set).</p>
+<p>Note: The solution set must not contain duplicate subsets.</p>
+<p>Example:</p>
+<p>Input: nums = [1,2,3]<br>Output:<br>[<br>  [3],<br>  [1],<br>  [2],<br>  [1,2,3],<br>  [1,3],<br>  [2,3],<br>  [1,2],<br>  []<br>]</p>
 <p><br></p>
-<p>Remove Duplicates from Sorted Array I</p>
-<p>有个slow pointer 指向要替换的位置，如有符合的条件就slower++并替换，不符合就跳过</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i<span class="number">-1</span>] != nums[i]:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> start</span><br></pre></td></tr></table></figure>
-<p>Remove Duplicates from Sorted Array II</p>
-<p>同理，只不过是看前2个</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span>
-        <span class="string">"""</span>
-<span class="string">        :type nums: List[int]</span>
-<span class="string">        :rtype: int</span>
-<span class="string">        """</span>
-
-        <span class="keyword">if</span> <span class="keyword">not</span> nums <span class="keyword">or</span> len(nums) &lt; <span class="number">2</span>:
-            <span class="keyword">return</span> len(nums)
-
-        start = <span class="number">2</span>
-
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(nums)):
-            <span class="keyword">if</span> nums[start<span class="number">-2</span>] != nums[i]:
-                nums[start] = nums[i]
-                start += <span class="number">1</span>
-
-        <span class="keyword">return</span> start
-</code></pre>
+<p>用dfs来做, 每下一层 array 位移一次, 这样下一层不会重复上一层数字.</p>
+<pre><code>1           2     3
+</code></pre><p>  2    3       3<br>3</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsets</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        self.dfs(<span class="number">0</span>,nums,[],res)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,level,nums,tmp,res)</span>:</span></span><br><span class="line"></span><br><span class="line">        res.append(tmp[:])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(level,len(nums)):</span><br><span class="line">            tmp.append(nums[i])</span><br><span class="line">            self.dfs(i+<span class="number">1</span>,nums,tmp,res)</span><br><span class="line">            tmp.pop()</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk0hi9g300071kvns4w5g3mn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/24/78-Subsets/" data-id="cjk0hi9g300081kvn4shd8li4" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
 
     </footer>
   </div>
@@ -181,19 +160,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/24/78-Subsets/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/24/252-Meeting-Rooms/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          78. Subsets
+          252. Meeting Rooms
         
       </div>
     </a>
   
   
-    <a href="/2018/07/24/209-Minimum-Size-Subarray-Sum/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">209. Minimum Size Subarray Sum</div>
+      <div class="article-nav-title">80. Remove Duplicates from Sorted Array II</div>
     </a>
   
 </nav>

@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>80. Remove Duplicates from Sorted Array II | Note</title>
+  <title>252. Meeting Rooms | Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
-<meta name="keywords" content="Easy,Basic">
+  <meta name="description" content="DescriptionGiven an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), determine if a person could attend all meetings. ExampleGiven intervals = [[0,30">
+<meta name="keywords" content="Easy,Greedy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="80. Remove Duplicates from Sorted Array II">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/index.html">
+<meta property="og:title" content="252. Meeting Rooms">
+<meta property="og:url" content="http://yoursite.com/2018/07/24/252-Meeting-Rooms/index.html">
 <meta property="og:site_name" content="Note">
-<meta property="og:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta property="og:description" content="DescriptionGiven an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), determine if a person could attend all meetings. ExampleGiven intervals = [[0,30">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T01:07:41.743Z">
+<meta property="og:updated_time" content="2018-07-25T01:56:23.874Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
-<meta name="twitter:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta name="twitter:title" content="252. Meeting Rooms">
+<meta name="twitter:description" content="DescriptionGiven an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), determine if a person could attend all meetings. ExampleGiven intervals = [[0,30">
   
     <link rel="alternate" href="/atom.xml" title="Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-80-Remove-Duplicates-from-Sorted-Array-II" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-252-Meeting-Rooms" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" class="article-date">
-  <time datetime="2018-07-25T00:54:56.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/24/252-Meeting-Rooms/" class="article-date">
+  <time datetime="2018-07-25T01:39:31.000Z" itemprop="datePublished">2018-07-24</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      80. Remove Duplicates from Sorted Array II
+      252. Meeting Rooms
     </h1>
   
 
@@ -93,45 +93,20 @@
       
         <!-- Table of Contents -->
         
-        <p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Given nums = [1,1,1,2,2,3],</p>
-<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.</p>
-<p>It doesn’t matter what you leave beyond the returned length.</p>
+        <p>Description<br>Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &lt; ei), determine if a person could attend all meetings.</p>
+<p>Example<br>Given intervals = [[0,30],[5,10],[15,20]], return false.</p>
 <p><br></p>
-<p>Remove Duplicates from Sorted Array I</p>
-<p>有个slow pointer 指向要替换的位置，如有符合的条件就slower++并替换，不符合就跳过</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i<span class="number">-1</span>] != nums[i]:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> start</span><br></pre></td></tr></table></figure>
-<p>Remove Duplicates from Sorted Array II</p>
-<p>同理，只不过是看前2个</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span>
-        <span class="string">"""</span>
-<span class="string">        :type nums: List[int]</span>
-<span class="string">        :rtype: int</span>
-<span class="string">        """</span>
-
-        <span class="keyword">if</span> <span class="keyword">not</span> nums <span class="keyword">or</span> len(nums) &lt; <span class="number">2</span>:
-            <span class="keyword">return</span> len(nums)
-
-        start = <span class="number">2</span>
-
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(nums)):
-            <span class="keyword">if</span> nums[start<span class="number">-2</span>] != nums[i]:
-                nums[start] = nums[i]
-                start += <span class="number">1</span>
-
-        <span class="keyword">return</span> start
-</code></pre>
+<p>先sort by start time, 然后一个一个对比, 如果 no meet condition 就 return False</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of Interval.</span></span><br><span class="line"><span class="string">class Interval(object):</span></span><br><span class="line"><span class="string">    def __init__(self, start, end):</span></span><br><span class="line"><span class="string">        self.start = start</span></span><br><span class="line"><span class="string">        self.end = end</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param intervals: an array of meeting time intervals</span></span><br><span class="line"><span class="string">    @return: if a person could attend all meetings</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canAttendMeetings</span><span class="params">(self, intervals)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">cmpfuc</span><span class="params">(x,y)</span>:</span></span><br><span class="line">            <span class="keyword">return</span> x.start - y.start</span><br><span class="line"></span><br><span class="line">        intervals.sort(cmp=cmpfuc)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(intervals)):</span><br><span class="line">            <span class="keyword">if</span> intervals[i<span class="number">-1</span>].end &gt; intervals[i].start:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk0hi9g300071kvns4w5g3mn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk0hi9g300011kvnfxkr1au1" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li></ul>
 
     </footer>
   </div>
@@ -181,19 +156,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/24/78-Subsets/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/24/253-Meeting-Rooms-II/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          78. Subsets
+          253. Meeting Rooms II
         
       </div>
     </a>
   
   
-    <a href="/2018/07/24/209-Minimum-Size-Subarray-Sum/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/24/78-Subsets/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">209. Minimum Size Subarray Sum</div>
+      <div class="article-nav-title">78. Subsets</div>
     </a>
   
 </nav>
