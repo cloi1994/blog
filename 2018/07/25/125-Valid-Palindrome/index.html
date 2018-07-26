@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>80. Remove Duplicates from Sorted Array II | FB Note</title>
+  <title>125. Valid Palindrome | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
-<meta name="keywords" content="Easy,Basic">
+  <meta name="description" content="12345678910111213141516171819202122232425class Solution(object):    def isPalindrome(self, s):        &quot;&quot;&quot;        :type s: str        :rtype: bool        &quot;&quot;&quot;        i = 0        j = len(s) - 1        w">
+<meta name="keywords" content="Easy,TwoPointer">
 <meta property="og:type" content="article">
-<meta property="og:title" content="80. Remove Duplicates from Sorted Array II">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/index.html">
+<meta property="og:title" content="125. Valid Palindrome">
+<meta property="og:url" content="http://yoursite.com/2018/07/25/125-Valid-Palindrome/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta property="og:description" content="12345678910111213141516171819202122232425class Solution(object):    def isPalindrome(self, s):        &quot;&quot;&quot;        :type s: str        :rtype: bool        &quot;&quot;&quot;        i = 0        j = len(s) - 1        w">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T01:07:41.743Z">
+<meta property="og:updated_time" content="2018-07-26T02:44:25.312Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="80. Remove Duplicates from Sorted Array II">
-<meta name="twitter:description" content="Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length. Do not allocate extra space for another array, you must do this by modi">
+<meta name="twitter:title" content="125. Valid Palindrome">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425class Solution(object):    def isPalindrome(self, s):        &quot;&quot;&quot;        :type s: str        :rtype: bool        &quot;&quot;&quot;        i = 0        j = len(s) - 1        w">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-80-Remove-Duplicates-from-Sorted-Array-II" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-125-Valid-Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" class="article-date">
-  <time datetime="2018-07-25T00:54:56.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/25/125-Valid-Palindrome/" class="article-date">
+  <time datetime="2018-07-26T02:39:22.000Z" itemprop="datePublished">2018-07-25</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      80. Remove Duplicates from Sorted Array II
+      125. Valid Palindrome
     </h1>
   
 
@@ -93,45 +93,16 @@
       
         <!-- Table of Contents -->
         
-        <p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Given nums = [1,1,1,2,2,3],</p>
-<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.</p>
-<p>It doesn’t matter what you leave beyond the returned length.</p>
-<p><br></p>
-<p>Remove Duplicates from Sorted Array I</p>
-<p>有个slow pointer 指向要替换的位置，如有符合的条件就slower++并替换，不符合就跳过</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i<span class="number">-1</span>] != nums[i]:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> start</span><br></pre></td></tr></table></figure>
-<p>Remove Duplicates from Sorted Array II</p>
-<p>同理，只不过是看前2个</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span>
-        <span class="string">"""</span>
-<span class="string">        :type nums: List[int]</span>
-<span class="string">        :rtype: int</span>
-<span class="string">        """</span>
-
-        <span class="keyword">if</span> <span class="keyword">not</span> nums <span class="keyword">or</span> len(nums) &lt; <span class="number">2</span>:
-            <span class="keyword">return</span> len(nums)
-
-        start = <span class="number">2</span>
-
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(nums)):
-            <span class="keyword">if</span> nums[start<span class="number">-2</span>] != nums[i]:
-                nums[start] = nums[i]
-                start += <span class="number">1</span>
-
-        <span class="keyword">return</span> start
-</code></pre>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = len(s) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; j:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> s[i].isaplha() <span class="keyword">or</span> <span class="keyword">not</span> s[i].isdigit():</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> s[j].isaplha() <span class="keyword">or</span> <span class="keyword">not</span> s[j].isdigit():</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> s[i].lower() != s[j].lower():</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk1yikab000sn4vnticnz5yr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/25/125-Valid-Palindrome/" data-id="cjk1yik9w0000n4vna66wzs5l" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TwoPointer/">TwoPointer</a></li></ul>
 
     </footer>
   </div>
@@ -181,19 +152,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/24/78-Subsets/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/25/25-Reverse-Nodes-in-k-Group/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          78. Subsets
+          25. Reverse Nodes in k-Group 
         
       </div>
     </a>
   
   
-    <a href="/2018/07/24/209-Minimum-Size-Subarray-Sum/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/25/23-Merge-k-Sorted-Lists/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">209. Minimum Size Subarray Sum</div>
+      <div class="article-nav-title">23. Merge k Sorted Lists</div>
     </a>
   
 </nav>
