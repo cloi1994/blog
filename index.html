@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="FB Note">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://fbnote.netlify.com/index.html">
 <meta property="og:site_name" content="FB Note">
 <meta property="og:locale" content="en">
 <meta name="twitter:card" content="summary">
@@ -41,7 +41,7 @@
         <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fbnote.netlify.com"></form>
       </div>
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"></a>
@@ -94,7 +94,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/211-Add-and-Search-Word-Data-structure-design/" data-id="cjk1yik9w0007n4vnaaldifa8" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/211-Add-and-Search-Word-Data-structure-design/" data-id="cjk1zgjgs0007sgvnp4fxmm2r" class="article-share-link">Share</a>
       
       
       
@@ -130,14 +130,18 @@
       
         <!-- Table of Contents -->
         
-        
+        <p>注意 cur.next and end.next</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of ListNode</span></span><br><span class="line"><span class="string">class ListNode(object):</span></span><br><span class="line"><span class="string">    def __init__(self, val, next=None):</span></span><br><span class="line"><span class="string">        self.val = val</span></span><br><span class="line"><span class="string">        self.next = next</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseKGroup</span><span class="params">(self, head, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">        root = cur = ListNode(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        cur.next = head</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> cur.next:</span><br><span class="line">            end = cur</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(k<span class="number">-1</span>):</span><br><span class="line">                end = end.next</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> end.next:</span><br><span class="line">                    <span class="keyword">return</span> root.next</span><br><span class="line"></span><br><span class="line">            newStart, newEnd = self.reverse(cur.next,end.next,k)</span><br><span class="line"></span><br><span class="line">            cur.next = newStart</span><br><span class="line">            cur = newEnd</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root.next</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self,start,end,k)</span>:</span></span><br><span class="line"></span><br><span class="line">        prev = end.next</span><br><span class="line">        cur = start</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">            curNext = cur.next</span><br><span class="line">            cur.next = prev</span><br><span class="line">            prev = cur</span><br><span class="line">            cur = curNext</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> prev, start</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/25-Reverse-Nodes-in-k-Group/" data-id="cjk1yik9w000an4vndckid42p" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/25-Reverse-Nodes-in-k-Group/" data-id="cjk1zgjgs0008sgvn8naasj8v" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinkedList/">LinkedList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
     </footer>
   </div>
   
@@ -175,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/125-Valid-Palindrome/" data-id="cjk1yik9w0000n4vna66wzs5l" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/125-Valid-Palindrome/" data-id="cjk1zgjgc0000sgvnmvnx9aou" class="article-share-link">Share</a>
       
       
       
@@ -221,11 +225,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/23-Merge-k-Sorted-Lists/" data-id="cjk1yik9w0008n4vnk0dq5p1y" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/23-Merge-k-Sorted-Lists/" data-id="cjk1zgjgs000asgvnsqxzkqyo" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PQ/">PQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinkedList/">LinkedList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PQ/">PQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -289,7 +293,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/168-Excel-Sheet-Column-Title/" data-id="cjk1yik9w0001n4vnyhm8rewg" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/168-Excel-Sheet-Column-Title/" data-id="cjk1zgjgs0001sgvndwnsqyf0" class="article-share-link">Share</a>
       
       
       
@@ -336,7 +340,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/200-Number-of-Islands/" data-id="cjk1yik9w0004n4vnoe45r2ix" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/200-Number-of-Islands/" data-id="cjk1zgjgs0004sgvn7we60unt" class="article-share-link">Share</a>
       
       
       
@@ -379,7 +383,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/173-Binary-Search-Tree-Iterator/" data-id="cjk1yik9w0003n4vn9nr08hhe" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/173-Binary-Search-Tree-Iterator/" data-id="cjk1zgjgs0003sgvn6klceen2" class="article-share-link">Share</a>
       
       
       
@@ -428,7 +432,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/261-Graph-Valid-Tree/" data-id="cjk1yikab000gn4vnf6b4uck8" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/261-Graph-Valid-Tree/" data-id="cjk1zgjh8000gsgvn0svq7lj4" class="article-share-link">Share</a>
       
       
       
@@ -472,7 +476,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/278-First-Bad-Version/" data-id="cjk1yikab000in4vng035dqbk" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/278-First-Bad-Version/" data-id="cjk1zgjh8000isgvnqge9cp7l" class="article-share-link">Share</a>
       
       
       
@@ -544,7 +548,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/25/67-Add-Binary/" data-id="cjk1yikab000tn4vniuptvdkk" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/" data-id="cjk1zgjh8000osgvn8uy3aoyu" class="article-share-link">Share</a>
       
       
       
@@ -586,7 +590,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Basic/" style="font-size: 14px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 16.2px;">BinarySearch</a> <a href="/tags/Design/" style="font-size: 14px;">Design</a> <a href="/tags/Easy/" style="font-size: 25px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 18.4px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 14px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 16.2px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 16.2px;">Hard</a> <a href="/tags/Math/" style="font-size: 14px;">Math</a> <a href="/tags/Medium/" style="font-size: 22.8px;">Medium</a> <a href="/tags/PQ/" style="font-size: 16.2px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 14px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 20.6px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/TwoPointer/" style="font-size: 14px;">TwoPointer</a> <a href="/tags/bfs/" style="font-size: 20.6px;">bfs</a> <a href="/tags/dfs/" style="font-size: 22.8px;">dfs</a>
+      <a href="/tags/Basic/" style="font-size: 14px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 16.2px;">BinarySearch</a> <a href="/tags/Design/" style="font-size: 14px;">Design</a> <a href="/tags/Easy/" style="font-size: 25px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 18.4px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 14px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 16.2px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 18.4px;">Hard</a> <a href="/tags/LinkedList/" style="font-size: 16.2px;">LinkedList</a> <a href="/tags/Math/" style="font-size: 14px;">Math</a> <a href="/tags/Medium/" style="font-size: 22.8px;">Medium</a> <a href="/tags/PQ/" style="font-size: 16.2px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 14px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 22.8px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/TwoPointer/" style="font-size: 14px;">TwoPointer</a> <a href="/tags/bfs/" style="font-size: 20.6px;">bfs</a> <a href="/tags/dfs/" style="font-size: 22.8px;">dfs</a>
     </div>
   </div>
 
