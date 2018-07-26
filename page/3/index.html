@@ -3,20 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>209. Minimum Size Subarray Sum | FB Note</title>
+  <title>FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead. Example: Input: s = 7, nums">
-<meta name="keywords" content="Medium,Remember,FollowUp,SlidingWindows,BinarySearch,PrefixSum">
-<meta property="og:type" content="article">
-<meta property="og:title" content="209. Minimum Size Subarray Sum">
-<meta property="og:url" content="http://fbnote.netlify.com/2018/07/24/209-Minimum-Size-Subarray-Sum/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="FB Note">
+<meta property="og:url" content="http://fbnote.netlify.com/page/3/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead. Example: Input: s = 7, nums">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T00:25:59.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="209. Minimum Size Subarray Sum">
-<meta name="twitter:description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead. Example: Input: s = 7, nums">
+<meta name="twitter:title" content="FB Note">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,7 +64,9 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-209-Minimum-Size-Subarray-Sum" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-209-Minimum-Size-Subarray-Sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/24/209-Minimum-Size-Subarray-Sum/" class="article-date">
   <time datetime="2018-07-24T08:08:15.000Z" itemprop="datePublished">2018-07-24</time>
@@ -82,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      209. Minimum Size Subarray Sum
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/209-Minimum-Size-Subarray-Sum/">209. Minimum Size Subarray Sum</a>
     </h1>
   
 
@@ -117,85 +114,71 @@
     </footer>
   </div>
   
+</article>
+ 
+
+
+  
+    <article id="post-38-Count-And-Say" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/24/38-Count-And-Say/" class="article-date">
+  <time datetime="2018-07-24T07:41:33.000Z" itemprop="datePublished">2018-07-24</time>
+</a>
     
- <script src="/jquery/jquery.min.js"></script>
-  <div id="random_posts">
-    <h2>Recommended Posts</h2>
-    <div class="random_posts_ul">
-      <script>
-          var random_count =4
-          var site = {BASE_URI:'/'};
-          function load_random_posts(obj) {
-              var arr=site.posts;
-              if (!obj) return;
-              // var count = $(obj).attr('data-count') || 6;
-              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
-              arr = arr.slice(0, random_count);
-              var html = '<ul>';
-            
-              for(var j=0;j<arr.length;j++){
-                var item=arr[j];
-                html += '<li><strong>' + 
-                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
-                (item.title || item.uri) + '</a></strong>';
-                if(item.excerpt){
-                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
-                }
-                html +='</li>';
-                
-              }
-              $(obj).html(html + '</ul>');
-          }
-          $('.random_posts_ul').each(function () {
-              var c = this;
-              if (!site.posts || !site.posts.length){
-                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
-              } 
-               else{
-                load_random_posts(c);
-              }
-          });
-      </script>
-    </div>
   </div>
-
+  <div class="article-inner">
     
-<nav id="article-nav">
-  
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+    
+      <header class="article-header">
         
-          80. Remove Duplicates from Sorted Array II
-        
-      </div>
-    </a>
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/38-Count-And-Say/">38. Count And Say</a>
+    </h1>
   
-    <a href="/2018/07/24/38-Count-And-Say/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">38. Count And Say</div>
-    </a>
-  
-</nav>
 
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+<ol>
+<li>1</li>
+<li>11</li>
+<li>21</li>
+<li>1211</li>
+<li>111221<br>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.<br>Given an integer n, generate the nth term of the count-and-say sequence.</li>
+</ol>
+<p>Note: Each term of the sequence of integers will be represented as a string.</p>
+<p>Example 1:</p>
+<p>Input: 1<br>Output: “1”<br>Example 2:</p>
+<p>Input: 4<br>Output: “1211”</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">countAndSay</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(n<span class="number">-1</span>):</span><br><span class="line">            tmp = <span class="string">""</span></span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(res)):</span><br><span class="line">                <span class="keyword">if</span> res[i<span class="number">-1</span>] == res[i]:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    tmp += str(count) + res[i<span class="number">-1</span>]</span><br><span class="line">                    count = <span class="number">1</span></span><br><span class="line">                prev = res[i]</span><br><span class="line">            res = tmp + str(count) + res[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/24/38-Count-And-Say/" data-id="cjk343g5z000scovniz8wxzgv" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+
+    </footer>
+  </div>
   
 </article>
  
-     
-  <div class="comments" id="comments">
-    
-     
-       
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
-       
-      
-      
-  </div>
- 
+
+
   
 
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+  </nav>
 </section>
            
     <aside id="sidebar">
