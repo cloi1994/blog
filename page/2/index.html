@@ -66,6 +66,78 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-67-Add-Binary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/67-Add-Binary/" class="article-date">
+  <time datetime="2018-07-26T00:16:48.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/67-Add-Binary/">67. Add Binary</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a, b)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type a: str</span>
+<span class="string">        :type b: str</span>
+<span class="string">        :rtype: str</span>
+<span class="string">        """</span>
+        i = len(a) - <span class="number">1</span>
+        j = len(b) - <span class="number">1</span>
+
+        res = <span class="string">""</span>
+
+        carry = <span class="number">0</span>
+
+        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="number">0</span> <span class="keyword">or</span> carry:
+
+            cur = carry
+
+            <span class="keyword">if</span> i &gt;= <span class="number">0</span>:
+                cur += int(a[i])
+                i -= <span class="number">1</span>
+            <span class="keyword">if</span> j &gt;= <span class="number">0</span>:
+                cur += int(b[j])
+                j -= <span class="number">1</span>
+
+            carry = cur / <span class="number">2</span>
+            res = str(cur % <span class="number">2</span>) + res
+
+        <span class="keyword">return</span> res
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/" data-id="cjk22wnc2000rwovn0csmrjcd" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-301-Remove-Invalid-Parentheses" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/25/301-Remove-Invalid-Parentheses/" class="article-date">
@@ -98,7 +170,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/301-Remove-Invalid-Parentheses/" data-id="cjk1zgjh8000ksgvnyb7t932d" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/301-Remove-Invalid-Parentheses/" data-id="cjk22wnc2000nwovnjyxzw8pc" class="article-share-link">Share</a>
       
       
       
@@ -179,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/56-Merge-Intervals/" data-id="cjk1zgjh8000nsgvnue490mlc" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/56-Merge-Intervals/" data-id="cjk22wnc2000owovnda3npjah" class="article-share-link">Share</a>
       
       
       
@@ -236,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/253-Meeting-Rooms-II/" data-id="cjk1zgjgs000fsgvn2anm3gxr" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/253-Meeting-Rooms-II/" data-id="cjk22wnc2000gwovnw3vwbqk5" class="article-share-link">Share</a>
       
       
       
@@ -283,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk1zgjgs000csgvnxtgc1yjy" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk22wnc2000fwovnezjoavqw" class="article-share-link">Share</a>
       
       
       
@@ -334,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/78-Subsets/" data-id="cjk1zgjh8000ssgvnm9rwkzln" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/78-Subsets/" data-id="cjk22wnc2000twovn1031bdl5" class="article-share-link">Share</a>
       
       
       
@@ -406,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk1zgjh8000usgvnndjst2wt" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk22wnc2000wwovnfjkrsz7c" class="article-share-link">Share</a>
       
       
       
@@ -459,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/209-Minimum-Size-Subarray-Sum/" data-id="cjk1zgjgs0005sgvnux4kwjn8" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/209-Minimum-Size-Subarray-Sum/" data-id="cjk22wnbm0007wovnmaw7vrmj" class="article-share-link">Share</a>
       
       
       
@@ -514,7 +586,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/38-Count-And-Say/" data-id="cjk1zgjh8000qsgvn6qrt8b4f" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/38-Count-And-Say/" data-id="cjk22wnc2000qwovnnfx3uoxb" class="article-share-link">Share</a>
       
       
       
@@ -554,6 +626,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/25/208-Implement-Trie-Prefix-Tree/">208. Implement Trie (Prefix Tree)</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/25/211-Add-and-Search-Word-Data-structure-design/">211. Add and Search Word - Data structure design</a>
           </li>
         
@@ -567,10 +643,6 @@
         
           <li>
             <a href="/2018/07/25/23-Merge-k-Sorted-Lists/">23. Merge k Sorted Lists</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/25/168-Excel-Sheet-Column-Title/">168. Excel Sheet Column Title</a>
           </li>
         
       </ul>
