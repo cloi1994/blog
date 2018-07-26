@@ -3,20 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>209. Minimum Size Subarray Sum | FB Note</title>
+  <title>FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead. Example: Input: s = 7, nums">
-<meta name="keywords" content="Medium,SlidingWindows,BinarySearch,PrefixSum,FollowUp,Remember">
-<meta property="og:type" content="article">
-<meta property="og:title" content="209. Minimum Size Subarray Sum">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/209-Minimum-Size-Subarray-Sum/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="FB Note">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead. Example: Input: s = 7, nums">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T00:25:59.375Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="209. Minimum Size Subarray Sum">
-<meta name="twitter:description" content="Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead. Example: Input: s = 7, nums">
+<meta name="twitter:title" content="FB Note">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,7 +64,132 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-209-Minimum-Size-Subarray-Sum" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main">
+  
+    <article id="post-78-Subsets" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/24/78-Subsets/" class="article-date">
+  <time datetime="2018-07-25T01:34:03.000Z" itemprop="datePublished">2018-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/78-Subsets/">78. Subsets</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Given a set of distinct integers, nums, return all possible subsets (the power set).</p>
+<p>Note: The solution set must not contain duplicate subsets.</p>
+<p>Example:</p>
+<p>Input: nums = [1,2,3]<br>Output:<br>[<br>  [3],<br>  [1],<br>  [2],<br>  [1,2,3],<br>  [1,3],<br>  [2,3],<br>  [1,2],<br>  []<br>]</p>
+<p><br></p>
+<p>用dfs来做, 每下一层 array 位移一次, 这样下一层不会重复上一层数字.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">     <span class="number">1</span>           <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">  <span class="number">2</span>    <span class="number">3</span>       <span class="number">3</span>   </span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsets</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        self.dfs(<span class="number">0</span>,nums,[],res)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,level,nums,tmp,res)</span>:</span></span><br><span class="line"></span><br><span class="line">        res.append(tmp[:])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(level,len(nums)):</span><br><span class="line">            tmp.append(nums[i])</span><br><span class="line">            self.dfs(i+<span class="number">1</span>,nums,tmp,res)</span><br><span class="line">            tmp.pop()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/24/78-Subsets/" data-id="cjk1x0thg000i78vnlliedtfs" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-80-Remove-Duplicates-from-Sorted-Array-II" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" class="article-date">
+  <time datetime="2018-07-25T00:54:56.000Z" itemprop="datePublished">2018-07-24</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/">80. Remove Duplicates from Sorted Array II</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
+<p>Given nums = [1,1,1,2,2,3],</p>
+<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.</p>
+<p>It doesn’t matter what you leave beyond the returned length.</p>
+<p><br></p>
+<p>Remove Duplicates from Sorted Array I</p>
+<p>有个slow pointer 指向要替换的位置，如有符合的条件就slower++并替换，不符合就跳过</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i<span class="number">-1</span>] != nums[i]:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> start</span><br></pre></td></tr></table></figure>
+<p>Remove Duplicates from Sorted Array II</p>
+<p>同理，只不过是看前2个</p>
+<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type nums: List[int]</span>
+<span class="string">        :rtype: int</span>
+<span class="string">        """</span>
+
+        <span class="keyword">if</span> <span class="keyword">not</span> nums <span class="keyword">or</span> len(nums) &lt; <span class="number">2</span>:
+            <span class="keyword">return</span> len(nums)
+
+        start = <span class="number">2</span>
+
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(nums)):
+            <span class="keyword">if</span> nums[start<span class="number">-2</span>] != nums[i]:
+                nums[start] = nums[i]
+                start += <span class="number">1</span>
+
+        <span class="keyword">return</span> start
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk1x0thg000k78vntb99o7ka" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-209-Minimum-Size-Subarray-Sum" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/24/209-Minimum-Size-Subarray-Sum/" class="article-date">
   <time datetime="2018-07-24T08:08:15.000Z" itemprop="datePublished">2018-07-24</time>
@@ -82,8 +202,8 @@
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      209. Minimum Size Subarray Sum
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/209-Minimum-Size-Subarray-Sum/">209. Minimum Size Subarray Sum</a>
     </h1>
   
 
@@ -117,85 +237,71 @@
     </footer>
   </div>
   
+</article>
+ 
+
+
+  
+    <article id="post-38-Count-And-Say" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/24/38-Count-And-Say/" class="article-date">
+  <time datetime="2018-07-24T07:41:33.000Z" itemprop="datePublished">2018-07-24</time>
+</a>
     
- <script src="/jquery/jquery.min.js"></script>
-  <div id="random_posts">
-    <h2>Recommended Posts</h2>
-    <div class="random_posts_ul">
-      <script>
-          var random_count =4
-          var site = {BASE_URI:'/'};
-          function load_random_posts(obj) {
-              var arr=site.posts;
-              if (!obj) return;
-              // var count = $(obj).attr('data-count') || 6;
-              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
-              arr = arr.slice(0, random_count);
-              var html = '<ul>';
-            
-              for(var j=0;j<arr.length;j++){
-                var item=arr[j];
-                html += '<li><strong>' + 
-                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
-                (item.title || item.uri) + '</a></strong>';
-                if(item.excerpt){
-                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
-                }
-                html +='</li>';
-                
-              }
-              $(obj).html(html + '</ul>');
-          }
-          $('.random_posts_ul').each(function () {
-              var c = this;
-              if (!site.posts || !site.posts.length){
-                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
-              } 
-               else{
-                load_random_posts(c);
-              }
-          });
-      </script>
-    </div>
   </div>
-
+  <div class="article-inner">
     
-<nav id="article-nav">
-  
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
+    
+      <header class="article-header">
         
-          80. Remove Duplicates from Sorted Array II
-        
-      </div>
-    </a>
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/24/38-Count-And-Say/">38. Count And Say</a>
+    </h1>
   
-    <a href="/2018/07/24/38-Count-And-Say/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">38. Count And Say</div>
-    </a>
-  
-</nav>
 
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+<ol>
+<li>1</li>
+<li>11</li>
+<li>21</li>
+<li>1211</li>
+<li>111221<br>1 is read off as “one 1” or 11.<br>11 is read off as “two 1s” or 21.<br>21 is read off as “one 2, then one 1” or 1211.<br>Given an integer n, generate the nth term of the count-and-say sequence.</li>
+</ol>
+<p>Note: Each term of the sequence of integers will be represented as a string.</p>
+<p>Example 1:</p>
+<p>Input: 1<br>Output: “1”<br>Example 2:</p>
+<p>Input: 4<br>Output: “1211”</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">countAndSay</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res = <span class="string">"1"</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(n<span class="number">-1</span>):</span><br><span class="line">            tmp = <span class="string">""</span></span><br><span class="line">            count = <span class="number">1</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(res)):</span><br><span class="line">                <span class="keyword">if</span> res[i<span class="number">-1</span>] == res[i]:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    tmp += str(count) + res[i<span class="number">-1</span>]</span><br><span class="line">                    count = <span class="number">1</span></span><br><span class="line">                prev = res[i]</span><br><span class="line">            res = tmp + str(count) + res[<span class="number">-1</span>]</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/24/38-Count-And-Say/" data-id="cjk1x0thg000g78vn6uflcbxc" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+
+    </footer>
+  </div>
   
 </article>
  
-     
-  <div class="comments" id="comments">
-    
-     
-       
-      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
-    
-       
-      
-      
-  </div>
- 
+
+
   
 
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 </section>
            
     <aside id="sidebar">

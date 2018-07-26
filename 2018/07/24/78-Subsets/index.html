@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="FB Note">
 <meta property="og:description" content="Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets. Example: Input: nums = [1,2,3]Output:[  [3],  [1],  [2],">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T01:38:39.617Z">
+<meta property="og:updated_time" content="2018-07-25T06:47:03.031Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="78. Subsets">
 <meta name="twitter:description" content="Given a set of distinct integers, nums, return all possible subsets (the power set). Note: The solution set must not contain duplicate subsets. Example: Input: nums = [1,2,3]Output:[  [3],  [1],  [2],">
@@ -99,14 +99,14 @@
 <p>Input: nums = [1,2,3]<br>Output:<br>[<br>  [3],<br>  [1],<br>  [2],<br>  [1,2,3],<br>  [1,3],<br>  [2,3],<br>  [1,2],<br>  []<br>]</p>
 <p><br></p>
 <p>用dfs来做, 每下一层 array 位移一次, 这样下一层不会重复上一层数字.</p>
-<pre><code>1           2     3
-</code></pre><p>  2    3       3<br>3</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">     <span class="number">1</span>           <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">  <span class="number">2</span>    <span class="number">3</span>       <span class="number">3</span>   </span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
+<p><br></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsets</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        self.dfs(<span class="number">0</span>,nums,[],res)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,level,nums,tmp,res)</span>:</span></span><br><span class="line"></span><br><span class="line">        res.append(tmp[:])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(level,len(nums)):</span><br><span class="line">            tmp.append(nums[i])</span><br><span class="line">            self.dfs(i+<span class="number">1</span>,nums,tmp,res)</span><br><span class="line">            tmp.pop()</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/78-Subsets/" data-id="cjk0htzwi0007v8vnxbrcqncw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/24/78-Subsets/" data-id="cjk1x0thg000i78vnlliedtfs" class="article-share-link">Share</a>
       
       
       
@@ -215,23 +215,23 @@
       <ul>
         
           <li>
-            <a href="/2018/07/24/56-Merge-Intervals/">56. Merge Intervals</a>
+            <a href="/2018/07/25/168-Excel-Sheet-Column-Title/">168. Excel Sheet Column Title</a>
           </li>
         
           <li>
-            <a href="/2018/07/24/253-Meeting-Rooms-II/">253. Meeting Rooms II</a>
+            <a href="/2018/07/25/200-Number-of-Islands/">200. Number of Islands</a>
           </li>
         
           <li>
-            <a href="/2018/07/24/252-Meeting-Rooms/">252. Meeting Rooms</a>
+            <a href="/2018/07/25/173-Binary-Search-Tree-Iterator/">173. Binary Search Tree Iterator</a>
           </li>
         
           <li>
-            <a href="/2018/07/24/78-Subsets/">78. Subsets</a>
+            <a href="/2018/07/25/261-Graph-Valid-Tree/">261. Graph Valid Tree</a>
           </li>
         
           <li>
-            <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/">80. Remove Duplicates from Sorted Array II</a>
+            <a href="/2018/07/25/278-First-Bad-Version/">278. First Bad Version</a>
           </li>
         
       </ul>

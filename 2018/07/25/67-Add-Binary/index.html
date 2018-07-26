@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>252. Meeting Rooms | FB Note</title>
+  <title>67. Add Binary | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="DescriptionGiven an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), determine if a person could attend all meetings. ExampleGiven intervals = [[0,30">
-<meta name="keywords" content="Easy,Greedy">
+  <meta name="description" content="class Solution(object):     def addBinary(self, a, b):         &quot;&quot;&quot;         :type a: str         :type b: str         :rtype: str         &quot;&quot;&quot;         i = len(a) - 1         j = len(b) - 1          res">
+<meta name="keywords" content="Easy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="252. Meeting Rooms">
-<meta property="og:url" content="http://yoursite.com/2018/07/24/252-Meeting-Rooms/index.html">
+<meta property="og:title" content="67. Add Binary">
+<meta property="og:url" content="http://yoursite.com/2018/07/25/67-Add-Binary/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="DescriptionGiven an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), determine if a person could attend all meetings. ExampleGiven intervals = [[0,30">
+<meta property="og:description" content="class Solution(object):     def addBinary(self, a, b):         &quot;&quot;&quot;         :type a: str         :type b: str         :rtype: str         &quot;&quot;&quot;         i = len(a) - 1         j = len(b) - 1          res">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-25T01:56:23.874Z">
+<meta property="og:updated_time" content="2018-07-26T00:18:01.281Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="252. Meeting Rooms">
-<meta name="twitter:description" content="DescriptionGiven an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &amp;lt; ei), determine if a person could attend all meetings. ExampleGiven intervals = [[0,30">
+<meta name="twitter:title" content="67. Add Binary">
+<meta name="twitter:description" content="class Solution(object):     def addBinary(self, a, b):         &quot;&quot;&quot;         :type a: str         :type b: str         :rtype: str         &quot;&quot;&quot;         i = len(a) - 1         j = len(b) - 1          res">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-252-Meeting-Rooms" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-67-Add-Binary" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/252-Meeting-Rooms/" class="article-date">
-  <time datetime="2018-07-25T01:39:31.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/25/67-Add-Binary/" class="article-date">
+  <time datetime="2018-07-26T00:16:48.000Z" itemprop="datePublished">2018-07-25</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      252. Meeting Rooms
+      67. Add Binary
     </h1>
   
 
@@ -93,20 +93,45 @@
       
         <!-- Table of Contents -->
         
-        <p>Description<br>Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &lt; ei), determine if a person could attend all meetings.</p>
-<p>Example<br>Given intervals = [[0,30],[5,10],[15,20]], return false.</p>
-<p><br></p>
-<p>先sort by start time, 然后一个一个对比, 如果 no meet condition 就 return False</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of Interval.</span></span><br><span class="line"><span class="string">class Interval(object):</span></span><br><span class="line"><span class="string">    def __init__(self, start, end):</span></span><br><span class="line"><span class="string">        self.start = start</span></span><br><span class="line"><span class="string">        self.end = end</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param intervals: an array of meeting time intervals</span></span><br><span class="line"><span class="string">    @return: if a person could attend all meetings</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canAttendMeetings</span><span class="params">(self, intervals)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">cmpfuc</span><span class="params">(x,y)</span>:</span></span><br><span class="line">            <span class="keyword">return</span> x.start - y.start</span><br><span class="line"></span><br><span class="line">        intervals.sort(cmp=cmpfuc)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(intervals)):</span><br><span class="line">            <span class="keyword">if</span> intervals[i<span class="number">-1</span>].end &gt; intervals[i].start:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a, b)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type a: str</span>
+<span class="string">        :type b: str</span>
+<span class="string">        :rtype: str</span>
+<span class="string">        """</span>
+        i = len(a) - <span class="number">1</span>
+        j = len(b) - <span class="number">1</span>
+
+        res = <span class="string">""</span>
+
+        carry = <span class="number">0</span>
+
+        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="number">0</span> <span class="keyword">or</span> carry:
+
+            cur = carry
+
+            <span class="keyword">if</span> i &gt;= <span class="number">0</span>:
+                cur += int(a[i])
+                i -= <span class="number">1</span>
+            <span class="keyword">if</span> j &gt;= <span class="number">0</span>:
+                cur += int(b[j])
+                j -= <span class="number">1</span>
+
+            carry = cur / <span class="number">2</span>
+            res = str(cur % <span class="number">2</span>) + res
+
+        <span class="keyword">return</span> res
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk1x0th0000578vn4xcz7wcu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/25/67-Add-Binary/" data-id="cjk1x0tib002b78vnmtiucfxs" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
 
     </footer>
   </div>
@@ -156,19 +181,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/24/253-Meeting-Rooms-II/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/25/278-First-Bad-Version/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          253. Meeting Rooms II
+          278. First Bad Version
         
       </div>
     </a>
   
   
-    <a href="/2018/07/24/78-Subsets/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/25/301-Remove-Invalid-Parentheses/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">78. Subsets</div>
+      <div class="article-nav-title">301. Remove Invalid Parentheses</div>
     </a>
   
 </nav>
