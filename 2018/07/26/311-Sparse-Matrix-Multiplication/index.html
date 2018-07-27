@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>173. Binary Search Tree Iterator | FB Note</title>
+  <title>311. Sparse Matrix Multiplication | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940# Definition for a  binary tree node# class TreeNode(object):#     def __init__(self, x):#         self.val = x#         self.lef">
-<meta name="keywords" content="bfs,Easy,dfs,Design">
+  <meta name="description" content="A : M X NB : Q X E res = M * E res[i][j] += A[i][k] * B[k][j] 12345678910111213ex:     |  1 0 0 |   | 7 0 0 |   |  7 0 0 |AB = | -1 0 3 | x | 0 0 0 | = | -7 0 3 |                  | 0 0 1 |      1 *">
+<meta name="keywords" content="Medium,Remember">
 <meta property="og:type" content="article">
-<meta property="og:title" content="173. Binary Search Tree Iterator">
-<meta property="og:url" content="http://fbnote.netlify.com/2018/07/25/173-Binary-Search-Tree-Iterator/index.html">
+<meta property="og:title" content="311. Sparse Matrix Multiplication">
+<meta property="og:url" content="http://fbnote.netlify.com/2018/07/26/311-Sparse-Matrix-Multiplication/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940# Definition for a  binary tree node# class TreeNode(object):#     def __init__(self, x):#         self.val = x#         self.lef">
+<meta property="og:description" content="A : M X NB : Q X E res = M * E res[i][j] += A[i][k] * B[k][j] 12345678910111213ex:     |  1 0 0 |   | 7 0 0 |   |  7 0 0 |AB = | -1 0 3 | x | 0 0 0 | = | -7 0 3 |                  | 0 0 1 |      1 *">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-26T01:08:02.911Z">
+<meta property="og:updated_time" content="2018-07-27T03:26:04.034Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="173. Binary Search Tree Iterator">
-<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940# Definition for a  binary tree node# class TreeNode(object):#     def __init__(self, x):#         self.val = x#         self.lef">
+<meta name="twitter:title" content="311. Sparse Matrix Multiplication">
+<meta name="twitter:description" content="A : M X NB : Q X E res = M * E res[i][j] += A[i][k] * B[k][j] 12345678910111213ex:     |  1 0 0 |   | 7 0 0 |   |  7 0 0 |AB = | -1 0 3 | x | 0 0 0 | = | -7 0 3 |                  | 0 0 1 |      1 *">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-173-Binary-Search-Tree-Iterator" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-311-Sparse-Matrix-Multiplication" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/25/173-Binary-Search-Tree-Iterator/" class="article-date">
-  <time datetime="2018-07-26T01:07:01.000Z" itemprop="datePublished">2018-07-25</time>
+    <a href="/2018/07/26/311-Sparse-Matrix-Multiplication/" class="article-date">
+  <time datetime="2018-07-27T03:18:47.000Z" itemprop="datePublished">2018-07-26</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      173. Binary Search Tree Iterator
+      311. Sparse Matrix Multiplication
     </h1>
   
 
@@ -93,16 +93,39 @@
       
         <!-- Table of Contents -->
         
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a  binary tree node</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BSTIterator</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.arr = []</span><br><span class="line">        self.add(root)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,root)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.add(root.left)</span><br><span class="line">        self.arr.append(root.val)</span><br><span class="line">        self.add(root.right)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasNext</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.arr != []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">next</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> self.arr == []:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line">        <span class="keyword">return</span> self.arr.pop(<span class="number">0</span>)</span><br><span class="line">        </span><br><span class="line"><span class="comment"># Your BSTIterator will be called like this:</span></span><br><span class="line"><span class="comment"># i, v = BSTIterator(root), []</span></span><br><span class="line"><span class="comment"># while i.hasNext(): v.append(i.next())</span></span><br></pre></td></tr></table></figure>
+        <p>A : M X N<br>B : Q X E</p>
+<p>res = M * E</p>
+<p>res[i][j] += A[i][k] * B[k][j]</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ex:</span><br><span class="line"></span><br><span class="line">     |<span class="string">  1 0 0 </span>|<span class="string">   </span>|<span class="string"> 7 0 0 </span>|<span class="string">   </span>|<span class="string">  7 0 0 </span>|</span><br><span class="line">AB = |<span class="string"> -1 0 3 </span>|<span class="string"> x </span>|<span class="string"> 0 0 0 </span>|<span class="string"> = </span>|<span class="string"> -7 0 3 </span>|</span><br><span class="line">                  |<span class="string"> 0 0 1 </span>|</span><br><span class="line"></span><br><span class="line">      1 <span class="symbol">*</span>  |<span class="string"> 7 0 0</span>|</span><br><span class="line">      0 <span class="symbol">*</span>  |<span class="string"> 0 0 0</span>|</span><br><span class="line">      0 <span class="symbol">*</span>  |<span class="string"> 0 0 1</span>|</span><br><span class="line"></span><br><span class="line">     -1 <span class="symbol">*</span>  |<span class="string"> 7 0 0</span>|</span><br><span class="line">      0 <span class="symbol">*</span>  |<span class="string"> 0 0 0</span>|</span><br><span class="line">      3 <span class="symbol">*</span>  |<span class="string"> 0 0 1</span>|</span><br></pre></td></tr></table></figure>
+<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span>
+    <span class="string">"""</span>
+<span class="string">    @param A: a sparse matrix</span>
+<span class="string">    @param B: a sparse matrix</span>
+<span class="string">    @return: the result of A * B</span>
+<span class="string">    """</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">multiply</span><span class="params">(self, A, B)</span>:</span>
+        <span class="comment"># write your code here</span>
+
+        res = [[ <span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(B[<span class="number">0</span>]))] <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(A))]
+
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(A)):
+            <span class="keyword">for</span> k <span class="keyword">in</span> range(len(A[<span class="number">0</span>])):
+                <span class="keyword">if</span> A[i][k] != <span class="number">0</span>:
+                    <span class="keyword">for</span> j <span class="keyword">in</span> range(len(B[<span class="number">0</span>])):
+                        <span class="keyword">if</span> B[k][j] != <span class="number">0</span>:
+                            res[i][j] += A[i][k] * B[k][j]
+
+        <span class="keyword">return</span> res
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/173-Binary-Search-Tree-Iterator/" data-id="cjk3fdlvv0004zsvnqj8q9haw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/311-Sparse-Matrix-Multiplication/" data-id="cjk3fdlwi000rzsvnvgc0amd5" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -152,19 +175,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/25/200-Number-of-Islands/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          200. Number of Islands
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/25/261-Graph-Valid-Tree/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/26/157-Read-N-Characters-Given-Read4/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">261. Graph Valid Tree</div>
+      <div class="article-nav-title">157. Read N Characters Given Read4</div>
     </a>
   
 </nav>
