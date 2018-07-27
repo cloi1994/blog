@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>67. Add Binary | FB Note</title>
+  <title>71. Simplify Path | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="class Solution(object):     def addBinary(self, a, b):         &quot;&quot;&quot;         :type a: str         :type b: str         :rtype: str         &quot;&quot;&quot;         i = len(a) - 1         j = len(b) - 1          res">
-<meta name="keywords" content="Easy">
+  <meta name="description" content="class Solution(object):     def simplifyPath(self, path):         &quot;&quot;&quot;         :type path: str         :rtype: str         &quot;&quot;&quot;          path = path.split(&apos;/&apos;)          res = &quot;&quot;          jump = 0">
+<meta name="keywords" content="Medium,Remember,Stack">
 <meta property="og:type" content="article">
-<meta property="og:title" content="67. Add Binary">
-<meta property="og:url" content="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/index.html">
+<meta property="og:title" content="71. Simplify Path">
+<meta property="og:url" content="http://fbnote.netlify.com/2018/07/26/71-Simplify-Path/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="class Solution(object):     def addBinary(self, a, b):         &quot;&quot;&quot;         :type a: str         :type b: str         :rtype: str         &quot;&quot;&quot;         i = len(a) - 1         j = len(b) - 1          res">
+<meta property="og:description" content="class Solution(object):     def simplifyPath(self, path):         &quot;&quot;&quot;         :type path: str         :rtype: str         &quot;&quot;&quot;          path = path.split(&apos;/&apos;)          res = &quot;&quot;          jump = 0">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-26T00:18:01.281Z">
+<meta property="og:updated_time" content="2018-07-27T01:58:06.223Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="67. Add Binary">
-<meta name="twitter:description" content="class Solution(object):     def addBinary(self, a, b):         &quot;&quot;&quot;         :type a: str         :type b: str         :rtype: str         &quot;&quot;&quot;         i = len(a) - 1         j = len(b) - 1          res">
+<meta name="twitter:title" content="71. Simplify Path">
+<meta name="twitter:description" content="class Solution(object):     def simplifyPath(self, path):         &quot;&quot;&quot;         :type path: str         :rtype: str         &quot;&quot;&quot;          path = path.split(&apos;/&apos;)          res = &quot;&quot;          jump = 0">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-67-Add-Binary" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-71-Simplify-Path" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/25/67-Add-Binary/" class="article-date">
-  <time datetime="2018-07-26T00:16:48.000Z" itemprop="datePublished">2018-07-25</time>
+    <a href="/2018/07/26/71-Simplify-Path/" class="article-date">
+  <time datetime="2018-07-27T01:56:45.000Z" itemprop="datePublished">2018-07-26</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      67. Add Binary
+      71. Simplify Path
     </h1>
   
 
@@ -94,32 +94,32 @@
         <!-- Table of Contents -->
         
         <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a, b)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">simplifyPath</span><span class="params">(self, path)</span>:</span>
         <span class="string">"""</span>
-<span class="string">        :type a: str</span>
-<span class="string">        :type b: str</span>
+<span class="string">        :type path: str</span>
 <span class="string">        :rtype: str</span>
 <span class="string">        """</span>
-        i = len(a) - <span class="number">1</span>
-        j = len(b) - <span class="number">1</span>
+
+        path = path.split(<span class="string">'/'</span>)
 
         res = <span class="string">""</span>
 
-        carry = <span class="number">0</span>
+        jump = <span class="number">0</span>
 
-        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="number">0</span> <span class="keyword">or</span> carry:
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(path)<span class="number">-1</span>,<span class="number">-1</span>,<span class="number">-1</span>):
 
-            cur = carry
+            <span class="keyword">if</span> path[i] == <span class="string">''</span> <span class="keyword">or</span> path[i] ==<span class="string">'.'</span>:
+                <span class="keyword">continue</span>
+            <span class="keyword">if</span> path[i] == <span class="string">'..'</span>:
+                jump += <span class="number">1</span>
+                <span class="keyword">continue</span>
+            <span class="keyword">if</span> jump == <span class="number">0</span>:
+                res =  <span class="string">'/'</span> + path[i]  + res
+            <span class="keyword">else</span>:
+                jump -= <span class="number">1</span>
 
-            <span class="keyword">if</span> i &gt;= <span class="number">0</span>:
-                cur += int(a[i])
-                i -= <span class="number">1</span>
-            <span class="keyword">if</span> j &gt;= <span class="number">0</span>:
-                cur += int(b[j])
-                j -= <span class="number">1</span>
-
-            carry = cur / <span class="number">2</span>
-            res = str(cur % <span class="number">2</span>) + res
+        <span class="keyword">if</span> res == <span class="string">""</span>:
+            <span class="keyword">return</span> <span class="string">'/'</span>
 
         <span class="keyword">return</span> res
 </code></pre>
@@ -127,11 +127,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/" data-id="cjk3cltmq0012csvndzv0u8rz" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/71-Simplify-Path/" data-id="cjk3cltmr0014csvnkgsojyvt" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stack/">Stack</a></li></ul>
 
     </footer>
   </div>
@@ -181,19 +181,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/25/278-First-Bad-Version/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2018/07/26/90-Subsets-II/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          278. First Bad Version
+          90. Subsets II
         
       </div>
     </a>
   
   
-    <a href="/2018/07/25/301-Remove-Invalid-Parentheses/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/26/98-Validate-Binary-Search-Tree/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">301. Remove Invalid Parentheses</div>
+      <div class="article-nav-title">98. Validate Binary Search Tree</div>
     </a>
   
 </nav>

@@ -66,6 +66,124 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-67-Add-Binary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/67-Add-Binary/" class="article-date">
+  <time datetime="2018-07-26T00:16:48.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/67-Add-Binary/">67. Add Binary</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a, b)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type a: str</span>
+<span class="string">        :type b: str</span>
+<span class="string">        :rtype: str</span>
+<span class="string">        """</span>
+        i = len(a) - <span class="number">1</span>
+        j = len(b) - <span class="number">1</span>
+
+        res = <span class="string">""</span>
+
+        carry = <span class="number">0</span>
+
+        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="number">0</span> <span class="keyword">or</span> carry:
+
+            cur = carry
+
+            <span class="keyword">if</span> i &gt;= <span class="number">0</span>:
+                cur += int(a[i])
+                i -= <span class="number">1</span>
+            <span class="keyword">if</span> j &gt;= <span class="number">0</span>:
+                cur += int(b[j])
+                j -= <span class="number">1</span>
+
+            carry = cur / <span class="number">2</span>
+            res = str(cur % <span class="number">2</span>) + res
+
+        <span class="keyword">return</span> res
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/" data-id="cjk3cltmq0012csvndzv0u8rz" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-301-Remove-Invalid-Parentheses" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/301-Remove-Invalid-Parentheses/" class="article-date">
+  <time datetime="2018-07-25T21:09:24.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/301-Remove-Invalid-Parentheses/">301. Remove Invalid Parentheses</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeInvalidParentheses</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        q = [s]</span><br><span class="line">        visited = &#123;s:<span class="number">1</span>&#125;</span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        isTrue = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q != []:</span><br><span class="line">            top = q.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> self.isValid(top):</span><br><span class="line">                res.append(top[:])</span><br><span class="line">                isTrue = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">#this will prevent adding an extra level of possible</span></span><br><span class="line">            <span class="comment">#solutions to process in the queue, because we will</span></span><br><span class="line">            <span class="comment">#stop after finding the minimum possible removals</span></span><br><span class="line">            <span class="comment">#ex: "()())()" -&gt; ["(())()","()()()"]</span></span><br><span class="line">            <span class="keyword">if</span> isTrue:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># add to queue</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(top)):</span><br><span class="line">                <span class="keyword">if</span> top[i] != <span class="string">'('</span> <span class="keyword">and</span> top[i] != <span class="string">')'</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                r = top[<span class="number">0</span>:i] + top[i+<span class="number">1</span>:]</span><br><span class="line">                <span class="keyword">if</span> r <span class="keyword">in</span> visited:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                visited[r] = <span class="number">1</span></span><br><span class="line">                q.append(r)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self,s)</span>:</span></span><br><span class="line"></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            <span class="keyword">if</span> s[i] == <span class="string">'('</span>:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> s[i] == <span class="string">')'</span>:</span><br><span class="line">                count -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> count &lt; <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> count == <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>简单版：只输出第一个valid的</p>
+<p>Time: O(n), 2 pass<br>思路：按照判断isValid的思路，只要遇到stack&lt;0就remove，完了之后reverse再来一次。<br>ex: s = ‘(()(()’ in which we need remove ‘(‘?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">removeInvalidParentheses</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">  String r = remove(s, <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'('</span>, <span class="string">')'</span>&#125;);</span><br><span class="line">  String tmp = remove(<span class="keyword">new</span> StringBuilder(r).reverse().toString(), <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">')'</span>, <span class="string">'('</span>&#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> StringBuilder(tmp).reverse().toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">remove</span><span class="params">(String s, <span class="keyword">char</span>[] p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> stack = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s.charAt(i) == p[<span class="number">0</span>])		stack++;</span><br><span class="line">    <span class="keyword">if</span> (s.charAt(i) == p[<span class="number">1</span>])		stack--;</span><br><span class="line">    <span class="keyword">if</span> (stack &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      s = s.substring(<span class="number">0</span>, i) + s.substring(i + <span class="number">1</span>);</span><br><span class="line">      i--;</span><br><span class="line">      stack = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/301-Remove-Invalid-Parentheses/" data-id="cjk3cltmk000scsvn4wsamelh" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FollowUp/">FollowUp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-56-Merge-Intervals" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/24/56-Merge-Intervals/" class="article-date">
@@ -133,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/56-Merge-Intervals/" data-id="cjk39f1pn0012iovndc18zucd" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/56-Merge-Intervals/" data-id="cjk3cltmp000zcsvn8olrnrfu" class="article-share-link">Share</a>
       
       
       
@@ -190,7 +308,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/253-Meeting-Rooms-II/" data-id="cjk39f1p9000iiovna1ayjbcd" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/253-Meeting-Rooms-II/" data-id="cjk3cltmd000icsvnqwao9u08" class="article-share-link">Share</a>
       
       
       
@@ -237,7 +355,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk39f1p2000fiovnl1sxnxzu" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk3cltmb000fcsvn15oxugg1" class="article-share-link">Share</a>
       
       
       
@@ -288,7 +406,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/78-Subsets/" data-id="cjk39f1pp0015iovn1omgw99a" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/78-Subsets/" data-id="cjk3cltmu0019csvn3kaqii0k" class="article-share-link">Share</a>
       
       
       
@@ -360,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk39f1pt001diovn9r2qhze0" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk3cltmw001ecsvnc50xdsee" class="article-share-link">Share</a>
       
       
       
@@ -413,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/209-Minimum-Size-Subarray-Sum/" data-id="cjk39f1ow0008iovns1bxkczf" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/209-Minimum-Size-Subarray-Sum/" data-id="cjk3cltm40007csvnbtvntlwb" class="article-share-link">Share</a>
       
       
       
@@ -468,7 +586,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/38-Count-And-Say/" data-id="cjk39f1pl000xiovngslu8xox" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/38-Count-And-Say/" data-id="cjk3cltmo000ycsvnkhxh9au8" class="article-share-link">Share</a>
       
       
       
@@ -508,6 +626,14 @@
       <ul>
         
           <li>
+            <a href="/2018/07/26/90-Subsets-II/">90. Subsets II</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/26/71-Simplify-Path/">71. Simplify Path</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/26/98-Validate-Binary-Search-Tree/">98. Validate Binary Search Tree</a>
           </li>
         
@@ -517,14 +643,6 @@
         
           <li>
             <a href="/2018/07/26/286-Walls-and-Gates/">286. Walls and Gates</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/26/49-Group-Anagrams/">49. Group Anagrams </a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/26/334-Increasing-Triplet-Subsequence/">334. Increasing Triplet Subsequence</a>
           </li>
         
       </ul>
