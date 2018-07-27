@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>278. First Bad Version | FB Note</title>
+  <title>826. Most Profit Assigning Work | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如果mid是bad version 那往左再找第一个bad version 12345678910111213141516171819202122232425# The isBadVersion API is already defined for you.# @param version, an integer# @return a bool# def isBadVersion(version)">
-<meta name="keywords" content="Easy,BinarySearch">
+  <meta name="description" content="class Solution(object):     def maxProfitAssignment(self, difficulty, profit, worker):         &quot;&quot;&quot;         :type difficulty: List[int]         :type profit: List[int]         :type worker: List[int]">
+<meta name="keywords" content="Medium,Remember,Greedy">
 <meta property="og:type" content="article">
-<meta property="og:title" content="278. First Bad Version">
-<meta property="og:url" content="http://fbnote.netlify.com/2018/07/25/278-First-Bad-Version/index.html">
+<meta property="og:title" content="826. Most Profit Assigning Work">
+<meta property="og:url" content="http://fbnote.netlify.com/2018/07/26/826-Most-Profit-Assigning-Work/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="如果mid是bad version 那往左再找第一个bad version 12345678910111213141516171819202122232425# The isBadVersion API is already defined for you.# @param version, an integer# @return a bool# def isBadVersion(version)">
+<meta property="og:description" content="class Solution(object):     def maxProfitAssignment(self, difficulty, profit, worker):         &quot;&quot;&quot;         :type difficulty: List[int]         :type profit: List[int]         :type worker: List[int]">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-26T00:33:03.469Z">
+<meta property="og:updated_time" content="2018-07-27T04:40:10.451Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="278. First Bad Version">
-<meta name="twitter:description" content="如果mid是bad version 那往左再找第一个bad version 12345678910111213141516171819202122232425# The isBadVersion API is already defined for you.# @param version, an integer# @return a bool# def isBadVersion(version)">
+<meta name="twitter:title" content="826. Most Profit Assigning Work">
+<meta name="twitter:description" content="class Solution(object):     def maxProfitAssignment(self, difficulty, profit, worker):         &quot;&quot;&quot;         :type difficulty: List[int]         :type profit: List[int]         :type worker: List[int]">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-278-First-Bad-Version" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-826-Most-Profit-Assigning-Work" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/25/278-First-Bad-Version/" class="article-date">
-  <time datetime="2018-07-26T00:31:05.000Z" itemprop="datePublished">2018-07-25</time>
+    <a href="/2018/07/26/826-Most-Profit-Assigning-Work/" class="article-date">
+  <time datetime="2018-07-27T04:39:39.000Z" itemprop="datePublished">2018-07-26</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      278. First Bad Version
+      826. Most Profit Assigning Work
     </h1>
   
 
@@ -93,17 +93,52 @@
       
         <!-- Table of Contents -->
         
-        <p>如果mid是bad version 那往左再找第一个bad version</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The isBadVersion API is already defined for you.</span></span><br><span class="line"><span class="comment"># @param version, an integer</span></span><br><span class="line"><span class="comment"># @return a bool</span></span><br><span class="line"><span class="comment"># def isBadVersion(version):</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">firstBadVersion</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = n - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        bad = n</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt;= j:</span><br><span class="line">            mid = i + (j - i) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> isBadVersion(mid):</span><br><span class="line">                j = mid <span class="number">-1</span></span><br><span class="line">                bad = mid</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> bad</span><br></pre></td></tr></table></figure>
+        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">maxProfitAssignment</span><span class="params">(self, difficulty, profit, worker)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type difficulty: List[int]</span>
+<span class="string">        :type profit: List[int]</span>
+<span class="string">        :type worker: List[int]</span>
+<span class="string">        :rtype: int</span>
+<span class="string">        """</span>
+
+        <span class="function"><span class="keyword">def</span> <span class="title">myCmp</span><span class="params">(j1,j2)</span>:</span>
+            <span class="keyword">return</span> j1[<span class="number">0</span>] - j2[<span class="number">0</span>]
+
+
+        job = []
+
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(profit)):
+            job.append([difficulty[i],profit[i]])
+
+
+        worker.sort()
+        job.sort(cmp=myCmp)
+
+
+        i = <span class="number">0</span>
+        n = len(job)
+        best = <span class="number">0</span>
+
+        res = <span class="number">0</span>
+
+        <span class="keyword">for</span> level <span class="keyword">in</span> worker:
+
+            <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> level &gt;= job[i][<span class="number">0</span>]:
+                best = max(best,job[i][<span class="number">1</span>])
+                i += <span class="number">1</span>
+            res += best
+        <span class="keyword">return</span> res
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/278-First-Bad-Version/" data-id="cjk3i0f9k000o64vnhgulzcpj" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/826-Most-Profit-Assigning-Work/" data-id="cjk3i0fa1001o64vnjv84k3zp" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BinarySearch/">BinarySearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -153,19 +188,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/25/261-Graph-Valid-Tree/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          261. Graph Valid Tree
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/25/67-Add-Binary/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/07/26/311-Sparse-Matrix-Multiplication/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">67. Add Binary</div>
+      <div class="article-nav-title">311. Sparse Matrix Multiplication</div>
     </a>
   
 </nav>
