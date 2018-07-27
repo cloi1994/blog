@@ -66,6 +66,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-98-Validate-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/26/98-Validate-Binary-Search-Tree/" class="article-date">
+  <time datetime="2018-07-27T00:37:22.000Z" itemprop="datePublished">2018-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/98-Validate-Binary-Search-Tree/">98. Validate Binary Search Tree</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.dfs(root,float(<span class="string">'-inf'</span>),float(<span class="string">'inf'</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,root,leftMin,rightMax)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> root.val &gt;= rightMax <span class="keyword">or</span> root.val &lt;= leftMin:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.dfs(root.left,leftMin,root.val)</span><br><span class="line">                            <span class="keyword">and</span> self.dfs(root.right,root.val,rightMax)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/26/98-Validate-Binary-Search-Tree/" data-id="cjk39f1pr0018iovnda4zdpmt" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">Tree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-50-Pow-x-n" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/26/50-Pow-x-n/" class="article-date">
@@ -90,14 +133,44 @@
       
         <!-- Table of Contents -->
         
-        
+        <p>递归公式为：x^n = x^(n/2) <em> x^(n/2) </em> x^(n%2)</p>
+<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">myPow</span><span class="params">(self, x, n)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type x: float</span>
+<span class="string">        :type n: int</span>
+<span class="string">        :rtype: float</span>
+<span class="string">        """</span>
+        <span class="keyword">if</span> n &lt; <span class="number">0</span>:
+            <span class="keyword">return</span> <span class="number">1</span>/self.power(x,-n)
+
+        <span class="keyword">return</span> self.power(x,n)
+
+
+    <span class="function"><span class="keyword">def</span> <span class="title">power</span><span class="params">(self,x,n)</span>:</span>
+
+        <span class="keyword">if</span> n == <span class="number">0</span>:
+            <span class="keyword">return</span> <span class="number">1</span> <span class="comment">#base case</span>
+
+        res = self.power(x,n/<span class="number">2</span>)
+
+        res *= res
+
+        <span class="keyword">if</span> n % <span class="number">2</span> == <span class="number">1</span>:
+            res *= x
+
+        <span class="keyword">return</span> res
+</code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/50-Pow-x-n/" data-id="cjk38rj9j000ucsvn78c3u7av" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/50-Pow-x-n/" data-id="cjk39f1pm0010iovnfpclgk1a" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
     </footer>
   </div>
   
@@ -136,7 +209,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/286-Walls-and-Gates/" data-id="cjk38rj9a000kcsvnxriji23i" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/286-Walls-and-Gates/" data-id="cjk39f1pg000qiovnza3pi5l9" class="article-share-link">Share</a>
       
       
       
@@ -195,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/49-Group-Anagrams/" data-id="cjk38rj9i000scsvnl03pw8y7" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/49-Group-Anagrams/" data-id="cjk39f1pk000viovnvvn885v4" class="article-share-link">Share</a>
       
       
       
@@ -239,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/334-Increasing-Triplet-Subsequence/" data-id="cjk38rj9f000ocsvn8emntl1u" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/334-Increasing-Triplet-Subsequence/" data-id="cjk39f1pj000tiovnao0auvpo" class="article-share-link">Share</a>
       
       
       
@@ -320,7 +393,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/79-Word-Search/" data-id="cjk38rj9o0012csvngxygsdh2" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/79-Word-Search/" data-id="cjk39f1ps001aiovnwa8aeubm" class="article-share-link">Share</a>
       
       
       
@@ -366,7 +439,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/117-Populating-Next-Right-Pointers-in-Each-Node-II/" data-id="cjk38rj8p0000csvni1g3ad0e" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/117-Populating-Next-Right-Pointers-in-Each-Node-II/" data-id="cjk39f1oj0000iovn2qzvbyd0" class="article-share-link">Share</a>
       
       
       
@@ -415,7 +488,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/283-Move-Zeroes/" data-id="cjk38rj99000icsvny6noeb5l" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/283-Move-Zeroes/" data-id="cjk39f1pf000oiovnnwq7h1zd" class="article-share-link">Share</a>
       
       
       
@@ -458,7 +531,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/208-Implement-Trie-Prefix-Tree/" data-id="cjk38rj8z0004csvnu2s1695r" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/208-Implement-Trie-Prefix-Tree/" data-id="cjk39f1ot0005iovntnlm0jxa" class="article-share-link">Share</a>
       
       
       
@@ -504,55 +577,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/211-Add-and-Search-Word-Data-structure-design/" data-id="cjk38rj910007csvnzg5kqskq" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/211-Add-and-Search-Word-Data-structure-design/" data-id="cjk39f1p1000diovnnewlbaj2" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Trie/">Trie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-25-Reverse-Nodes-in-k-Group" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/25/25-Reverse-Nodes-in-k-Group/" class="article-date">
-  <time datetime="2018-07-26T02:39:36.000Z" itemprop="datePublished">2018-07-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/25/25-Reverse-Nodes-in-k-Group/">25. Reverse Nodes in k-Group </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>注意 cur.next and end.next</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of ListNode</span></span><br><span class="line"><span class="string">class ListNode(object):</span></span><br><span class="line"><span class="string">    def __init__(self, val, next=None):</span></span><br><span class="line"><span class="string">        self.val = val</span></span><br><span class="line"><span class="string">        self.next = next</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseKGroup</span><span class="params">(self, head, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">        root = cur = ListNode(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        cur.next = head</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> cur.next:</span><br><span class="line">            end = cur</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(k<span class="number">-1</span>):</span><br><span class="line">                end = end.next</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> end.next:</span><br><span class="line">                    <span class="keyword">return</span> root.next</span><br><span class="line"></span><br><span class="line">            newStart, newEnd = self.reverse(cur.next,end.next,k)</span><br><span class="line"></span><br><span class="line">            cur.next = newStart</span><br><span class="line">            cur = newEnd</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root.next</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self,start,end,k)</span>:</span></span><br><span class="line"></span><br><span class="line">        prev = end.next</span><br><span class="line">        cur = start</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">            curNext = cur.next</span><br><span class="line">            cur.next = prev</span><br><span class="line">            prev = cur</span><br><span class="line">            cur = curNext</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> prev, start</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/25-Reverse-Nodes-in-k-Group/" data-id="cjk38rj93000acsvnh6pxvu83" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinkedList/">LinkedList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -577,7 +606,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">26</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">27</span></li></ul>
     </div>
   </div>
 
@@ -590,7 +619,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Basic/" style="font-size: 17.67px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 15.83px;">BinarySearch</a> <a href="/tags/Design/" style="font-size: 17.67px;">Design</a> <a href="/tags/Easy/" style="font-size: 25px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 17.67px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 14px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 15.83px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 17.67px;">Hard</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/LinkedList/" style="font-size: 15.83px;">LinkedList</a> <a href="/tags/Math/" style="font-size: 14px;">Math</a> <a href="/tags/Medium/" style="font-size: 25px;">Medium</a> <a href="/tags/PQ/" style="font-size: 15.83px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 14px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 23.17px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/Trie/" style="font-size: 15.83px;">Trie</a> <a href="/tags/TwoPointer/" style="font-size: 14px;">TwoPointer</a> <a href="/tags/bfs/" style="font-size: 19.5px;">bfs</a> <a href="/tags/dfs/" style="font-size: 21.33px;">dfs</a>
+      <a href="/tags/Basic/" style="font-size: 18.71px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 15.57px;">BinarySearch</a> <a href="/tags/Design/" style="font-size: 17.14px;">Design</a> <a href="/tags/Easy/" style="font-size: 25px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 17.14px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 14px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 15.57px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 17.14px;">Hard</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/LinkedList/" style="font-size: 15.57px;">LinkedList</a> <a href="/tags/Math/" style="font-size: 14px;">Math</a> <a href="/tags/Medium/" style="font-size: 25px;">Medium</a> <a href="/tags/PQ/" style="font-size: 15.57px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 14px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 23.43px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/Tree/" style="font-size: 14px;">Tree</a> <a href="/tags/Trie/" style="font-size: 15.57px;">Trie</a> <a href="/tags/TwoPointer/" style="font-size: 14px;">TwoPointer</a> <a href="/tags/bfs/" style="font-size: 20.29px;">bfs</a> <a href="/tags/dfs/" style="font-size: 21.86px;">dfs</a>
     </div>
   </div>
 
@@ -600,6 +629,10 @@
     <h3 class="widget-title recent-posts">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2018/07/26/98-Validate-Binary-Search-Tree/">98. Validate Binary Search Tree</a>
+          </li>
         
           <li>
             <a href="/2018/07/26/50-Pow-x-n/">50. Pow(x, n)</a>
@@ -615,10 +648,6 @@
         
           <li>
             <a href="/2018/07/26/334-Increasing-Triplet-Subsequence/">334. Increasing Triplet Subsequence</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/26/79-Word-Search/">79. Word Search</a>
           </li>
         
       </ul>

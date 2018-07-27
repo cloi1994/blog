@@ -5,14 +5,18 @@
   
   <title>50. Pow(x, n) | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="递归公式为：x^n = x^(n/2)  x^(n/2)  x^(n%2) class Solution(object):     def myPow(self, x, n):         &quot;&quot;&quot;         :type x: float         :type n: int         :rtype: float         &quot;&quot;&quot;         if n &amp;lt; 0:">
+<meta name="keywords" content="Remember,Easy,Basic">
+<meta property="og:type" content="article">
 <meta property="og:title" content="50. Pow(x, n)">
 <meta property="og:url" content="http://fbnote.netlify.com/2018/07/26/50-Pow-x-n/index.html">
 <meta property="og:site_name" content="FB Note">
+<meta property="og:description" content="递归公式为：x^n = x^(n/2)  x^(n/2)  x^(n%2) class Solution(object):     def myPow(self, x, n):         &quot;&quot;&quot;         :type x: float         :type n: int         :rtype: float         &quot;&quot;&quot;         if n &amp;lt; 0:">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-27T00:21:18.829Z">
+<meta property="og:updated_time" content="2018-07-27T00:34:26.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="50. Pow(x, n)">
+<meta name="twitter:description" content="递归公式为：x^n = x^(n/2)  x^(n/2)  x^(n%2) class Solution(object):     def myPow(self, x, n):         &quot;&quot;&quot;         :type x: float         :type n: int         :rtype: float         &quot;&quot;&quot;         if n &amp;lt; 0:">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -89,14 +93,44 @@
       
         <!-- Table of Contents -->
         
-        
+        <p>递归公式为：x^n = x^(n/2) <em> x^(n/2) </em> x^(n%2)</p>
+<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">myPow</span><span class="params">(self, x, n)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type x: float</span>
+<span class="string">        :type n: int</span>
+<span class="string">        :rtype: float</span>
+<span class="string">        """</span>
+        <span class="keyword">if</span> n &lt; <span class="number">0</span>:
+            <span class="keyword">return</span> <span class="number">1</span>/self.power(x,-n)
+
+        <span class="keyword">return</span> self.power(x,n)
+
+
+    <span class="function"><span class="keyword">def</span> <span class="title">power</span><span class="params">(self,x,n)</span>:</span>
+
+        <span class="keyword">if</span> n == <span class="number">0</span>:
+            <span class="keyword">return</span> <span class="number">1</span> <span class="comment">#base case</span>
+
+        res = self.power(x,n/<span class="number">2</span>)
+
+        res *= res
+
+        <span class="keyword">if</span> n % <span class="number">2</span> == <span class="number">1</span>:
+            res *= x
+
+        <span class="keyword">return</span> res
+</code></pre>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/50-Pow-x-n/" data-id="cjk38rj9j000ucsvn78c3u7av" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/50-Pow-x-n/" data-id="cjk39f1pm0010iovnfpclgk1a" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
     </footer>
   </div>
   
@@ -145,6 +179,15 @@
     
 <nav id="article-nav">
   
+    <a href="/2018/07/26/98-Validate-Binary-Search-Tree/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          98. Validate Binary Search Tree
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/07/26/286-Walls-and-Gates/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
@@ -191,6 +234,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/26/98-Validate-Binary-Search-Tree/">98. Validate Binary Search Tree</a>
+          </li>
+        
+          <li>
             <a href="/2018/07/26/50-Pow-x-n/">50. Pow(x, n)</a>
           </li>
         
@@ -204,10 +251,6 @@
         
           <li>
             <a href="/2018/07/26/334-Increasing-Triplet-Subsequence/">334. Increasing Triplet Subsequence</a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/26/79-Word-Search/">79. Word Search</a>
           </li>
         
       </ul>
