@@ -93,12 +93,14 @@
         <p>一开始想到的就是计数排序，但是计数排序需要两边扫描，第一遍统计红，白，蓝的数目，第二遍生成新数组。</p>
 <p>考虑到题目要求one pass。这就意味着类似于链表的双指针问题，这里也要track两个index，<br>一个是red的index，一个是blue的index，两边往中间走。</p>
 <p>i从0到blue index扫描，<br>遇到0，放在red index位置，red index后移；<br>遇到2，放在blue index位置，blue index前移；<br>遇到1，i后移。<br>扫描一遍得到排好序的数组。时间O(n)，空间O(1)，</p>
+<p>Follow Up:</p>
+<p>what if N color?<br>A: use counting sort</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortColors</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        red = <span class="number">0</span></span><br><span class="line">        blue = len(nums)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; blue+<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> nums[i] == <span class="number">2</span>:</span><br><span class="line">                nums[blue],nums[i] = nums[i],nums[blue]</span><br><span class="line">                blue -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> nums[i] == <span class="number">1</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nums[red],nums[i] = nums[i],nums[red]</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                red += <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/75-Sort-Colors/" data-id="cjk69hebu0027rovn8whf8jh9" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/75-Sort-Colors/" data-id="cjk6a4ida002fsgvntgqxdfcz" class="article-share-link">Share</a>
       
       
       
@@ -141,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/218-The-Skyline-Problem/" data-id="cjk69heb1000nrovnhbvewo0l" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/218-The-Skyline-Problem/" data-id="cjk6a4icd000nsgvn1xje4a9m" class="article-share-link">Share</a>
       
       
       
@@ -184,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/127-Word-Ladder/" data-id="cjk69heal0005rovnlkg6md20" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/127-Word-Ladder/" data-id="cjk6a4ic00005sgvngpt09chz" class="article-share-link">Share</a>
       
       
       
@@ -227,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/13-Roman-to-Integer/" data-id="cjk69heam0007rovnzvi7e7uk" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/13-Roman-to-Integer/" data-id="cjk6a4ic20008sgvn9xxlswft" class="article-share-link">Share</a>
       
       
       
@@ -270,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/20-Valid-Parentheses/" data-id="cjk69heat000drovndjxokbes" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/20-Valid-Parentheses/" data-id="cjk6a4ic7000dsgvnoiz932w4" class="article-share-link">Share</a>
       
       
       
@@ -341,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/91-Decode-Ways/" data-id="cjk69hec1002mrovnqdj03z4w" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/91-Decode-Ways/" data-id="cjk6a4idh002wsgvn4wcdunmv" class="article-share-link">Share</a>
       
       
       
@@ -355,10 +357,10 @@
 
 
   
-    <article id="post-Lexicographic-Order-With-Digit" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-297-Serialize-and-Deserialize-Binary-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/28/Lexicographic-Order-With-Digit/" class="article-date">
-  <time datetime="2018-07-28T23:42:21.000Z" itemprop="datePublished">2018-07-28</time>
+    <a href="/2018/07/28/297-Serialize-and-Deserialize-Binary-Tree/" class="article-date">
+  <time datetime="2018-07-29T00:36:04.000Z" itemprop="datePublished">2018-07-28</time>
 </a>
     
   </div>
@@ -369,7 +371,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/28/Lexicographic-Order-With-Digit/">Lexicographic Order With Digit</a>
+      <a class="article-title" href="/2018/07/28/297-Serialize-and-Deserialize-Binary-Tree/">297. Serialize and Deserialize Binary Tree</a>
     </h1>
   
 
@@ -379,16 +381,16 @@
       
         <!-- Table of Contents -->
         
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//ab12ab, ab12a2b,  a121b12, a12</span></span><br><span class="line">        System.out.println(myCompareTo(<span class="string">"ab12ab"</span>,<span class="string">"ab12a2b"</span>));</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">myCompareTo</span><span class="params">(String a, String b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> aLength = a.length(), bLength = b.length();</span><br><span class="line">    <span class="keyword">int</span> minLength = Math.min(aLength, bLength);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; minLength; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and not b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> not a.charAt(i).isDigit() and  b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and b.charAt(i).isDigit()&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &gt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &lt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &gt; b.charAt(i)) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &lt; b.charAt(i)) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (aLength &gt; bLength) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (aLength &lt; bLength) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Codec</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">serialize</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="string">"""Encodes a tree to a single string.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        data = []</span><br><span class="line"></span><br><span class="line">        self.serializeHelper(root,data)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">serializeHelper</span><span class="params">(self,root,data)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            data.append(<span class="string">"#"</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        data.append(root.val)</span><br><span class="line">        self.serializeHelper(root.left,data)</span><br><span class="line">        self.serializeHelper(root.right,data)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deserialize</span><span class="params">(self, data)</span>:</span></span><br><span class="line">        <span class="string">"""Decodes your encoded data to tree.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        :type data: str</span></span><br><span class="line"><span class="string">        :rtype: TreeNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.deSerializeHelper(data)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deSerializeHelper</span><span class="params">(self,data)</span>:</span></span><br><span class="line"></span><br><span class="line">        val = data.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> val == <span class="string">"#"</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">        root = TreeNode(val)</span><br><span class="line"></span><br><span class="line">        root.left = self.deSerializeHelper(data)</span><br><span class="line">        root.right = self.deSerializeHelper(data)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your Codec object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># codec = Codec()</span></span><br><span class="line"><span class="comment"># codec.deserialize(codec.serialize(root))</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/Lexicographic-Order-With-Digit/" data-id="cjk69hec3002rrovndqjd3mo4" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/297-Serialize-and-Deserialize-Binary-Tree/" data-id="cjk6a4icu001ksgvn2uwo60cb" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -398,10 +400,10 @@
 
 
   
-    <article id="post-273-Integer-to-English-Words" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-314-Binary-Tree-Vertical-Order-Traversal" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/27/273-Integer-to-English-Words/" class="article-date">
-  <time datetime="2018-07-28T04:29:07.000Z" itemprop="datePublished">2018-07-27</time>
+    <a href="/2018/07/28/314-Binary-Tree-Vertical-Order-Traversal/" class="article-date">
+  <time datetime="2018-07-29T00:27:43.000Z" itemprop="datePublished">2018-07-28</time>
 </a>
     
   </div>
@@ -412,7 +414,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/273-Integer-to-English-Words/">273. Integer to English Words</a>
+      <a class="article-title" href="/2018/07/28/314-Binary-Tree-Vertical-Order-Traversal/">314. Binary Tree Vertical Order Traversal</a>
     </h1>
   
 
@@ -422,16 +424,16 @@
       
         <!-- Table of Contents -->
         
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numberToWords</span><span class="params">(self, num)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type num: int</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> num == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Zero"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res = self.intToWord(num)</span><br><span class="line">            <span class="keyword">return</span> res[<span class="number">1</span>:len(res)]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">intToWord</span><span class="params">(self,num)</span>:</span></span><br><span class="line"></span><br><span class="line">        digits = [<span class="string">"Zero"</span>, <span class="string">"One"</span>, <span class="string">"Two"</span>, <span class="string">"Three"</span>, <span class="string">"Four"</span>, <span class="string">"Five"</span>, <span class="string">"Six"</span>, <span class="string">"Seven"</span>, <span class="string">"Eight"</span>, <span class="string">"Nine"</span>, <span class="string">"Ten"</span>, <span class="string">"Eleven"</span>, <span class="string">"Twelve"</span>, <span class="string">"Thirteen"</span>, <span class="string">"Fourteen"</span>, <span class="string">"Fifteen"</span>, <span class="string">"Sixteen"</span>, <span class="string">"Seventeen"</span>, <span class="string">"Eighteen"</span>, <span class="string">"Nineteen"</span>]</span><br><span class="line">        tens = [<span class="string">"Zero"</span>, <span class="string">"Ten"</span>, <span class="string">"Twenty"</span>, <span class="string">"Thirty"</span>, <span class="string">"Forty"</span>, <span class="string">"Fifty"</span>, <span class="string">"Sixty"</span>, <span class="string">"Seventy"</span>, <span class="string">"Eighty"</span>, <span class="string">"Ninety"</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> num &gt;= pow(<span class="number">10</span>,<span class="number">9</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">9</span>)) + <span class="string">" Billion"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">9</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= pow(<span class="number">10</span>,<span class="number">6</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">6</span>)) + <span class="string">" Million"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= pow(<span class="number">10</span>,<span class="number">3</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">3</span>)) + <span class="string">" Thousand"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">3</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= pow(<span class="number">10</span>,<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">2</span>)) + <span class="string">" Hundred"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= <span class="number">20</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">" "</span> + tens[num/<span class="number">10</span>] + self.intToWord(num%<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">" "</span> + digits[num]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br></pre></td></tr></table></figure>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of TreeNode:</span></span><br><span class="line"><span class="string">class TreeNode:</span></span><br><span class="line"><span class="string">    def __init__(self, val):</span></span><br><span class="line"><span class="string">        self.val = val</span></span><br><span class="line"><span class="string">        self.left, self.right = None, None</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param root: the root of tree</span></span><br><span class="line"><span class="string">    @return: the vertical order traversal</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">verticalOrder</span><span class="params">(self, root)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">        q = [[root,<span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">        dic = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q != []:</span><br><span class="line">            node,level = q.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">            dic[level] = dic.get(level,[]) + [node.val]</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> node.left:</span><br><span class="line">                q.append([node.left,level<span class="number">-1</span>])</span><br><span class="line">            <span class="keyword">if</span> node.right:</span><br><span class="line">                q.append([node.right,level+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        keys = dic.keys()</span><br><span class="line"></span><br><span class="line">        keys.sort()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> keys:</span><br><span class="line">            res.append(dic[k])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/273-Integer-to-English-Words/" data-id="cjk69hebc0016rovn94ke6ouf" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/314-Binary-Tree-Vertical-Order-Traversal/" data-id="cjk6a4icw001osgvntir4wzn5" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">Tree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
 
     </footer>
   </div>
@@ -441,10 +443,10 @@
 
 
   
-    <article id="post-238-Product-of-Array-Except-Self" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/27/238-Product-of-Array-Except-Self/" class="article-date">
-  <time datetime="2018-07-28T04:09:41.000Z" itemprop="datePublished">2018-07-27</time>
+    <a href="/2018/07/28/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" class="article-date">
+  <time datetime="2018-07-29T00:23:15.000Z" itemprop="datePublished">2018-07-28</time>
 </a>
     
   </div>
@@ -455,7 +457,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/238-Product-of-Array-Except-Self/">238. Product of Array Except Self</a>
+      <a class="article-title" href="/2018/07/28/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/">235. Lowest Common Ancestor of a Binary Search Tree</a>
     </h1>
   
 
@@ -465,17 +467,48 @@
       
         <!-- Table of Contents -->
         
-        <p>除法: 只要数组所有数相乘的结果依次除于当前数就可得结果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">productExceptSelf</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        p = [<span class="number">1</span>] * len(nums)</span><br><span class="line">        mult = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            mult *= nums[i<span class="number">-1</span>]</span><br><span class="line">            p[i] *= mult</span><br><span class="line">        mult = <span class="number">1</span>  </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            mult *= nums[i+<span class="number">1</span>]</span><br><span class="line">            p[i] *= mult  </span><br><span class="line">        <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+        <pre><code class="python"><span class="comment"># Definition for a binary tree node.</span>
+<span class="comment"># class TreeNode(object):</span>
+<span class="comment">#     def __init__(self, x):</span>
+<span class="comment">#         self.val = x</span>
+<span class="comment">#         self.left = None</span>
+<span class="comment">#         self.right = None</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">lowestCommonAncestor</span><span class="params">(self, root, p, q)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type root: TreeNode</span>
+<span class="string">        :type p: TreeNode</span>
+<span class="string">        :type q: TreeNode</span>
+<span class="string">        :rtype: TreeNode</span>
+<span class="string">        """</span>
+
+        <span class="keyword">if</span> <span class="keyword">not</span> root:
+            <span class="keyword">return</span> root
+
+        <span class="keyword">if</span> p.val &gt; q.val:
+            <span class="keyword">return</span> self.dfs(root,q,p)
+
+        <span class="keyword">return</span> self.dfs(root,p,q)
+
+    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,root,p,q)</span>:</span>
+
+        <span class="keyword">if</span> root.val &gt;= p.val <span class="keyword">and</span> root.val &lt;= q.val:
+            <span class="keyword">return</span> root
+        <span class="keyword">elif</span> root.val &gt; p.val <span class="keyword">and</span> root.val &gt; q.val:
+            <span class="keyword">return</span> self.dfs(root.left,p,q)
+        <span class="keyword">else</span>:
+            <span class="keyword">return</span> self.dfs(root.right,p,q)
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/238-Product-of-Array-Except-Self/" data-id="cjk69heb5000trovnbgf7nvnm" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="cjk6a4ich000tsgvnv1876hfy" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">Tree</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
 
     </footer>
   </div>
@@ -485,10 +518,10 @@
 
 
   
-    <article id="post-121-Best-Time-to-Buy-and-Sell-Stock" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-33-Search-in-Rotated-Sorted-Array" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" class="article-date">
-  <time datetime="2018-07-28T03:39:10.000Z" itemprop="datePublished">2018-07-27</time>
+    <a href="/2018/07/28/33-Search-in-Rotated-Sorted-Array/" class="article-date">
+  <time datetime="2018-07-29T00:02:12.000Z" itemprop="datePublished">2018-07-28</time>
 </a>
     
   </div>
@@ -499,7 +532,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/">121. Best Time to Buy and Sell Stock </a>
+      <a class="article-title" href="/2018/07/28/33-Search-in-Rotated-Sorted-Array/">33. Search in Rotated Sorted Array</a>
     </h1>
   
 
@@ -509,18 +542,52 @@
       
         <!-- Table of Contents -->
         
-        <p>get all the gain in a array and turn it to maximum subarray</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prices: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> prices <span class="keyword">or</span> len(prices) &lt; <span class="number">2</span>:</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        gain = [<span class="number">0</span>] * (len(price)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">        dp = [<span class="number">0</span>] * len(gain)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(prices)):</span><br><span class="line">            gain[i<span class="number">-1</span>] = prices[i] - prices[i<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        dp[<span class="number">0</span>] = gain[<span class="number">0</span>]    </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">            dp[i] = max(dp[i<span class="number">-1</span>] + gain[i] , gain[i])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max(<span class="number">0</span>,max(dp))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localMax = gain[<span class="number">0</span>]</span><br><span class="line">globalMax = gain[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">    localMax = max(localMax + gain[i] , gain[i])</span><br><span class="line">    globalMax = max(localMax,globalMax)</span><br></pre></td></tr></table></figure>
+        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, nums, target)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type nums: List[int]</span>
+<span class="string">        :type target: int</span>
+<span class="string">        :rtype: int</span>
+<span class="string">        """</span>
+        i = <span class="number">0</span>
+        j = len(nums) - <span class="number">1</span>
+
+        <span class="keyword">while</span> i &lt;= j:
+
+            mid = i + (j-i) // <span class="number">2</span>
+
+            <span class="keyword">if</span> nums[mid] == target:
+                <span class="keyword">return</span> mid
+
+            <span class="keyword">if</span> nums[j] &gt; nums[mid]:
+
+                <span class="keyword">if</span> target &gt; nums[mid] <span class="keyword">and</span> target &lt;= nums[j]:
+                    i = mid + <span class="number">1</span>
+                <span class="keyword">else</span>:
+                    j = mid <span class="number">-1</span>
+
+            <span class="keyword">elif</span> nums[j] &lt; nums[mid]:
+
+                <span class="keyword">if</span> target &lt; nums[mid] <span class="keyword">and</span> target &gt;= nums[i]:
+                    j = mid - <span class="number">1</span>
+                <span class="keyword">else</span>:
+                    i = mid + <span class="number">1</span>
+
+            <span class="keyword">else</span>:
+                i = mid + <span class="number">1</span>
+
+
+        <span class="keyword">return</span> <span class="number">-1</span>
+</code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" data-id="cjk69heai0003rovnkkdfa5h7" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/33-Search-in-Rotated-Sorted-Array/" data-id="cjk6a4id1001vsgvnlybhuzdl" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BinarySearch/">BinarySearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
 
     </footer>
   </div>
@@ -533,7 +600,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">Next&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">Next&raquo;</a>
   </nav>
 </section>
            
@@ -545,7 +612,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">49</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">53</span></li></ul>
     </div>
   </div>
 
@@ -558,7 +625,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Basic/" style="font-size: 17.67px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 17.67px;">BinarySearch</a> <a href="/tags/DP/" style="font-size: 14px;">DP</a> <a href="/tags/Design/" style="font-size: 16.44px;">Design</a> <a href="/tags/Easy/" style="font-size: 22.56px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 16.44px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 14px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 17.67px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 18.89px;">Hard</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/LinkedList/" style="font-size: 16.44px;">LinkedList</a> <a href="/tags/MJ/" style="font-size: 14px;">MJ</a> <a href="/tags/Math/" style="font-size: 16.44px;">Math</a> <a href="/tags/Medium/" style="font-size: 23.78px;">Medium</a> <a href="/tags/PQ/" style="font-size: 15.22px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 15.22px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 25px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/Stack/" style="font-size: 16.44px;">Stack</a> <a href="/tags/Tree/" style="font-size: 16.44px;">Tree</a> <a href="/tags/Trie/" style="font-size: 15.22px;">Trie</a> <a href="/tags/TwoPointer/" style="font-size: 14px;">TwoPointer</a> <a href="/tags/bfs/" style="font-size: 20.11px;">bfs</a> <a href="/tags/dfs/" style="font-size: 21.33px;">dfs</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a>
+      <a href="/tags/Basic/" style="font-size: 17.3px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 18.4px;">BinarySearch</a> <a href="/tags/DP/" style="font-size: 14px;">DP</a> <a href="/tags/Design/" style="font-size: 17.3px;">Design</a> <a href="/tags/Easy/" style="font-size: 22.8px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 16.2px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 14px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 17.3px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 19.5px;">Hard</a> <a href="/tags/Hash/" style="font-size: 14px;">Hash</a> <a href="/tags/LinkedList/" style="font-size: 16.2px;">LinkedList</a> <a href="/tags/MJ/" style="font-size: 14px;">MJ</a> <a href="/tags/Math/" style="font-size: 16.2px;">Math</a> <a href="/tags/Medium/" style="font-size: 23.9px;">Medium</a> <a href="/tags/PQ/" style="font-size: 15.1px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 15.1px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 25px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/Stack/" style="font-size: 16.2px;">Stack</a> <a href="/tags/Tree/" style="font-size: 18.4px;">Tree</a> <a href="/tags/Trie/" style="font-size: 15.1px;">Trie</a> <a href="/tags/TwoPointer/" style="font-size: 14px;">TwoPointer</a> <a href="/tags/bfs/" style="font-size: 20.6px;">bfs</a> <a href="/tags/dfs/" style="font-size: 21.7px;">dfs</a> <a href="/tags/dp/" style="font-size: 14px;">dp</a>
     </div>
   </div>
 

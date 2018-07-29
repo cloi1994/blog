@@ -66,6 +66,181 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Lexicographic-Order-With-Digit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/28/Lexicographic-Order-With-Digit/" class="article-date">
+  <time datetime="2018-07-28T23:42:21.000Z" itemprop="datePublished">2018-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/28/Lexicographic-Order-With-Digit/">Lexicographic Order With Digit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//ab12ab, ab12a2b,  a121b12, a12</span></span><br><span class="line">        System.out.println(myCompareTo(<span class="string">"ab12ab"</span>,<span class="string">"ab12a2b"</span>));</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">myCompareTo</span><span class="params">(String a, String b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> aLength = a.length(), bLength = b.length();</span><br><span class="line">    <span class="keyword">int</span> minLength = Math.min(aLength, bLength);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; minLength; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and not b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> not a.charAt(i).isDigit() and  b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and b.charAt(i).isDigit()&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &gt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &lt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &gt; b.charAt(i)) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &lt; b.charAt(i)) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (aLength &gt; bLength) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (aLength &lt; bLength) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/28/Lexicographic-Order-With-Digit/" data-id="cjk6a4idj002zsgvnliijulr6" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-273-Integer-to-English-Words" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/27/273-Integer-to-English-Words/" class="article-date">
+  <time datetime="2018-07-28T04:29:07.000Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/273-Integer-to-English-Words/">273. Integer to English Words</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numberToWords</span><span class="params">(self, num)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type num: int</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> num == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Zero"</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            res = self.intToWord(num)</span><br><span class="line">            <span class="keyword">return</span> res[<span class="number">1</span>:len(res)]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">intToWord</span><span class="params">(self,num)</span>:</span></span><br><span class="line"></span><br><span class="line">        digits = [<span class="string">"Zero"</span>, <span class="string">"One"</span>, <span class="string">"Two"</span>, <span class="string">"Three"</span>, <span class="string">"Four"</span>, <span class="string">"Five"</span>, <span class="string">"Six"</span>, <span class="string">"Seven"</span>, <span class="string">"Eight"</span>, <span class="string">"Nine"</span>, <span class="string">"Ten"</span>, <span class="string">"Eleven"</span>, <span class="string">"Twelve"</span>, <span class="string">"Thirteen"</span>, <span class="string">"Fourteen"</span>, <span class="string">"Fifteen"</span>, <span class="string">"Sixteen"</span>, <span class="string">"Seventeen"</span>, <span class="string">"Eighteen"</span>, <span class="string">"Nineteen"</span>]</span><br><span class="line">        tens = [<span class="string">"Zero"</span>, <span class="string">"Ten"</span>, <span class="string">"Twenty"</span>, <span class="string">"Thirty"</span>, <span class="string">"Forty"</span>, <span class="string">"Fifty"</span>, <span class="string">"Sixty"</span>, <span class="string">"Seventy"</span>, <span class="string">"Eighty"</span>, <span class="string">"Ninety"</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> num &gt;= pow(<span class="number">10</span>,<span class="number">9</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">9</span>)) + <span class="string">" Billion"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">9</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= pow(<span class="number">10</span>,<span class="number">6</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">6</span>)) + <span class="string">" Million"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">6</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= pow(<span class="number">10</span>,<span class="number">3</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">3</span>)) + <span class="string">" Thousand"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">3</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= pow(<span class="number">10</span>,<span class="number">2</span>):</span><br><span class="line">            <span class="keyword">return</span> self.intToWord(num/pow(<span class="number">10</span>,<span class="number">2</span>)) + <span class="string">" Hundred"</span> + self.intToWord(num%pow(<span class="number">10</span>,<span class="number">2</span>))</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= <span class="number">20</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">" "</span> + tens[num/<span class="number">10</span>] + self.intToWord(num%<span class="number">10</span>)</span><br><span class="line">        <span class="keyword">elif</span> num &gt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">" "</span> + digits[num]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/27/273-Integer-to-English-Words/" data-id="cjk6a4ico0019sgvn5eqmnfe4" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-238-Product-of-Array-Except-Self" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/27/238-Product-of-Array-Except-Self/" class="article-date">
+  <time datetime="2018-07-28T04:09:41.000Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/238-Product-of-Array-Except-Self/">238. Product of Array Except Self</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>除法: 只要数组所有数相乘的结果依次除于当前数就可得结果</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">productExceptSelf</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        p = [<span class="number">1</span>] * len(nums)</span><br><span class="line">        mult = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            mult *= nums[i<span class="number">-1</span>]</span><br><span class="line">            p[i] *= mult</span><br><span class="line">        mult = <span class="number">1</span>  </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            mult *= nums[i+<span class="number">1</span>]</span><br><span class="line">            p[i] *= mult  </span><br><span class="line">        <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/27/238-Product-of-Array-Except-Self/" data-id="cjk6a4icj000xsgvnystx0xve" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-121-Best-Time-to-Buy-and-Sell-Stock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" class="article-date">
+  <time datetime="2018-07-28T03:39:10.000Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/">121. Best Time to Buy and Sell Stock </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>get all the gain in a array and turn it to maximum subarray</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prices: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> prices <span class="keyword">or</span> len(prices) &lt; <span class="number">2</span>:</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        gain = [<span class="number">0</span>] * (len(price)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">        dp = [<span class="number">0</span>] * len(gain)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(prices)):</span><br><span class="line">            gain[i<span class="number">-1</span>] = prices[i] - prices[i<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        dp[<span class="number">0</span>] = gain[<span class="number">0</span>]    </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">            dp[i] = max(dp[i<span class="number">-1</span>] + gain[i] , gain[i])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max(<span class="number">0</span>,max(dp))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localMax = gain[<span class="number">0</span>]</span><br><span class="line">globalMax = gain[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">    localMax = max(localMax + gain[i] , gain[i])</span><br><span class="line">    globalMax = max(localMax,globalMax)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" data-id="cjk6a4iby0003sgvn7kqgf1jn" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-236-Lowest-Common-Ancestor-of-a-Binary-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" class="article-date">
@@ -97,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" data-id="cjk69heb4000rrovnb9l5xljm" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" data-id="cjk6a4ici000wsgvn4r7h6huq" class="article-share-link">Share</a>
       
       
       
@@ -199,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/234-Palindrome-Linked-List/" data-id="cjk69heb3000provn47eow0mk" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/234-Palindrome-Linked-List/" data-id="cjk6a4ice000psgvnn1vpmho9" class="article-share-link">Share</a>
       
       
       
@@ -242,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/257-Binary-Tree-Paths/" data-id="cjk69hebb0014rovns099o8bw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/257-Binary-Tree-Paths/" data-id="cjk6a4ict001isgvncxu560jt" class="article-share-link">Share</a>
       
       
       
@@ -285,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/69-Sqrt-x/" data-id="cjk69hebs0025rovnnpv7n9tt" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/69-Sqrt-x/" data-id="cjk6a4id9002dsgvnm8rpl782" class="article-share-link">Share</a>
       
       
       
@@ -328,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/102-Binary-Tree-Level-Order-Traversal/" data-id="cjk69hea40000rovnuqox0jua" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/102-Binary-Tree-Level-Order-Traversal/" data-id="cjk6a4ibp0000sgvn8k173ny3" class="article-share-link">Share</a>
       
       
       
@@ -438,7 +613,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/57-Insert-Interval/" data-id="cjk69hebr0021rovnxtj6zf6n" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/57-Insert-Interval/" data-id="cjk6a4id70029sgvn0efe8p85" class="article-share-link">Share</a>
       
       
       
@@ -452,272 +627,10 @@
 
 
   
-    <article id="post-325-Maximum-Size-Subarray-Sum-Equals-k" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" class="article-date">
-  <time datetime="2018-07-27T22:35:44.000Z" itemprop="datePublished">2018-07-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/">325. Maximum Size Subarray Sum Equals k</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>nums: [-2, -1, 2, 1], k = 1</p>
-<p>sums: [-2, -3, -1, 0]</p>
-<p>我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，<br>那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，<br>没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，<br>但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同，</p>
-<p>cur_sum - k in hm == [i:j] inclusive</p>
-<p>i = hm[cur_sum - k]</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span>
-    <span class="string">"""</span>
-<span class="string">    @param nums: an array</span>
-<span class="string">    @param k: a target value</span>
-<span class="string">    @return: the maximum length of a subarray that sums to k</span>
-<span class="string">    """</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">maxSubArrayLen</span><span class="params">(self, nums, k)</span>:</span>
-            hm = {}
-            maxSize = <span class="number">0</span>
-            summ = <span class="number">0</span>
-
-            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):
-                summ += nums[i]
-
-                <span class="comment">#if up to cur position summ = k</span>
-                <span class="keyword">if</span> summ == k:
-                    maxSize = i + <span class="number">1</span>
-                    <span class="keyword">continue</span>
-                <span class="comment">#if pervious index sum up to cur</span>
-                <span class="keyword">if</span> summ - k <span class="keyword">in</span> hm:
-                    maxSize = max(i-hm[summ-k],maxSize)
-
-                <span class="keyword">if</span> summ <span class="keyword">not</span> <span class="keyword">in</span> hm:
-                    hm[summ] = i
-
-            <span class="keyword">return</span> maxSize
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" data-id="cjk69hebk001nrovnlxesecrs" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PrefixSum/">PrefixSum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-826-Most-Profit-Assigning-Work" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/26/826-Most-Profit-Assigning-Work/" class="article-date">
-  <time datetime="2018-07-27T04:39:39.000Z" itemprop="datePublished">2018-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/826-Most-Profit-Assigning-Work/">826. Most Profit Assigning Work</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">maxProfitAssignment</span><span class="params">(self, difficulty, profit, worker)</span>:</span>
-        <span class="string">"""</span>
-<span class="string">        :type difficulty: List[int]</span>
-<span class="string">        :type profit: List[int]</span>
-<span class="string">        :type worker: List[int]</span>
-<span class="string">        :rtype: int</span>
-<span class="string">        """</span>
-
-        <span class="function"><span class="keyword">def</span> <span class="title">myCmp</span><span class="params">(j1,j2)</span>:</span>
-            <span class="keyword">return</span> j1[<span class="number">0</span>] - j2[<span class="number">0</span>]
-
-
-        job = []
-
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(profit)):
-            job.append([difficulty[i],profit[i]])
-
-
-        worker.sort()
-        job.sort(cmp=myCmp)
-
-
-        i = <span class="number">0</span>
-        n = len(job)
-        best = <span class="number">0</span>
-
-        res = <span class="number">0</span>
-
-        <span class="keyword">for</span> level <span class="keyword">in</span> worker:
-
-            <span class="keyword">while</span> i &lt; n <span class="keyword">and</span> level &gt;= job[i][<span class="number">0</span>]:
-                best = max(best,job[i][<span class="number">1</span>])
-                i += <span class="number">1</span>
-            res += best
-        <span class="keyword">return</span> res
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/826-Most-Profit-Assigning-Work/" data-id="cjk69hec0002krovn6ih7jtr1" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-311-Sparse-Matrix-Multiplication" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/26/311-Sparse-Matrix-Multiplication/" class="article-date">
-  <time datetime="2018-07-27T03:18:47.000Z" itemprop="datePublished">2018-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/311-Sparse-Matrix-Multiplication/">311. Sparse Matrix Multiplication</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>A : M X N<br>B : Q X E</p>
-<p>res = M * E</p>
-<p>res[i][j] += A[i][k] * B[k][j]</p>
-<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ex:</span><br><span class="line"></span><br><span class="line">     |<span class="string">  1 0 0 </span>|<span class="string">   </span>|<span class="string"> 7 0 0 </span>|<span class="string">   </span>|<span class="string">  7 0 0 </span>|</span><br><span class="line">AB = |<span class="string"> -1 0 3 </span>|<span class="string"> x </span>|<span class="string"> 0 0 0 </span>|<span class="string"> = </span>|<span class="string"> -7 0 3 </span>|</span><br><span class="line">                  |<span class="string"> 0 0 1 </span>|</span><br><span class="line"></span><br><span class="line">      1 <span class="symbol">*</span>  |<span class="string"> 7 0 0</span>|</span><br><span class="line">      0 <span class="symbol">*</span>  |<span class="string"> 0 0 0</span>|</span><br><span class="line">      0 <span class="symbol">*</span>  |<span class="string"> 0 0 1</span>|</span><br><span class="line"></span><br><span class="line">     -1 <span class="symbol">*</span>  |<span class="string"> 7 0 0</span>|</span><br><span class="line">      0 <span class="symbol">*</span>  |<span class="string"> 0 0 0</span>|</span><br><span class="line">      3 <span class="symbol">*</span>  |<span class="string"> 0 0 1</span>|</span><br></pre></td></tr></table></figure>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span>
-    <span class="string">"""</span>
-<span class="string">    @param A: a sparse matrix</span>
-<span class="string">    @param B: a sparse matrix</span>
-<span class="string">    @return: the result of A * B</span>
-<span class="string">    """</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">multiply</span><span class="params">(self, A, B)</span>:</span>
-        <span class="comment"># write your code here</span>
-
-        res = [[ <span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(B[<span class="number">0</span>]))] <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(A))]
-
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(A)):
-            <span class="keyword">for</span> k <span class="keyword">in</span> range(len(A[<span class="number">0</span>])):
-                <span class="keyword">if</span> A[i][k] != <span class="number">0</span>:
-                    <span class="keyword">for</span> j <span class="keyword">in</span> range(len(B[<span class="number">0</span>])):
-                        <span class="keyword">if</span> B[k][j] != <span class="number">0</span>:
-                            res[i][j] += A[i][k] * B[k][j]
-
-        <span class="keyword">return</span> res
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/311-Sparse-Matrix-Multiplication/" data-id="cjk69hebj001krovnznurr4tn" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-157-Read-N-Characters-Given-Read4" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/26/157-Read-N-Characters-Given-Read4/" class="article-date">
-  <time datetime="2018-07-27T02:50:15.000Z" itemprop="datePublished">2018-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/157-Read-N-Characters-Given-Read4/">157. Read N Characters Given Read4</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># @param &#123;char[]&#125; buf destination buffer</span></span><br><span class="line">    <span class="comment"># @param &#123;int&#125; n maximum number of characters to read</span></span><br><span class="line">    <span class="comment"># @return &#123;int&#125; the number of characters read</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(self, buf, n)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line"></span><br><span class="line">        eof = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        tmp = [<span class="string">''</span>] * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> eof <span class="keyword">and</span> total &lt; n:</span><br><span class="line">            count = Reader.read4(tmp)</span><br><span class="line"></span><br><span class="line">            <span class="comment">#check if it's the end of the file</span></span><br><span class="line">            <span class="keyword">if</span> count &lt; <span class="number">4</span>:</span><br><span class="line">                eof = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">#get the actual count</span></span><br><span class="line">            count = min(count,n-total)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(count):</span><br><span class="line">                buf[total] = tmp[i]</span><br><span class="line">                total += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/157-Read-N-Characters-Given-Read4/" data-id="cjk69heao0008rovn5bndep4l" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">Next&raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">Next&raquo;</a>
   </nav>
 </section>
            
