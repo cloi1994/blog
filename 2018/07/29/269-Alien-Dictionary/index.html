@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>269. Alien Dictionary | FB Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="首先简单介绍一下拓扑排序，这是一个能够找出有向无环图顺序的一个方法 假设我们有3条边：A-&amp;gt;C, B-&amp;gt;C, C-&amp;gt;D，先将每个节点的计数器初始化为0。然后我们对遍历边时，每遇到一个边，把目的节点的计数器都加1。然后，我们再遍历一遍，找出所有计数器值还是0的节点，这些节点就是有向无环图的“根”。然后我们从根开始广度优先搜索。具体来说，搜索到某个节点时，将该节点加入结果中，然后所有">
+<meta name="keywords" content="Remember,Hard,Graph">
+<meta property="og:type" content="article">
+<meta property="og:title" content="269. Alien Dictionary">
+<meta property="og:url" content="http://fbnote.netlify.com/2018/07/29/269-Alien-Dictionary/index.html">
+<meta property="og:site_name" content="FB Note">
+<meta property="og:description" content="首先简单介绍一下拓扑排序，这是一个能够找出有向无环图顺序的一个方法 假设我们有3条边：A-&amp;gt;C, B-&amp;gt;C, C-&amp;gt;D，先将每个节点的计数器初始化为0。然后我们对遍历边时，每遇到一个边，把目的节点的计数器都加1。然后，我们再遍历一遍，找出所有计数器值还是0的节点，这些节点就是有向无环图的“根”。然后我们从根开始广度优先搜索。具体来说，搜索到某个节点时，将该节点加入结果中，然后所有">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-07-29T23:26:06.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="269. Alien Dictionary">
+<meta name="twitter:description" content="首先简单介绍一下拓扑排序，这是一个能够找出有向无环图顺序的一个方法 假设我们有3条边：A-&amp;gt;C, B-&amp;gt;C, C-&amp;gt;D，先将每个节点的计数器初始化为0。然后我们对遍历边时，每遇到一个边，把目的节点的计数器都加1。然后，我们再遍历一遍，找出所有计数器值还是0的节点，这些节点就是有向无环图的“根”。然后我们从根开始广度优先搜索。具体来说，搜索到某个节点时，将该节点加入结果中，然后所有">
+  
+    <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    
+    <div id="header-inner" class="inner">
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://fbnote.netlify.com"></form>
+      </div>
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+      </nav>
+      
+    </div>
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">FB Note</a>
+      </h1>
+      
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-269-Alien-Dictionary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/29/269-Alien-Dictionary/" class="article-date">
+  <time datetime="2018-07-29T23:11:38.000Z" itemprop="datePublished">2018-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      269. Alien Dictionary
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>首先简单介绍一下拓扑排序，这是一个能够找出有向无环图顺序的一个方法</p>
+<p>假设我们有3条边：A-&gt;C, B-&gt;C, C-&gt;D，先将每个节点的计数器初始化为0。然后我们对遍历边时，<br>每遇到一个边，把目的节点的计数器都加1。然后，我们再遍历一遍，<br>找出所有计数器值还是0的节点，<br>这些节点就是有向无环图的“根”。然后我们从根开始广度优先搜索。具体来说，搜索到某个节点时，<br>将该节点加入结果中，然后所有被该节点指向的节点的计数器减1，在减1之后，<br>如果某个被指向节点的计数器变成0了，<br>那这个被指向的节点就是该节点下轮搜索的子节点。在实现的角度来看，我们可以用一个队列<br>，这样每次从队列头拿出来一个加入结果中，同时把被这个节点指向的节点中计数器<br>值减到0的节点也都加入队列尾中。<br>需要注意的是，如果图是有环的，则计数器会产生断层，即某个节点的计数器永远无法清零（<br>有环意味着有的节点被多加了1，然而遍历的时候一次只减一个1，所以导致无法归零），<br>这样该节点也无法加入到结果中。所以我们只要判断这个结果的节点数和实际图中节点数相等，<br>就代表无环，不相等，则代表有环。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param words: a list of words</span></span><br><span class="line"><span class="string">    @return: a string which is correct order</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">alienOrder</span><span class="params">(self, words)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> words:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line">        graph = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        indegree = [<span class="number">0</span>] * <span class="number">26</span></span><br><span class="line"></span><br><span class="line">        sset = set()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> words:</span><br><span class="line">            <span class="keyword">for</span> c <span class="keyword">in</span> w:</span><br><span class="line">                sset.add(c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(words)):</span><br><span class="line">            curW = words[i<span class="number">-1</span>]</span><br><span class="line">            nextW = words[i]</span><br><span class="line"></span><br><span class="line">            minLen = min(len(curW),len(nextW))</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(minLen):</span><br><span class="line">                curChar = curW[j]</span><br><span class="line">                nextChar = nextW[j]</span><br><span class="line">                <span class="keyword">if</span> curChar == nextChar:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> curChar <span class="keyword">not</span> <span class="keyword">in</span> graph:</span><br><span class="line">                    graph[curChar] = set()</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> nextChar <span class="keyword">not</span> <span class="keyword">in</span> graph[curChar]:</span><br><span class="line">                    indegree[ord(nextChar) - ord(<span class="string">'a'</span>)] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                graph[curChar].add(nextChar)</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">        q = []</span><br><span class="line"></span><br><span class="line">        res = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(indegree)):</span><br><span class="line">            <span class="keyword">if</span> indegree[i] == <span class="number">0</span>:</span><br><span class="line">                c = chr(i + ord(<span class="string">'a'</span>))</span><br><span class="line">                <span class="keyword">if</span> c <span class="keyword">in</span> sset:</span><br><span class="line">                    q.append(c)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q != []:</span><br><span class="line">            top = q.pop(<span class="number">0</span>)</span><br><span class="line">            res += top</span><br><span class="line">            <span class="keyword">if</span> top <span class="keyword">in</span> graph:</span><br><span class="line">                <span class="keyword">for</span> c <span class="keyword">in</span> graph[top]:</span><br><span class="line">                    indegree[ord(c) - ord(<span class="string">'a'</span>)] -= <span class="number">1</span></span><br><span class="line">                    <span class="keyword">if</span> indegree[ord(c) - ord(<span class="string">'a'</span>)] == <span class="number">0</span>:</span><br><span class="line">                        q.append(c)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> len(res) != len(sset):</span><br><span class="line">            <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/29/269-Alien-Dictionary/" data-id="cjk7ptht0001r6kvn29mn28n9" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">Graph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+ <script src="/jquery/jquery.min.js"></script>
+  <div id="random_posts">
+    <h2>Recommended Posts</h2>
+    <div class="random_posts_ul">
+      <script>
+          var random_count =4
+          var site = {BASE_URI:'/'};
+          function load_random_posts(obj) {
+              var arr=site.posts;
+              if (!obj) return;
+              // var count = $(obj).attr('data-count') || 6;
+              for (var i, tmp, n = arr.length; n; i = Math.floor(Math.random() * n), tmp = arr[--n], arr[n] = arr[i], arr[i] = tmp);
+              arr = arr.slice(0, random_count);
+              var html = '<ul>';
+            
+              for(var j=0;j<arr.length;j++){
+                var item=arr[j];
+                html += '<li><strong>' + 
+                item.date + ':&nbsp;&nbsp;<a href="' + (site.BASE_URI+item.uri) + '">' + 
+                (item.title || item.uri) + '</a></strong>';
+                if(item.excerpt){
+                  html +='<div class="post-excerpt">'+item.excerpt+'</div>';
+                }
+                html +='</li>';
+                
+              }
+              $(obj).html(html + '</ul>');
+          }
+          $('.random_posts_ul').each(function () {
+              var c = this;
+              if (!site.posts || !site.posts.length){
+                  $.getJSON(site.BASE_URI + 'js/posts.js',function(json){site.posts = json;load_random_posts(c)});
+              } 
+               else{
+                load_random_posts(c);
+              }
+          });
+      </script>
+    </div>
+  </div>
+
+    
+<nav id="article-nav">
+  
+    <a href="/2018/07/29/282-Expression-Add-Operators/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          282. Expression Add Operators 
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/07/28/75-Sort-Colors/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">75. Sort Colors </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+ 
+     
+  <div class="comments" id="comments">
+    
+     
+       
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+       
+      
+      
+  </div>
+ 
+  
+
+</section>
+           
+    <aside id="sidebar">
+  
+    
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title recent-posts">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2018/07/29/146-LRU-Cache/">146. LRU Cache </a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/29/285-Inorder-Successor-in-BST/">285 Inorder Successor in BST</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/29/133-Clone-Graph/">133. Clone Graph</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/">17. Letter Combinations of a Phone Number</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/29/215-Kth-Largest-Element-in-an-Array/">215. Kth Largest Element in an Array </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-left">
+      &copy; 2014 - 2018 Chi&nbsp;|&nbsp;
+      Theme by <a href="https://github.com/giscafer/hexo-theme-cafe/" target="_blank">Cafe</a>
+    </div>
+     <div id="footer-right">
+      Contact&nbsp;|&nbsp;youemail@outlook.com
+    </div>
+  </div>
+</footer>
+ <script src="/jquery/jquery.min.js"></script>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/about" class="mobile-nav-link">关于</a>
+  
+</nav>
+    <img class="back-to-top-btn" src="/images/fly-to-top.png"/>
+<script>
+// Elevator script included on the page, already.
+window.onload = function() {
+  var elevator = new Elevator({
+    selector:'.back-to-top-btn',
+    element: document.querySelector('.back-to-top-btn'),
+    duration: 1000 // milliseconds
+  });
+}
+</script>
+      
+
+  
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "e2fb4051c49842688ce669e634bc983f",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+    
+
+  
+
+
+
+
+
+
+
+<!-- author:forvoid begin -->
+<!-- author:forvoid begin -->
+
+<!-- author:forvoid end -->
+
+<!-- author:forvoid end -->
+
+
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      })
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      })
+    </script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mathjax/MathJax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+ <script src="/js/is.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+<script src="/js/elevator.js"></script>
+  </div>
+</body>
+</html>
