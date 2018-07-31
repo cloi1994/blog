@@ -66,6 +66,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Lexicographic-Order-With-Digit" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/28/Lexicographic-Order-With-Digit/" class="article-date">
+  <time datetime="2018-07-28T23:42:21.000Z" itemprop="datePublished">2018-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/28/Lexicographic-Order-With-Digit/">Lexicographic Order With Digit</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//ab12ab, ab12a2b,  a121b12, a12</span></span><br><span class="line">        System.out.println(myCompareTo(<span class="string">"ab12ab"</span>,<span class="string">"ab12a2b"</span>));</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">myCompareTo</span><span class="params">(String a, String b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> aLength = a.length(), bLength = b.length();</span><br><span class="line">    <span class="keyword">int</span> minLength = Math.min(aLength, bLength);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; minLength; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and not b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> not a.charAt(i).isDigit() and  b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and b.charAt(i).isDigit()&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &gt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &lt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &gt; b.charAt(i)) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &lt; b.charAt(i)) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (aLength &gt; bLength) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (aLength &lt; bLength) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/28/Lexicographic-Order-With-Digit/" data-id="cjk98v564004kx4vng7ti2g2i" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-273-Integer-to-English-Words" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/27/273-Integer-to-English-Words/" class="article-date">
@@ -95,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/273-Integer-to-English-Words/" data-id="cjk98kmfh001zckvn8vp3eg6t" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/273-Integer-to-English-Words/" data-id="cjk98v54w001zx4vn0p6ge6zh" class="article-share-link">Share</a>
       
       
       
@@ -139,7 +182,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/238-Product-of-Array-Except-Self/" data-id="cjk98kmfb001lckvnz51c1ed3" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/238-Product-of-Array-Except-Self/" data-id="cjk98v54p001jx4vnvz3zmxk6" class="article-share-link">Share</a>
       
       
       
@@ -184,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" data-id="cjk98kmef0004ckvnh6noaj39" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" data-id="cjk98v53t0003x4vnlkylm681" class="article-share-link">Share</a>
       
       
       
@@ -229,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" data-id="cjk98kmf8001gckvn6o9oyu6h" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" data-id="cjk98v54o001hx4vnhi6cf5fm" class="article-share-link">Share</a>
       
       
       
@@ -331,7 +374,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/234-Palindrome-Linked-List/" data-id="cjk98kmf5001dckvn8dw9s8xf" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/234-Palindrome-Linked-List/" data-id="cjk98v54m001cx4vn6pdlvdqv" class="article-share-link">Share</a>
       
       
       
@@ -374,7 +417,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/257-Binary-Tree-Paths/" data-id="cjk98kmfe001sckvnpovpjw36" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/257-Binary-Tree-Paths/" data-id="cjk98v54t001sx4vn28ufkv10" class="article-share-link">Share</a>
       
       
       
@@ -417,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/69-Sqrt-x/" data-id="cjk98kmgd003tckvnvbo27ubw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/69-Sqrt-x/" data-id="cjk98v55r003vx4vnn3j1hkv2" class="article-share-link">Share</a>
       
       
       
@@ -460,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/102-Binary-Tree-Level-Order-Traversal/" data-id="cjk98kme50000ckvnx2yldhi4" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/102-Binary-Tree-Level-Order-Traversal/" data-id="cjk98v53l0000x4vnehv3h6a5" class="article-share-link">Share</a>
       
       
       
@@ -570,85 +613,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/57-Insert-Interval/" data-id="cjk98kmga003ockvnpek37jyx" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/57-Insert-Interval/" data-id="cjk98v55p003qx4vn72e8c3ld" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BinarySearch/">BinarySearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-325-Maximum-Size-Subarray-Sum-Equals-k" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" class="article-date">
-  <time datetime="2018-07-27T22:35:44.000Z" itemprop="datePublished">2018-07-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/">325. Maximum Size Subarray Sum Equals k</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>nums: [-2, -1, 2, 1], k = 1</p>
-<p>sums: [-2, -3, -1, 0]</p>
-<p>我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，<br>那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，<br>没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，<br>但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同，</p>
-<p>cur_sum - k in hm == [i:j] inclusive</p>
-<p>i = hm[cur_sum - k]</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span>
-    <span class="string">"""</span>
-<span class="string">    @param nums: an array</span>
-<span class="string">    @param k: a target value</span>
-<span class="string">    @return: the maximum length of a subarray that sums to k</span>
-<span class="string">    """</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">maxSubArrayLen</span><span class="params">(self, nums, k)</span>:</span>
-            hm = {}
-            maxSize = <span class="number">0</span>
-            summ = <span class="number">0</span>
-
-            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):
-                summ += nums[i]
-
-                <span class="comment">#if up to cur position summ = k</span>
-                <span class="keyword">if</span> summ == k:
-                    maxSize = i + <span class="number">1</span>
-                    <span class="keyword">continue</span>
-                <span class="comment">#if pervious index sum up to cur</span>
-                <span class="keyword">if</span> summ - k <span class="keyword">in</span> hm:
-                    maxSize = max(i-hm[summ-k],maxSize)
-
-                <span class="keyword">if</span> summ <span class="keyword">not</span> <span class="keyword">in</span> hm:
-                    hm[summ] = i
-
-            <span class="keyword">return</span> maxSize
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" data-id="cjk98kmft002pckvnojyf9u17" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PrefixSum/">PrefixSum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -684,6 +653,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/30/398-Random-Pick-Index/">398. Random Pick Index </a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/380-Insert-Delete-GetRandom-O-1/">380. Insert Delete GetRandom O(1) </a>
           </li>
         
@@ -697,10 +670,6 @@
         
           <li>
             <a href="/2018/07/30/341-Flatten-Nested-List-Iterator/">341. Flatten Nested List Iterator </a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/30/477-Total-Hamming-Distance/">477. Total Hamming Distance </a>
           </li>
         
       </ul>

@@ -66,6 +66,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-200-Number-of-Islands" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/200-Number-of-Islands/" class="article-date">
+  <time datetime="2018-07-26T01:21:51.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/200-Number-of-Islands/">200. Number of Islands</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">numIslands</span><span class="params">(self, grid)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type grid: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        cnt = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(grid)):</span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(grid[<span class="number">0</span>])):</span><br><span class="line">                <span class="keyword">if</span> grid[i][j] == <span class="string">'1'</span>:</span><br><span class="line">                    self.dfs(i,j,grid)</span><br><span class="line">                    cnt += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> cnt</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,i,j,grid)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> i &lt; <span class="number">0</span> <span class="keyword">or</span> j &lt; <span class="number">0</span> <span class="keyword">or</span> i &gt;= len(grid) <span class="keyword">or</span> j &gt;= len(grid[<span class="number">0</span>]) <span class="keyword">or</span> grid[i][j] == <span class="string">'0'</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        grid[i][j] = <span class="string">'0'</span></span><br><span class="line"></span><br><span class="line">        self.dfs(i+<span class="number">1</span>,j,grid)</span><br><span class="line">        self.dfs(i,j+<span class="number">1</span>,grid)</span><br><span class="line">        self.dfs(i<span class="number">-1</span>,j,grid)</span><br><span class="line">        self.dfs(i,j<span class="number">-1</span>,grid)</span><br></pre></td></tr></table></figure>
+<p>变种:<br>求perimeter of given island，注意想明白island的周长到底指什么</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numIslands</span><span class="params">(<span class="keyword">char</span>[][] grid, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (grid == <span class="keyword">null</span> || grid.length == <span class="number">0</span> || grid[<span class="number">0</span>] == <span class="keyword">null</span> || grid[<span class="number">0</span>].length == <span class="number">0</span>)    </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> m = grid.length, n = grid[<span class="number">0</span>].length;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt;= m || j &lt; <span class="number">0</span> || j &gt;= n || grid[i][j] != <span class="string">'1'</span>)    </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">boolean</span>[][] visited = <span class="keyword">new</span> <span class="keyword">boolean</span>[m][n];</span><br><span class="line">    <span class="comment">//O(1) space: directly modify the '1' to '2' to mark grid[i][j] visited</span></span><br><span class="line">    <span class="keyword">return</span> dfs(grid, visited, m, n, i, j);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">char</span>[][] grid, <span class="keyword">boolean</span>[][] visited, <span class="keyword">int</span> m, <span class="keyword">int</span> n, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (i &lt; <span class="number">0</span> || i &gt;= m || j &lt; <span class="number">0</span> || j &gt;= n || grid[i][j] != <span class="string">'1'</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>; <span class="comment">// important</span></span><br><span class="line">    <span class="keyword">if</span> (visited[i][j])   </span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    visited[i][j] = <span class="keyword">true</span>;</span><br><span class="line">    <span class="keyword">return</span> dfs(grid, visited, m, n, i + <span class="number">1</span>, j) +</span><br><span class="line">    dfs(grid, visited, m, n, i - <span class="number">1</span>, j) +</span><br><span class="line">    dfs(grid, visited, m, n, i, j + <span class="number">1</span>) + dfs(grid, visited, m, n, i, j - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Q:如何找湖的数量呢？湖的定义是某个0，其上下左右都是同一个岛屿的陆地。<br>A:我们可以先用Number of island的方法，把每个岛标记成不同的ID，<br>然后过一遍整个地图的每个点，如果是0的话，就DFS看这块连通水域是否被同一块岛屿包围，<br>如果出现了不同数字的陆地，则不是湖。</p>
+<p>A2:<br>第一步，从边缘处将所有的0用bfs遍历，标记成1，即把所以的大海变成陆地。<br>第二步，从边缘处将所有的1（包括大海变过来的1）用bfs遍历，<br>标记成2，即去掉所有的陆地。（这样可以去掉大海中的小岛）<br>第三部，再对剩下所有为1的小岛进行遍历，找到一个，结果加一。<br>（剩下的0全部为湖，剩下的1全部为湖中小岛）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/200-Number-of-Islands/" data-id="cjk98v54c000sx4vnygn6x6sr" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FollowUp/">FollowUp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-173-Binary-Search-Tree-Iterator" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/25/173-Binary-Search-Tree-Iterator/" class="article-date">
@@ -95,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/173-Binary-Search-Tree-Iterator/" data-id="cjk98kmet000ockvn8khzt0ic" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/173-Binary-Search-Tree-Iterator/" data-id="cjk98v548000lx4vn1zqbf7ro" class="article-share-link">Share</a>
       
       
       
@@ -144,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/261-Graph-Valid-Tree/" data-id="cjk98kmff001vckvnq6ve81yr" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/261-Graph-Valid-Tree/" data-id="cjk98v54u001ux4vn3vg0skms" class="article-share-link">Share</a>
       
       
       
@@ -188,7 +235,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/278-First-Bad-Version/" data-id="cjk98kmfj0021ckvncmc71p34" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/278-First-Bad-Version/" data-id="cjk98v54x0021x4vndc1ccu27" class="article-share-link">Share</a>
       
       
       
@@ -260,7 +307,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/" data-id="cjk98kmgb003qckvn4agp3hhh" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/" data-id="cjk98v55q003tx4vnft6wmo0b" class="article-share-link">Share</a>
       
       
       
@@ -306,7 +353,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/301-Remove-Invalid-Parentheses/" data-id="cjk98kmfq002hckvn70sq9wbf" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/301-Remove-Invalid-Parentheses/" data-id="cjk98v556002lx4vncgvrh6po" class="article-share-link">Share</a>
       
       
       
@@ -387,7 +434,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/56-Merge-Intervals/" data-id="cjk98kmg9003lckvnddwladv7" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/56-Merge-Intervals/" data-id="cjk98v55o003ox4vnomtwnnz6" class="article-share-link">Share</a>
       
       
       
@@ -444,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/253-Meeting-Rooms-II/" data-id="cjk98kmfd001qckvnyofy034n" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/253-Meeting-Rooms-II/" data-id="cjk98v54r001ox4vnvajnz7r8" class="article-share-link">Share</a>
       
       
       
@@ -491,7 +538,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk98kmfc001nckvn9r4b4c52" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/252-Meeting-Rooms/" data-id="cjk98v54s001rx4vnp2l2boxx" class="article-share-link">Share</a>
       
       
       
@@ -542,83 +589,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/78-Subsets/" data-id="cjk98kmgg0040ckvn5ifozs5o" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/24/78-Subsets/" data-id="cjk98v55u0043x4vnbs1quavt" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-80-Remove-Duplicates-from-Sorted-Array-II" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" class="article-date">
-  <time datetime="2018-07-25T00:54:56.000Z" itemprop="datePublished">2018-07-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/">80. Remove Duplicates from Sorted Array II</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Given nums = [1,1,1,2,2,3],</p>
-<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.</p>
-<p>It doesn’t matter what you leave beyond the returned length.</p>
-<p><br></p>
-<p>Remove Duplicates from Sorted Array I</p>
-<p>有个slow pointer 指向要替换的位置，如有符合的条件就slower++并替换，不符合就跳过</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i<span class="number">-1</span>] != nums[i]:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> start</span><br></pre></td></tr></table></figure>
-<p>Remove Duplicates from Sorted Array II</p>
-<p>同理，只不过是看前2个</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span>
-        <span class="string">"""</span>
-<span class="string">        :type nums: List[int]</span>
-<span class="string">        :rtype: int</span>
-<span class="string">        """</span>
-
-        <span class="keyword">if</span> <span class="keyword">not</span> nums <span class="keyword">or</span> len(nums) &lt; <span class="number">2</span>:
-            <span class="keyword">return</span> len(nums)
-
-        start = <span class="number">2</span>
-
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(nums)):
-            <span class="keyword">if</span> nums[start<span class="number">-2</span>] != nums[i]:
-                nums[start] = nums[i]
-                start += <span class="number">1</span>
-
-        <span class="keyword">return</span> start
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjk98kmgi0045ckvne1vs3085" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
 
     </footer>
   </div>
@@ -654,6 +629,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/30/398-Random-Pick-Index/">398. Random Pick Index </a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/380-Insert-Delete-GetRandom-O-1/">380. Insert Delete GetRandom O(1) </a>
           </li>
         
@@ -667,10 +646,6 @@
         
           <li>
             <a href="/2018/07/30/341-Flatten-Nested-List-Iterator/">341. Flatten Nested List Iterator </a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/30/477-Total-Hamming-Distance/">477. Total Hamming Distance </a>
           </li>
         
       </ul>

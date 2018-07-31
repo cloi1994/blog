@@ -66,6 +66,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-398-Random-Pick-Index" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/30/398-Random-Pick-Index/" class="article-date">
+  <time datetime="2018-07-31T05:06:59.000Z" itemprop="datePublished">2018-07-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/30/398-Random-Pick-Index/">398. Random Pick Index </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>turn number in to list of index</p>
+<p>and pick randomly in target’s list of index </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.index_dict = collections.defaultdict(list)</span><br><span class="line">        <span class="keyword">for</span> i, n <span class="keyword">in</span> enumerate(nums):</span><br><span class="line">            self.index_dict[n].append(i)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pick</span><span class="params">(self, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        res_list = self.index_dict[target]</span><br><span class="line">        rand = random.randint(<span class="number">0</span>, len(res_list)<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> res_list[rand]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Your Solution object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = Solution(nums)</span></span><br><span class="line"><span class="comment"># param_1 = obj.pick(target)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/30/398-Random-Pick-Index/" data-id="cjk98v55e0034x4vn0xs1eui8" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-380-Insert-Delete-GetRandom-O-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/30/380-Insert-Delete-GetRandom-O-1/" class="article-date">
@@ -150,7 +195,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/380-Insert-Delete-GetRandom-O-1/" data-id="cjk98kmg00034ckvnk4trtow8" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/380-Insert-Delete-GetRandom-O-1/" data-id="cjk98v55f0036x4vnhtz54e11" class="article-share-link">Share</a>
       
       
       
@@ -193,7 +238,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/377-Combination-Sum-IV/" data-id="cjk98kmfw002wckvn2bk9itxu" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/377-Combination-Sum-IV/" data-id="cjk98v55c002zx4vnt9nx4qs8" class="article-share-link">Share</a>
       
       
       
@@ -265,7 +310,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/494-Target-Sum/" data-id="cjk98kmg6003eckvnkwkp7f6s" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/494-Target-Sum/" data-id="cjk98v55l003jx4vnpcjhrb0i" class="article-share-link">Share</a>
       
       
       
@@ -308,7 +353,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/341-Flatten-Nested-List-Iterator/" data-id="cjk98kmfv002uckvno60dbbv9" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/341-Flatten-Nested-List-Iterator/" data-id="cjk98v559002sx4vnlem0hei8" class="article-share-link">Share</a>
       
       
       
@@ -357,7 +402,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/477-Total-Hamming-Distance/" data-id="cjk98kmg4003bckvnzpwvcqvm" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/477-Total-Hamming-Distance/" data-id="cjk98v55j003ex4vn9xby7fjp" class="article-share-link">Share</a>
       
       
       
@@ -400,7 +445,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/461-Hamming-Distance/" data-id="cjk98kmg30039ckvnrpfpvq7h" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/461-Hamming-Distance/" data-id="cjk98v55k003gx4vn7wk6ii03" class="article-share-link">Share</a>
       
       
       
@@ -445,7 +490,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/404-Sum-of-Left-Leaves/" data-id="cjk98kmg10036ckvn8qz5504c" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/404-Sum-of-Left-Leaves/" data-id="cjk98v55h0039x4vn9szr2p61" class="article-share-link">Share</a>
       
       
       
@@ -534,7 +579,7 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/210-Course-Schedule-II/" data-id="cjk98kmf00012ckvnfci7l34n" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/210-Course-Schedule-II/" data-id="cjk98v54g0011x4vn9ln825e5" class="article-share-link">Share</a>
       
       
       
@@ -581,54 +626,11 @@ def getRandom(self):
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/139-Word-Break/" data-id="cjk98kmek000ackvn6klzcmlw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/139-Word-Break/" data-id="cjk98v53z0008x4vnzfs8ider" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-146-LRU-Cache" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/29/146-LRU-Cache/" class="article-date">
-  <time datetime="2018-07-30T03:24:48.000Z" itemprop="datePublished">2018-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/146-LRU-Cache/">146. LRU Cache </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k,v)</span>:</span></span><br><span class="line">        self.key = k</span><br><span class="line">        self.val = v</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line">        self.prev = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DLL</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.head = Node(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        self.tail = Node(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        self.head.next = self.tail</span><br><span class="line">        self.tail.prev = self.head</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeTail</span><span class="params">(self)</span>:</span></span><br><span class="line">        oldTail = self.tail.prev</span><br><span class="line">        node = oldTail.prev</span><br><span class="line">        node.next = self.tail</span><br><span class="line">        self.tail.prev = node</span><br><span class="line">        <span class="keyword">return</span> oldTail</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addToHead</span><span class="params">(self,node)</span>:</span></span><br><span class="line">        node.next = self.head.next</span><br><span class="line">        self.head.next.prev = node</span><br><span class="line">        self.head.next = node</span><br><span class="line">        node.prev = self.head</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeNode</span><span class="params">(self,node)</span>:</span></span><br><span class="line">        node.prev.next = node.next</span><br><span class="line">        node.next.prev = node.prev</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type capacity: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.hm = &#123;&#125;</span><br><span class="line">        self.dll = DLL()</span><br><span class="line">        self.capacity = capacity</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type key: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> self.hm:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        node = self.hm[key]</span><br><span class="line">        self.dll.removeNode(node)</span><br><span class="line">        self.dll.addToHead(node)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node.val</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type key: int</span></span><br><span class="line"><span class="string">        :type value: int</span></span><br><span class="line"><span class="string">        :rtype: void</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> self.hm:</span><br><span class="line">            self.dll.removeNode(self.hm[key])</span><br><span class="line">            node = Node(key,value)</span><br><span class="line">            self.hm[key] = node</span><br><span class="line">            self.dll.addToHead(node)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment">#full</span></span><br><span class="line">            <span class="keyword">if</span> len(self.hm) == self.capacity:</span><br><span class="line">                <span class="comment">#evit key</span></span><br><span class="line">                oldTail = self.dll.removeTail()  </span><br><span class="line">                self.hm.pop(oldTail.key)</span><br><span class="line"></span><br><span class="line">            node = Node(key,value)</span><br><span class="line">            self.hm[key] = node</span><br><span class="line">            self.dll.addToHead(node)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Your LRUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = LRUCache(capacity)</span></span><br><span class="line"><span class="comment"># param_1 = obj.get(key)</span></span><br><span class="line"><span class="comment"># obj.put(key,value)</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/146-LRU-Cache/" data-id="cjk98kmel000cckvns8i8ehq6" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinkedList/">LinkedList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -653,7 +655,7 @@ def getRandom(self):
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">72</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">73</span></li></ul>
     </div>
   </div>
 
@@ -678,6 +680,10 @@ def getRandom(self):
       <ul>
         
           <li>
+            <a href="/2018/07/30/398-Random-Pick-Index/">398. Random Pick Index </a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/380-Insert-Delete-GetRandom-O-1/">380. Insert Delete GetRandom O(1) </a>
           </li>
         
@@ -691,10 +697,6 @@ def getRandom(self):
         
           <li>
             <a href="/2018/07/30/341-Flatten-Nested-List-Iterator/">341. Flatten Nested List Iterator </a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/30/477-Total-Hamming-Distance/">477. Total Hamming Distance </a>
           </li>
         
       </ul>

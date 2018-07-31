@@ -66,6 +66,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-146-LRU-Cache" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/29/146-LRU-Cache/" class="article-date">
+  <time datetime="2018-07-30T03:24:48.000Z" itemprop="datePublished">2018-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/146-LRU-Cache/">146. LRU Cache </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,k,v)</span>:</span></span><br><span class="line">        self.key = k</span><br><span class="line">        self.val = v</span><br><span class="line">        self.next = <span class="keyword">None</span></span><br><span class="line">        self.prev = <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">DLL</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.head = Node(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        self.tail = Node(<span class="number">1</span>,<span class="number">1</span>)</span><br><span class="line">        self.head.next = self.tail</span><br><span class="line">        self.tail.prev = self.head</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeTail</span><span class="params">(self)</span>:</span></span><br><span class="line">        oldTail = self.tail.prev</span><br><span class="line">        node = oldTail.prev</span><br><span class="line">        node.next = self.tail</span><br><span class="line">        self.tail.prev = node</span><br><span class="line">        <span class="keyword">return</span> oldTail</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addToHead</span><span class="params">(self,node)</span>:</span></span><br><span class="line">        node.next = self.head.next</span><br><span class="line">        self.head.next.prev = node</span><br><span class="line">        self.head.next = node</span><br><span class="line">        node.prev = self.head</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeNode</span><span class="params">(self,node)</span>:</span></span><br><span class="line">        node.prev.next = node.next</span><br><span class="line">        node.next.prev = node.prev</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">LRUCache</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, capacity)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type capacity: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.hm = &#123;&#125;</span><br><span class="line">        self.dll = DLL()</span><br><span class="line">        self.capacity = capacity</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get</span><span class="params">(self, key)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type key: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">not</span> <span class="keyword">in</span> self.hm:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        node = self.hm[key]</span><br><span class="line">        self.dll.removeNode(node)</span><br><span class="line">        self.dll.addToHead(node)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> node.val</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">put</span><span class="params">(self, key, value)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type key: int</span></span><br><span class="line"><span class="string">        :type value: int</span></span><br><span class="line"><span class="string">        :rtype: void</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> key <span class="keyword">in</span> self.hm:</span><br><span class="line">            self.dll.removeNode(self.hm[key])</span><br><span class="line">            node = Node(key,value)</span><br><span class="line">            self.hm[key] = node</span><br><span class="line">            self.dll.addToHead(node)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">        <span class="comment">#full</span></span><br><span class="line">            <span class="keyword">if</span> len(self.hm) == self.capacity:</span><br><span class="line">                <span class="comment">#evit key</span></span><br><span class="line">                oldTail = self.dll.removeTail()  </span><br><span class="line">                self.hm.pop(oldTail.key)</span><br><span class="line"></span><br><span class="line">            node = Node(key,value)</span><br><span class="line">            self.hm[key] = node</span><br><span class="line">            self.dll.addToHead(node)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Your LRUCache object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = LRUCache(capacity)</span></span><br><span class="line"><span class="comment"># param_1 = obj.get(key)</span></span><br><span class="line"><span class="comment"># obj.put(key,value)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/29/146-LRU-Cache/" data-id="cjk98v541000bx4vnok7wnl91" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinkedList/">LinkedList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-285-Inorder-Successor-in-BST" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/29/285-Inorder-Successor-in-BST/" class="article-date">
@@ -95,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/285-Inorder-Successor-in-BST/" data-id="cjk98kmfn002ackvnadmnnj4f" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/285-Inorder-Successor-in-BST/" data-id="cjk98v552002bx4vnah9q86tt" class="article-share-link">Share</a>
       
       
       
@@ -138,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/133-Clone-Graph/" data-id="cjk98kmej0008ckvn5mzvqcme" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/133-Clone-Graph/" data-id="cjk98v540000ax4vnp8gbu5u1" class="article-share-link">Share</a>
       
       
       
@@ -181,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/" data-id="cjk98kmes000mckvnzjbj38kw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/" data-id="cjk98v54a000ox4vnq4dokgiy" class="article-share-link">Share</a>
       
       
       
@@ -243,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/215-Kth-Largest-Element-in-an-Array/" data-id="cjk98kmf30019ckvnek03t5ft" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/215-Kth-Largest-Element-in-an-Array/" data-id="cjk98v54i0015x4vnbv21nax5" class="article-share-link">Share</a>
       
       
       
@@ -286,7 +329,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/15-3Sum/" data-id="cjk98kmeo000fckvno4hkl8xd" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/15-3Sum/" data-id="cjk98v544000ex4vn7pem0g0o" class="article-share-link">Share</a>
       
       
       
@@ -352,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/206-Reverse-Linked-List/" data-id="cjk98kmex000vckvnmzp3n3i1" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/206-Reverse-Linked-List/" data-id="cjk98v54e000wx4vnv50dk0c6" class="article-share-link">Share</a>
       
       
       
@@ -409,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/28-Implement-strStr/" data-id="cjk98kmfl0026ckvnl0jn7zfb" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/28-Implement-strStr/" data-id="cjk98v54y0024x4vnoi4leu3j" class="article-share-link">Share</a>
       
       
       
@@ -453,7 +496,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/282-Expression-Add-Operators/" data-id="cjk98kmfk0024ckvnqs9ftuso" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/282-Expression-Add-Operators/" data-id="cjk98v54z0026x4vn0pna1smi" class="article-share-link">Share</a>
       
       
       
@@ -498,59 +541,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/269-Alien-Dictionary/" data-id="cjk98kmfg001xckvnv1q1nxyp" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/269-Alien-Dictionary/" data-id="cjk98v54v001wx4vn8y2inz9n" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">Graph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-75-Sort-Colors" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/28/75-Sort-Colors/" class="article-date">
-  <time datetime="2018-07-29T02:53:58.000Z" itemprop="datePublished">2018-07-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/28/75-Sort-Colors/">75. Sort Colors </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>一开始想到的就是计数排序，但是计数排序需要两边扫描，第一遍统计红，白，蓝的数目，第二遍生成新数组。</p>
-<p>考虑到题目要求one pass。这就意味着类似于链表的双指针问题，这里也要track两个index，<br>一个是red的index，一个是blue的index，两边往中间走。</p>
-<p>i从0到blue index扫描，<br>遇到0，放在red index位置，red index后移；<br>遇到2，放在blue index位置，blue index前移；<br>遇到1，i后移。<br>扫描一遍得到排好序的数组。时间O(n)，空间O(1)，</p>
-<p>Follow Up:</p>
-<p>what if N color?<br>A: use counting sort</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortColors</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        red = <span class="number">0</span></span><br><span class="line">        blue = len(nums)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; blue+<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> nums[i] == <span class="number">2</span>:</span><br><span class="line">                nums[blue],nums[i] = nums[i],nums[blue]</span><br><span class="line">                blue -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> nums[i] == <span class="number">1</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nums[red],nums[i] = nums[i],nums[red]</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                red += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/75-Sort-Colors/" data-id="cjk98kmgf003yckvnef7d3nr4" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -586,6 +581,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/30/398-Random-Pick-Index/">398. Random Pick Index </a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/380-Insert-Delete-GetRandom-O-1/">380. Insert Delete GetRandom O(1) </a>
           </li>
         
@@ -599,10 +598,6 @@
         
           <li>
             <a href="/2018/07/30/341-Flatten-Nested-List-Iterator/">341. Flatten Nested List Iterator </a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/30/477-Total-Hamming-Distance/">477. Total Hamming Distance </a>
           </li>
         
       </ul>

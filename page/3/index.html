@@ -66,6 +66,54 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-75-Sort-Colors" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/28/75-Sort-Colors/" class="article-date">
+  <time datetime="2018-07-29T02:53:58.000Z" itemprop="datePublished">2018-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/28/75-Sort-Colors/">75. Sort Colors </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>一开始想到的就是计数排序，但是计数排序需要两边扫描，第一遍统计红，白，蓝的数目，第二遍生成新数组。</p>
+<p>考虑到题目要求one pass。这就意味着类似于链表的双指针问题，这里也要track两个index，<br>一个是red的index，一个是blue的index，两边往中间走。</p>
+<p>i从0到blue index扫描，<br>遇到0，放在red index位置，red index后移；<br>遇到2，放在blue index位置，blue index前移；<br>遇到1，i后移。<br>扫描一遍得到排好序的数组。时间O(n)，空间O(1)，</p>
+<p>Follow Up:</p>
+<p>what if N color?<br>A: use counting sort</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortColors</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        red = <span class="number">0</span></span><br><span class="line">        blue = len(nums)<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; blue+<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">if</span> nums[i] == <span class="number">2</span>:</span><br><span class="line">                nums[blue],nums[i] = nums[i],nums[blue]</span><br><span class="line">                blue -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">elif</span> nums[i] == <span class="number">1</span>:</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                nums[red],nums[i] = nums[i],nums[red]</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                red += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/28/75-Sort-Colors/" data-id="cjk98v55t0040x4vnycxb3zjp" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-218-The-Skyline-Problem" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/28/218-The-Skyline-Problem/" class="article-date">
@@ -95,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/218-The-Skyline-Problem/" data-id="cjk98kmf20016ckvnv462y06r" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/218-The-Skyline-Problem/" data-id="cjk98v54k0017x4vnff77k24z" class="article-share-link">Share</a>
       
       
       
@@ -138,7 +186,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/127-Word-Ladder/" data-id="cjk98kmeg0005ckvnrpfxg9n8" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/127-Word-Ladder/" data-id="cjk98v53y0007x4vn1vo8cdl3" class="article-share-link">Share</a>
       
       
       
@@ -181,7 +229,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/13-Roman-to-Integer/" data-id="cjk98kmeh0007ckvny9udw701" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/13-Roman-to-Integer/" data-id="cjk98v53w0005x4vnp7xyvr76" class="article-share-link">Share</a>
       
       
       
@@ -224,7 +272,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/20-Valid-Parentheses/" data-id="cjk98kmeu000qckvnlywsth78" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/20-Valid-Parentheses/" data-id="cjk98v54a000px4vnh9tm0e3s" class="article-share-link">Share</a>
       
       
       
@@ -295,7 +343,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/91-Decode-Ways/" data-id="cjk98kmgm004cckvnqz728syq" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/91-Decode-Ways/" data-id="cjk98v562004fx4vn5pzxx78v" class="article-share-link">Share</a>
       
       
       
@@ -338,7 +386,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/297-Serialize-and-Deserialize-Binary-Tree/" data-id="cjk98kmfo002cckvn8aye1cnp" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/297-Serialize-and-Deserialize-Binary-Tree/" data-id="cjk98v552002dx4vn67sadz46" class="article-share-link">Share</a>
       
       
       
@@ -381,7 +429,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/314-Binary-Tree-Vertical-Order-Traversal/" data-id="cjk98kmfs002mckvnnx68a74r" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/314-Binary-Tree-Vertical-Order-Traversal/" data-id="cjk98v557002nx4vnpqwa31sw" class="article-share-link">Share</a>
       
       
       
@@ -456,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="cjk98kmf7001eckvno0dt7y5n" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="cjk98v54n001ex4vnercxlag6" class="article-share-link">Share</a>
       
       
       
@@ -535,54 +583,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/33-Search-in-Rotated-Sorted-Array/" data-id="cjk98kmfu002rckvn3drnlybe" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/33-Search-in-Rotated-Sorted-Array/" data-id="cjk98v55a002ux4vn021e0k7v" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BinarySearch/">BinarySearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-Lexicographic-Order-With-Digit" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/28/Lexicographic-Order-With-Digit/" class="article-date">
-  <time datetime="2018-07-28T23:42:21.000Z" itemprop="datePublished">2018-07-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/28/Lexicographic-Order-With-Digit/">Lexicographic Order With Digit</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorld</span></span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String []args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//ab12ab, ab12a2b,  a121b12, a12</span></span><br><span class="line">        System.out.println(myCompareTo(<span class="string">"ab12ab"</span>,<span class="string">"ab12a2b"</span>));</span><br><span class="line">     &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">myCompareTo</span><span class="params">(String a, String b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> aLength = a.length(), bLength = b.length();</span><br><span class="line">    <span class="keyword">int</span> minLength = Math.min(aLength, bLength);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; minLength; i++)</span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and not b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> -<span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> not a.charAt(i).isDigit() and  b.charAt(i).isDigit()&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> a.charAt(i).isDigit() and b.charAt(i).isDigit()&#123;</span><br><span class="line"></span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &gt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">              <span class="keyword">if</span> (<span class="keyword">int</span>(a.charAt(i)) &lt; <span class="keyword">int</span>(b.charAt(i))) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &gt; b.charAt(i)) <span class="keyword">return</span> <span class="number">1</span>;    </span><br><span class="line">        <span class="keyword">if</span> (a.charAt(i) &lt; b.charAt(i)) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (aLength &gt; bLength) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (aLength &lt; bLength) <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/Lexicographic-Order-With-Digit/" data-id="cjk98kmgp004hckvnw58l9p68" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -618,6 +623,10 @@
       <ul>
         
           <li>
+            <a href="/2018/07/30/398-Random-Pick-Index/">398. Random Pick Index </a>
+          </li>
+        
+          <li>
             <a href="/2018/07/30/380-Insert-Delete-GetRandom-O-1/">380. Insert Delete GetRandom O(1) </a>
           </li>
         
@@ -631,10 +640,6 @@
         
           <li>
             <a href="/2018/07/30/341-Flatten-Nested-List-Iterator/">341. Flatten Nested List Iterator </a>
-          </li>
-        
-          <li>
-            <a href="/2018/07/30/477-Total-Hamming-Distance/">477. Total Hamming Distance </a>
           </li>
         
       </ul>
