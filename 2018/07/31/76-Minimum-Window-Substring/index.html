@@ -5,14 +5,18 @@
   
   <title>76. Minimum Window Substring  | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546class Solution(object):    def minWindow(self, s, t):        &quot;&quot;&quot;        :type s: str        :type t: str        :rtyp">
+<meta name="keywords" content="Remember,Hard">
+<meta property="og:type" content="article">
 <meta property="og:title" content="76. Minimum Window Substring ">
 <meta property="og:url" content="http://fbnote.netlify.com/2018/07/31/76-Minimum-Window-Substring/index.html">
 <meta property="og:site_name" content="FB Note">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546class Solution(object):    def minWindow(self, s, t):        &quot;&quot;&quot;        :type s: str        :type t: str        :rtyp">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-01T03:49:23.322Z">
+<meta property="og:updated_time" content="2018-08-01T04:02:12.434Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="76. Minimum Window Substring ">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334353637383940414243444546class Solution(object):    def minWindow(self, s, t):        &quot;&quot;&quot;        :type s: str        :type t: str        :rtyp">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -89,14 +93,17 @@
       
         <!-- Table of Contents -->
         
-        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minWindow</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :type t: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        tmap = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ele <span class="keyword">in</span> t:</span><br><span class="line">            tmap[ele] = tmap.get(ele,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        minLen = len(s) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        res = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(s)):</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> s[j] <span class="keyword">in</span> tmap:</span><br><span class="line"></span><br><span class="line">                tmap[s[j]] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> tmap[s[j]] &gt;= <span class="number">0</span>:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">             <span class="comment"># minimize</span></span><br><span class="line">            <span class="keyword">while</span> count == len(t):</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> minLen &gt; j - i + <span class="number">1</span>:</span><br><span class="line">                    minLen = j -i + <span class="number">1</span></span><br><span class="line">                    res = s[i:j+<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> s[i] <span class="keyword">in</span> tmap:</span><br><span class="line">                    tmap[s[i]] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> tmap[s[i]] &gt; <span class="number">0</span>:</span><br><span class="line">                        count -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/31/76-Minimum-Window-Substring/" data-id="cjkalel3c005sjgvnu8lu1iml" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/31/76-Minimum-Window-Substring/" data-id="cjkaluuii004ohcvnh78e23dy" class="article-share-link">Share</a>
       
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
     </footer>
   </div>
   
