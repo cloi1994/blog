@@ -66,6 +66,121 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-377-Combination-Sum-IV" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/30/377-Combination-Sum-IV/" class="article-date">
+  <time datetime="2018-07-31T05:01:22.000Z" itemprop="datePublished">2018-07-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/30/377-Combination-Sum-IV/">377. Combination Sum IV </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum4</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        dp = [<span class="number">1</span>] + [<span class="number">-1</span>] * target</span><br><span class="line"></span><br><span class="line">        self.dfs(nums,target,dp)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> dp[target]</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,nums,target,dp)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> dp[target] != <span class="number">-1</span>:</span><br><span class="line">            <span class="keyword">return</span> dp[target]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        summ = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            summ += self.dfs(nums,target-nums[i],dp)</span><br><span class="line"></span><br><span class="line">        dp[target] = summ</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> summ</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/30/377-Combination-Sum-IV/" data-id="cjkc9cjrh002yw8vn35p6kizq" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-494-Target-Sum" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/30/494-Target-Sum/" class="article-date">
+  <time datetime="2018-07-31T04:45:23.000Z" itemprop="datePublished">2018-07-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/30/494-Target-Sum/">494. Target Sum </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Memo idx and path</p>
+<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">findTargetSumWays</span><span class="params">(self, nums, S)</span>:</span>
+        <span class="string">"""</span>
+<span class="string">        :type nums: List[int]</span>
+<span class="string">        :type S: int</span>
+<span class="string">        :rtype: int</span>
+<span class="string">        """</span>
+        dp = [{} <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(nums)+<span class="number">1</span>)]
+
+        <span class="keyword">return</span> self.dfs(<span class="number">0</span>,nums,dp,<span class="number">0</span>,S)
+
+
+    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,idx,nums,dp,path,S)</span>:</span>
+
+        <span class="keyword">if</span> path <span class="keyword">in</span> dp[idx]:
+            <span class="keyword">return</span> dp[idx][path]
+
+        <span class="keyword">if</span> idx == len(nums):
+            <span class="keyword">if</span> path == S:
+                <span class="keyword">return</span> <span class="number">1</span>
+            <span class="keyword">return</span> <span class="number">0</span>
+
+        count = self.dfs(idx+<span class="number">1</span>,nums,dp,path-nums[idx],S) +
+         self.dfs(idx+<span class="number">1</span>,nums,dp,path+nums[idx],S)
+
+        dp[idx][path] = count
+
+        <span class="keyword">return</span> count
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/30/494-Target-Sum/" data-id="cjkc9cjro003fw8vnsihvhdvn" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-341-Flatten-Nested-List-Iterator" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/30/341-Flatten-Nested-List-Iterator/" class="article-date">
@@ -95,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/341-Flatten-Nested-List-Iterator/" data-id="cjkc38fpx006c9cvnob14f2zc" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/341-Flatten-Nested-List-Iterator/" data-id="cjkc9cjrg002ww8vnxlyjirxf" class="article-share-link">Share</a>
       
       
       
@@ -144,7 +259,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/477-Total-Hamming-Distance/" data-id="cjkc38fqa006v9cvnzn8y2c0d" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/477-Total-Hamming-Distance/" data-id="cjkc9cjrn003dw8vn27eja7e5" class="article-share-link">Share</a>
       
       
       
@@ -187,7 +302,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/461-Hamming-Distance/" data-id="cjkc38fq6006o9cvn3t8ymmje" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/461-Hamming-Distance/" data-id="cjkc9cjrk0035w8vn1ee67jrj" class="article-share-link">Share</a>
       
       
       
@@ -232,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/404-Sum-of-Left-Leaves/" data-id="cjkc38fq8006s9cvnuw5e8kwf" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/404-Sum-of-Left-Leaves/" data-id="cjkc9cjrm003aw8vnk99u123d" class="article-share-link">Share</a>
       
       
       
@@ -321,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/210-Course-Schedule-II/" data-id="cjkc38fn4000v9cvng3heenhe" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/210-Course-Schedule-II/" data-id="cjkc9cjqr001ew8vnpszl5bdi" class="article-share-link">Share</a>
       
       
       
@@ -368,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/30/139-Word-Break/" data-id="cjkc38fmq000b9cvnc7wx4wip" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/30/139-Word-Break/" data-id="cjkc9cjq9000hw8vnw2rvqw7b" class="article-share-link">Share</a>
       
       
       
@@ -411,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/146-LRU-Cache/" data-id="cjkc38fmn00089cvnvbaueu1y" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/146-LRU-Cache/" data-id="cjkc9cjqa000kw8vnwlnhxa6e" class="article-share-link">Share</a>
       
       
       
@@ -454,7 +569,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/285-Inorder-Successor-in-BST/" data-id="cjkc38fqd006z9cvnjrjbu7w6" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/285-Inorder-Successor-in-BST/" data-id="cjkc9cjr8002fw8vn8pl7exdb" class="article-share-link">Share</a>
       
       
       
@@ -468,96 +583,10 @@
 
 
   
-    <article id="post-133-Clone-Graph" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/29/133-Clone-Graph/" class="article-date">
-  <time datetime="2018-07-30T02:21:42.000Z" itemprop="datePublished">2018-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/133-Clone-Graph/">133. Clone Graph</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a undirected graph node</span></span><br><span class="line"><span class="comment"># class UndirectedGraphNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.label = x</span></span><br><span class="line"><span class="comment">#         self.neighbors = []</span></span><br><span class="line"></span><br><span class="line">如果图不连通，定义hashset，set&lt;node&gt; 每deep copy完一个，就remove</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># @param node, a undirected graph node</span></span><br><span class="line">    <span class="comment"># @return a undirected graph node</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">cloneGraph</span><span class="params">(self, node)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">        self.hm = &#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.dfs(node)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,node)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">in</span> self.hm:</span><br><span class="line">            <span class="keyword">return</span> self.hm[node]</span><br><span class="line"></span><br><span class="line">        root = UndirectedGraphNode(node.label)</span><br><span class="line"></span><br><span class="line">        self.hm[node] = root</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> node.neighbors:</span><br><span class="line">            root.neighbors.append(self.dfs(n))</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/133-Clone-Graph/" data-id="cjkc38fmw000i9cvn0s8fegah" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-17-Letter-Combinations-of-a-Phone-Number" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/" class="article-date">
-  <time datetime="2018-07-30T01:33:13.000Z" itemprop="datePublished">2018-07-29</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/">17. Letter Combinations of a Phone Number</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">letterCombinations</span><span class="params">(self, digits)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type digits: str</span></span><br><span class="line"><span class="string">        :rtype: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> digits:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">        self.d = &#123;<span class="string">'2'</span>:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>],<span class="string">'3'</span>:[<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>],<span class="string">'4'</span>:[<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>],<span class="string">'5'</span>:[<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>],<span class="string">'6'</span>:[<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>],<span class="string">'7'</span>:[<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>], <span class="string">'8'</span>:[<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>],<span class="string">'9'</span>:[<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>]&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        self.dfs(<span class="number">0</span>,digits,[],res)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,idx,digits,tmp,res)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> idx == len(digits):</span><br><span class="line">            res.append(<span class="string">''</span>.join(tmp[:]))</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ele <span class="keyword">in</span> self.d[digits[idx]]:</span><br><span class="line">            tmp.append(ele)</span><br><span class="line">            self.dfs(idx+<span class="number">1</span>,digits,tmp,res)</span><br><span class="line">            tmp.pop()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/" data-id="cjkc38fn6000y9cvnfbp0zzac" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">Next&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/4/">Next&raquo;</a>
   </nav>
 </section>
            
@@ -580,6 +609,14 @@
       <ul>
         
           <li>
+            <a href="/2018/08/02/721-Accounts-Merge/">721. Accounts Merge </a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/01/745-Prefix-and-Suffix-Search/">745. Prefix and Suffix Search </a>
+          </li>
+        
+          <li>
             <a href="/2018/08/01/784-Letter-Case-Permutation/">784. Letter Case Permutation </a>
           </li>
         
@@ -589,14 +626,6 @@
         
           <li>
             <a href="/2018/08/01/680-Valid-Palindrome-II/">680. Valid Palindrome II </a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/01/670-Maximum-Swap/">670. Maximum Swap </a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/01/674-Longest-Continuous-Increasing-Subsequence/">674. Longest Continuous Increasing Subsequence </a>
           </li>
         
       </ul>

@@ -66,6 +66,92 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-127-Word-Ladder" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/28/127-Word-Ladder/" class="article-date">
+  <time datetime="2018-07-29T01:17:21.000Z" itemprop="datePublished">2018-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/28/127-Word-Ladder/">127. Word Ladder</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">ladderLength</span><span class="params">(self, beginWord, endWord, wordList)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type beginWord: str</span></span><br><span class="line"><span class="string">        :type endWord: str</span></span><br><span class="line"><span class="string">        :type wordList: List[str]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> endWord <span class="keyword">not</span> <span class="keyword">in</span> wordList:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        step = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        wordList = set(wordList)</span><br><span class="line"></span><br><span class="line">        q = [beginWord]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q != []:</span><br><span class="line"></span><br><span class="line">            step += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            size = len(q)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(size):</span><br><span class="line"></span><br><span class="line">                word = q.pop(<span class="number">0</span>)                                </span><br><span class="line">                wordInList = list(word)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word)):</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">for</span> letter <span class="keyword">in</span> <span class="string">'abcdefghijklmnopqrstuvwxyz'</span>:</span><br><span class="line">                        wordInList[i] = letter</span><br><span class="line"></span><br><span class="line">                        newWord = <span class="string">''</span>.join(wordInList)</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> newWord == endWord:</span><br><span class="line">                            <span class="keyword">return</span> step + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                        <span class="keyword">if</span> newWord <span class="keyword">not</span> <span class="keyword">in</span> wordList:</span><br><span class="line">                            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                        wordList.remove(newWord)</span><br><span class="line">                        q.append(newWord)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">                    wordInList = list(word)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/28/127-Word-Ladder/" data-id="cjkc9cjq20005w8vn9ttbts0b" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-13-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/28/13-Roman-to-Integer/" class="article-date">
+  <time datetime="2018-07-29T01:14:53.000Z" itemprop="datePublished">2018-07-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/28/13-Roman-to-Integer/">13. Roman to Integer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">romanToInt</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        dic = &#123;<span class="string">'I'</span>:<span class="number">1</span>,<span class="string">'V'</span>:<span class="number">5</span>,<span class="string">'X'</span>:<span class="number">10</span>,<span class="string">'L'</span>:<span class="number">50</span>,<span class="string">'C'</span>:<span class="number">100</span>,<span class="string">'D'</span>:<span class="number">500</span>,<span class="string">'M'</span>:<span class="number">1000</span>&#125;</span><br><span class="line"></span><br><span class="line">        summ = dic[s[<span class="number">-1</span>]]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> dic[s[i+<span class="number">1</span>]] &gt; dic[s[i]]:</span><br><span class="line">                summ -= dic[s[i]]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                summ += dic[s[i]]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> summ</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/28/13-Roman-to-Integer/" data-id="cjkc9cjq5000aw8vnr2i4vqja" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-20-Valid-Parentheses" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/28/20-Valid-Parentheses/" class="article-date">
@@ -95,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/20-Valid-Parentheses/" data-id="cjkc38fn900159cvn7azqkw6r" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/20-Valid-Parentheses/" data-id="cjkc9cjqh000vw8vnbn60ow57" class="article-share-link">Share</a>
       
       
       
@@ -166,7 +252,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/91-Decode-Ways/" data-id="cjkc38fr7008f9cvnbp6sb4dw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/91-Decode-Ways/" data-id="cjkc9cjsp005hw8vnnfb9t6pe" class="article-share-link">Share</a>
       
       
       
@@ -209,7 +295,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/297-Serialize-and-Deserialize-Binary-Tree/" data-id="cjkc38fnv002d9cvn3nzg8kfj" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/297-Serialize-and-Deserialize-Binary-Tree/" data-id="cjkc9cjr9002hw8vnfsdpt2b9" class="article-share-link">Share</a>
       
       
       
@@ -252,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/314-Binary-Tree-Vertical-Order-Traversal/" data-id="cjkc38fnw002f9cvndiv4a7qi" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/314-Binary-Tree-Vertical-Order-Traversal/" data-id="cjkc9cjrc002mw8vnqq7gohux" class="article-share-link">Share</a>
       
       
       
@@ -327,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="cjkc38fnl001s9cvnqmx7y0nm" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/235-Lowest-Common-Ancestor-of-a-Binary-Search-Tree/" data-id="cjkc9cjqs001gw8vngzupqbwp" class="article-share-link">Share</a>
       
       
       
@@ -406,7 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/33-Search-in-Rotated-Sorted-Array/" data-id="cjkc38fpw006b9cvnmscg7ocz" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/33-Search-in-Rotated-Sorted-Array/" data-id="cjkc9cjrd002ow8vnx6mz7npa" class="article-share-link">Share</a>
       
       
       
@@ -449,7 +535,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/Lexicographic-Order-With-Digit/" data-id="cjkc38fr8008h9cvno82pjx8h" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/Lexicographic-Order-With-Digit/" data-id="cjkc9cjst005rw8vn7ab5ilcy" class="article-share-link">Share</a>
       
       
       
@@ -492,7 +578,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/273-Integer-to-English-Words/" data-id="cjkc38fnm001v9cvnmasodjnv" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/273-Integer-to-English-Words/" data-id="cjkc9cjr10022w8vnia4yw0kx" class="article-share-link">Share</a>
       
       
       
@@ -506,99 +592,10 @@
 
 
   
-    <article id="post-238-Product-of-Array-Except-Self" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/27/238-Product-of-Array-Except-Self/" class="article-date">
-  <time datetime="2018-07-28T04:09:41.000Z" itemprop="datePublished">2018-07-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/238-Product-of-Array-Except-Self/">238. Product of Array Except Self</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>除法: 只要数组所有数相乘的结果依次除于当前数就可得结果</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">productExceptSelf</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        p = [<span class="number">1</span>] * len(nums)</span><br><span class="line">        mult = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            mult *= nums[i<span class="number">-1</span>]</span><br><span class="line">            p[i] *= mult</span><br><span class="line">        mult = <span class="number">1</span>  </span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            mult *= nums[i+<span class="number">1</span>]</span><br><span class="line">            p[i] *= mult  </span><br><span class="line">        <span class="keyword">return</span> p</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/238-Product-of-Array-Except-Self/" data-id="cjkc38fng001i9cvnmf2nvudw" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-121-Best-Time-to-Buy-and-Sell-Stock" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" class="article-date">
-  <time datetime="2018-07-28T03:39:10.000Z" itemprop="datePublished">2018-07-27</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/">121. Best Time to Buy and Sell Stock </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>get all the gain in a array and turn it to maximum subarray</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prices: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> prices <span class="keyword">or</span> len(prices) &lt; <span class="number">2</span>:</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        gain = [<span class="number">0</span>] * (len(price)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">        dp = [<span class="number">0</span>] * len(gain)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(prices)):</span><br><span class="line">            gain[i<span class="number">-1</span>] = prices[i] - prices[i<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        dp[<span class="number">0</span>] = gain[<span class="number">0</span>]    </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">            dp[i] = max(dp[i<span class="number">-1</span>] + gain[i] , gain[i])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max(<span class="number">0</span>,max(dp))</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localMax = gain[<span class="number">0</span>]</span><br><span class="line">globalMax = gain[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">    localMax = max(localMax + gain[i] , gain[i])</span><br><span class="line">    globalMax = max(localMax,globalMax)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" data-id="cjkc38fmd00019cvnsmj73j26" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/6/">Next&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/6/">Next&raquo;</a>
   </nav>
 </section>
            
@@ -621,6 +618,14 @@
       <ul>
         
           <li>
+            <a href="/2018/08/02/721-Accounts-Merge/">721. Accounts Merge </a>
+          </li>
+        
+          <li>
+            <a href="/2018/08/01/745-Prefix-and-Suffix-Search/">745. Prefix and Suffix Search </a>
+          </li>
+        
+          <li>
             <a href="/2018/08/01/784-Letter-Case-Permutation/">784. Letter Case Permutation </a>
           </li>
         
@@ -630,14 +635,6 @@
         
           <li>
             <a href="/2018/08/01/680-Valid-Palindrome-II/">680. Valid Palindrome II </a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/01/670-Maximum-Swap/">670. Maximum Swap </a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/01/674-Longest-Continuous-Increasing-Subsequence/">674. Longest Continuous Increasing Subsequence </a>
           </li>
         
       </ul>
