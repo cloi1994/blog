@@ -66,10 +66,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-261-Graph-Valid-Tree" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-49-Group-Anagrams" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/25/261-Graph-Valid-Tree/" class="article-date">
-  <time datetime="2018-07-26T00:33:41.000Z" itemprop="datePublished">2018-07-25</time>
+    <a href="/2018/07/26/49-Group-Anagrams/" class="article-date">
+  <time datetime="2018-07-26T22:58:29.000Z" itemprop="datePublished">2018-07-26</time>
 </a>
     
   </div>
@@ -80,100 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/25/261-Graph-Valid-Tree/">261. Graph Valid Tree</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Given n nodes labeled from 0 to n - 1 and a list of undirected edges (each edge is a pair of nodes), write a function to check whether these edges make up a valid tree.</p>
-<p>You can assume that no duplicate edges will appear in edges. Since all edges are undirected, [0, 1] is the same as [1, 0] and thus will not appear together in edges.</p>
-<p>Example<br>Given n = 5 and edges = [[0, 1], [0, 2], [0, 3], [1, 4]], return true.</p>
-<p>Given n = 5 and edges = [[0, 1], [1, 2], [2, 3], [1, 3], [1, 4]], return false.</p>
-<p><br></p>
-<p>build graph using hash or 2d array and then use dfs to find if there has cycle.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param n: An integer</span></span><br><span class="line"><span class="string">    @param edges: a list of undirected edges</span></span><br><span class="line"><span class="string">    @return: true if it's a valid tree, or false</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">validTree</span><span class="params">(self, n, edges)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        mapp = &#123;&#125;</span><br><span class="line">        visited = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> e <span class="keyword">in</span> edges:</span><br><span class="line">            mapp[e[<span class="number">0</span>]] = mapp.get(e[<span class="number">0</span>],[]) + [e[<span class="number">1</span>]]</span><br><span class="line">            mapp[e[<span class="number">1</span>]] = mapp.get(e[<span class="number">1</span>],[]) + [e[<span class="number">0</span>]]</span><br><span class="line"></span><br><span class="line">        res = self.dfs(mapp,visited,<span class="number">0</span>,<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> len(visited) != n:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,graph,visited,node,parent)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">in</span> visited:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        visited[node] = <span class="number">1</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">not</span> <span class="keyword">in</span> graph:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> graph[node]:</span><br><span class="line">            <span class="keyword">if</span> c == parent:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            rtn = self.dfs(graph,visited,c,node)</span><br><span class="line">            <span class="keyword">if</span> rtn == <span class="keyword">False</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/261-Graph-Valid-Tree/" data-id="cjkc9cjqz001xw8vnzgvqfm57" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Graph/">Graph</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-278-First-Bad-Version" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/25/278-First-Bad-Version/" class="article-date">
-  <time datetime="2018-07-26T00:31:05.000Z" itemprop="datePublished">2018-07-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/25/278-First-Bad-Version/">278. First Bad Version</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>如果mid是bad version 那往左再找第一个bad version</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The isBadVersion API is already defined for you.</span></span><br><span class="line"><span class="comment"># @param version, an integer</span></span><br><span class="line"><span class="comment"># @return a bool</span></span><br><span class="line"><span class="comment"># def isBadVersion(version):</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">firstBadVersion</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = n - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        bad = n</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt;= j:</span><br><span class="line">            mid = i + (j - i) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> isBadVersion(mid):</span><br><span class="line">                j = mid <span class="number">-1</span></span><br><span class="line">                bad = mid</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i = mid + <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> bad</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/278-First-Bad-Version/" data-id="cjkc9cjr40028w8vnk8g5ox06" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BinarySearch/">BinarySearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-67-Add-Binary" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/25/67-Add-Binary/" class="article-date">
-  <time datetime="2018-07-26T00:16:48.000Z" itemprop="datePublished">2018-07-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/25/67-Add-Binary/">67. Add Binary</a>
+      <a class="article-title" href="/2018/07/26/49-Group-Anagrams/">49. Group Anagrams </a>
     </h1>
   
 
@@ -184,32 +91,21 @@
         <!-- Table of Contents -->
         
         <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">addBinary</span><span class="params">(self, a, b)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">groupAnagrams</span><span class="params">(self, strs)</span>:</span>
         <span class="string">"""</span>
-<span class="string">        :type a: str</span>
-<span class="string">        :type b: str</span>
-<span class="string">        :rtype: str</span>
+<span class="string">        :type strs: List[str]</span>
+<span class="string">        :rtype: List[List[str]]</span>
 <span class="string">        """</span>
-        i = len(a) - <span class="number">1</span>
-        j = len(b) - <span class="number">1</span>
 
-        res = <span class="string">""</span>
+        hm = {}
+        res = []
 
-        carry = <span class="number">0</span>
+        <span class="keyword">for</span> s <span class="keyword">in</span> strs:
+            key = <span class="string">''</span>.join(sorted(s))
+            hm[key] = hm.get(key,[]) + [s]
 
-        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">or</span> j &gt;= <span class="number">0</span> <span class="keyword">or</span> carry:
-
-            cur = carry
-
-            <span class="keyword">if</span> i &gt;= <span class="number">0</span>:
-                cur += int(a[i])
-                i -= <span class="number">1</span>
-            <span class="keyword">if</span> j &gt;= <span class="number">0</span>:
-                cur += int(b[j])
-                j -= <span class="number">1</span>
-
-            carry = cur / <span class="number">2</span>
-            res = str(cur % <span class="number">2</span>) + res
+        <span class="keyword">for</span> v <span class="keyword">in</span> hm.values():
+            res.append(v)
 
         <span class="keyword">return</span> res
 </code></pre>
@@ -217,11 +113,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/67-Add-Binary/" data-id="cjkc9cjs7004jw8vn9i5zsmad" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/49-Group-Anagrams/" data-id="cjkeu3uob003zukvn8nvyj4nt" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hash/">Hash</a></li></ul>
 
     </footer>
   </div>
@@ -231,10 +127,10 @@
 
 
   
-    <article id="post-301-Remove-Invalid-Parentheses" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-334-Increasing-Triplet-Subsequence" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/25/301-Remove-Invalid-Parentheses/" class="article-date">
-  <time datetime="2018-07-25T21:09:24.000Z" itemprop="datePublished">2018-07-25</time>
+    <a href="/2018/07/26/334-Increasing-Triplet-Subsequence/" class="article-date">
+  <time datetime="2018-07-26T22:52:23.000Z" itemprop="datePublished">2018-07-26</time>
 </a>
     
   </div>
@@ -245,7 +141,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/25/301-Remove-Invalid-Parentheses/">301. Remove Invalid Parentheses</a>
+      <a class="article-title" href="/2018/07/26/334-Increasing-Triplet-Subsequence/">334. Increasing Triplet Subsequence</a>
     </h1>
   
 
@@ -255,19 +151,17 @@
       
         <!-- Table of Contents -->
         
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeInvalidParentheses</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        q = [s]</span><br><span class="line">        visited = &#123;s:<span class="number">1</span>&#125;</span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        isTrue = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q != []:</span><br><span class="line">            top = q.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> self.isValid(top):</span><br><span class="line">                res.append(top[:])</span><br><span class="line">                isTrue = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">#this will prevent adding an extra level of possible</span></span><br><span class="line">            <span class="comment">#solutions to process in the queue, because we will</span></span><br><span class="line">            <span class="comment">#stop after finding the minimum possible removals</span></span><br><span class="line">            <span class="comment">#ex: "()())()" -&gt; ["(())()","()()()"]</span></span><br><span class="line">            <span class="keyword">if</span> isTrue:</span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="comment"># add to queue</span></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(top)):</span><br><span class="line">                <span class="keyword">if</span> top[i] != <span class="string">'('</span> <span class="keyword">and</span> top[i] != <span class="string">')'</span>:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                r = top[<span class="number">0</span>:i] + top[i+<span class="number">1</span>:]</span><br><span class="line">                <span class="keyword">if</span> r <span class="keyword">in</span> visited:</span><br><span class="line">                    <span class="keyword">continue</span></span><br><span class="line">                visited[r] = <span class="number">1</span></span><br><span class="line">                q.append(r)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValid</span><span class="params">(self,s)</span>:</span></span><br><span class="line"></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)):</span><br><span class="line">            <span class="keyword">if</span> s[i] == <span class="string">'('</span>:</span><br><span class="line">                count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> s[i] == <span class="string">')'</span>:</span><br><span class="line">                count -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">if</span> count &lt; <span class="number">0</span>:</span><br><span class="line">                    <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> count == <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<p>简单版：只输出第一个valid的</p>
-<p>Time: O(n), 2 pass<br>思路：按照判断isValid的思路，只要遇到stack&lt;0就remove，完了之后reverse再来一次。<br>ex: s = ‘(()(()’ in which we need remove ‘(‘?</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">removeInvalidParentheses</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">  String r = remove(s, <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">'('</span>, <span class="string">')'</span>&#125;);</span><br><span class="line">  String tmp = remove(<span class="keyword">new</span> StringBuilder(r).reverse().toString(), <span class="keyword">new</span> <span class="keyword">char</span>[]&#123;<span class="string">')'</span>, <span class="string">'('</span>&#125;);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> StringBuilder(tmp).reverse().toString();</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> String <span class="title">remove</span><span class="params">(String s, <span class="keyword">char</span>[] p)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> stack = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span> (s.charAt(i) == p[<span class="number">0</span>])		stack++;</span><br><span class="line">    <span class="keyword">if</span> (s.charAt(i) == p[<span class="number">1</span>])		stack--;</span><br><span class="line">    <span class="keyword">if</span> (stack &lt; <span class="number">0</span>) &#123;</span><br><span class="line">      s = s.substring(<span class="number">0</span>, i) + s.substring(i + <span class="number">1</span>);</span><br><span class="line">      i--;</span><br><span class="line">      stack = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">-2</span> <span class="number">0</span> <span class="number">-1</span> <span class="number">4</span></span><br><span class="line">  min  mid</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">increasingTriplet</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        MIN=MID=float(<span class="string">'inf'</span>)</span><br><span class="line">        <span class="keyword">for</span> n <span class="keyword">in</span> nums:</span><br><span class="line">            <span class="keyword">if</span> n &lt;= MIN:</span><br><span class="line">                MIN = n</span><br><span class="line">            <span class="keyword">elif</span> n &lt;= MID:</span><br><span class="line">                MID = n</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/25/301-Remove-Invalid-Parentheses/" data-id="cjkc9cjra002jw8vnc2elwaz7" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/334-Increasing-Triplet-Subsequence/" data-id="cjkeu3uo9003fukvnsck565mm" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FollowUp/">FollowUp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -277,10 +171,10 @@
 
 
   
-    <article id="post-56-Merge-Intervals" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-79-Word-Search" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/56-Merge-Intervals/" class="article-date">
-  <time datetime="2018-07-25T02:00:00.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/26/79-Word-Search/" class="article-date">
+  <time datetime="2018-07-26T22:09:32.000Z" itemprop="datePublished">2018-07-26</time>
 </a>
     
   </div>
@@ -291,7 +185,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/24/56-Merge-Intervals/">56. Merge Intervals</a>
+      <a class="article-title" href="/2018/07/26/79-Word-Search/">79. Word Search</a>
     </h1>
   
 
@@ -301,205 +195,50 @@
       
         <!-- Table of Contents -->
         
-        <p>Given a collection of intervals, merge all overlapping intervals.</p>
-<p>Example 1:</p>
-<p>Input: [[1,3],[2,6],[8,10],[15,18]]<br>Output: [[1,6],[8,10],[15,18]]<br>Explanation: Since intervals [1,3] and [2,6] overlaps, merge them into [1,6].<br>Example 2:</p>
-<p>Input: [[1,4],[4,5]]<br>Output: [[1,5]]<br>Explanation: Intervals [1,4] and [4,5] are considerred overlapping.</p>
-<p><br></p>
-<p>先sort by start time, 如果 res[-1].end &gt;= intervals[i].start 就修改之前的end.<br>如果不是就 insert to res.</p>
-<pre><code class="python"><span class="comment"># Definition for an interval.</span>
-<span class="comment"># class Interval(object):</span>
-<span class="comment">#     def __init__(self, s=0, e=0):</span>
-<span class="comment">#         self.start = s</span>
-<span class="comment">#         self.end = e</span>
-
-<span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self, intervals)</span>:</span>
+        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
+    <span class="function"><span class="keyword">def</span> <span class="title">exist</span><span class="params">(self, board, word)</span>:</span>
         <span class="string">"""</span>
-<span class="string">        :type intervals: List[Interval]</span>
-<span class="string">        :rtype: List[Interval]</span>
+<span class="string">        :type board: List[List[str]]</span>
+<span class="string">        :type word: str</span>
+<span class="string">        :rtype: bool</span>
 <span class="string">        """</span>
 
-        <span class="function"><span class="keyword">def</span> <span class="title">cmpfuc</span><span class="params">(x,y)</span>:</span>
+        visited = [ [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(board[<span class="number">0</span>]))] <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(board))]
 
-            <span class="keyword">return</span> x.start - y.start
+        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(board)):
+            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(board[<span class="number">0</span>])):
+                <span class="keyword">if</span> self.dfs(i,j,board,visited,word,<span class="number">0</span>):
+                    <span class="keyword">return</span> <span class="keyword">True</span>
 
-        <span class="keyword">if</span> <span class="keyword">not</span> intervals:
-            <span class="keyword">return</span> []
+        <span class="keyword">return</span> <span class="keyword">False</span>
 
-        intervals.sort(cmp=cmpfuc)
+    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,i,j,board,visited,word,index)</span>:</span>
 
-        res = [intervals[<span class="number">0</span>]]
+        <span class="keyword">if</span> index == len(word):
+            <span class="keyword">return</span> <span class="keyword">True</span>
 
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(intervals)):
+        <span class="keyword">if</span> i &lt; <span class="number">0</span> <span class="keyword">or</span> j &lt;<span class="number">0</span> <span class="keyword">or</span> i &gt;= len(board) <span class="keyword">or</span> j &gt;= len(board[<span class="number">0</span>]):
+            <span class="keyword">return</span> <span class="keyword">False</span>
 
-            <span class="keyword">if</span> res[<span class="number">-1</span>].end &gt;= intervals[i].start:
-                res[<span class="number">-1</span>].end = max(intervals[i].end, res[<span class="number">-1</span>].end)
-            <span class="keyword">else</span>:
-                res.append(intervals[i])
+        <span class="keyword">if</span> visited[i][j] <span class="keyword">or</span> board[i][j] != word[index]:
+            <span class="keyword">return</span> <span class="keyword">False</span>
 
-        <span class="keyword">return</span> res
+        visited[i][j] = <span class="number">1</span>
+
+        exist = self.dfs(i+<span class="number">1</span>,j,board,visited,word,index+<span class="number">1</span>)
+        exist |= self.dfs(i,j+<span class="number">1</span>,board,visited,word,index+<span class="number">1</span>)
+        exist |= self.dfs(i<span class="number">-1</span>,j,board,visited,word,index+<span class="number">1</span>)
+        exist |= self.dfs(i,j<span class="number">-1</span>,board,visited,word,index+<span class="number">1</span>)
+
+        visited[i][j] = <span class="number">0</span>
+
+        <span class="keyword">return</span> exist
 </code></pre>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/56-Merge-Intervals/" data-id="cjkc9cjrw003xw8vnrtvkgtmg" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-253-Meeting-Rooms-II" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/24/253-Meeting-Rooms-II/" class="article-date">
-  <time datetime="2018-07-25T01:44:52.000Z" itemprop="datePublished">2018-07-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/24/253-Meeting-Rooms-II/">253. Meeting Rooms II</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Description<br>Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &lt; ei), find the minimum number of conference rooms required.</p>
-<p>Example<br>Given intervals = [(0,30),(5,10),(15,20)], return 2.</p>
-<p><br></p>
-<p>先sort by start time, 之后用PQ来记录, 如果下一个interval的start 比 最少的end大 就pop 最少end</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of Interval.</span></span><br><span class="line"><span class="string">class Interval(object):</span></span><br><span class="line"><span class="string">    def __init__(self, start, end):</span></span><br><span class="line"><span class="string">        self.start = start</span></span><br><span class="line"><span class="string">        self.end = end</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush, heappop, nsmallest</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param intervals: an array of meeting time intervals</span></span><br><span class="line"><span class="string">    @return: the minimum number of conference rooms required</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minMeetingRooms</span><span class="params">(self, intervals)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line"></span><br><span class="line">        intervals.sort(key=<span class="keyword">lambda</span> x:x.start)</span><br><span class="line"></span><br><span class="line">        pq = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(intervals)):</span><br><span class="line">            <span class="keyword">if</span> pq != [] <span class="keyword">and</span> intervals[i].start &gt; nsmallest(<span class="number">1</span>,pq)[<span class="number">0</span>]:</span><br><span class="line">                heappop(pq)</span><br><span class="line">            heappush(pq,intervals[i].end)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> len(pq)</span><br></pre></td></tr></table></figure>
-<p>Follow Up 1:</p>
-<p>这道题有follow up问求最多interval的时间点，返回任意一个就行。</p>
-<p>随便返回一个比如heap.size()最大的时候，heap.peek().end</p>
-<p>if(heap.size() &gt; maxNum)</p>
-<p>　　maxNum = heap.size();</p>
-<p>　　maxMoment = heap.peak.end;</p>
-<p>Follow up 2:</p>
-<p>给meetings安排rooms使得optimize。</p>
-<p>可以maintain一个empty room list，每次开完会就回收，需要room就从里面random</p>
-<p>Follow up 3:</p>
-<p>Return the num of room used / employees of each non-overlapping time range(you can design you own output)<br>eg. [2004, 2007], [2005, 2007], [2006, 2008] -&gt; 2004-2005: 1; 2005-2006: 2; 2006-2007: 3; 2007-2008: 1;<br>就是要你track 房间使用数目的变化情况，有新的会议开始 会变多， 有会议结束会变少。solution 3 非常适合解决这个问题，因为它维护了整个时间轴的房间使用情况。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TimeSlot</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> time;</span><br><span class="line">    <span class="keyword">boolean</span> isStart;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">TimeSlot</span><span class="params">(<span class="keyword">int</span> t, <span class="keyword">boolean</span> i)</span> </span>&#123;</span><br><span class="line">        time = t;</span><br><span class="line">        isStart = i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">meetingRooms</span><span class="params">(Interval[] intervals)</span> </span>&#123;</span><br><span class="line">    List&lt;String&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">if</span> (intervals == <span class="keyword">null</span> || intervals.length == <span class="number">0</span>)    <span class="keyword">return</span> res;</span><br><span class="line">    List&lt;TimeSlot&gt; times = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (Interval i : intervals) &#123;</span><br><span class="line">        times.add(<span class="keyword">new</span> TimeSlot(i.start, <span class="keyword">true</span>));</span><br><span class="line">        times.add(<span class="keyword">new</span> TimeSlot(i.end, <span class="keyword">false</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    Collections.sort(times, <span class="keyword">new</span> Comparator&lt;TimeSlot&gt;()&#123;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(TimeSlot a, TimeSlot b)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> a.time - b.time;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">int</span> count = <span class="number">1</span>, startIdx = <span class="number">0</span>;<span class="comment">//it's the index of begin time, not the time itself</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; times.size(); i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (times.get(i).time != times.get(i - <span class="number">1</span>).time) &#123;</span><br><span class="line">            res.add(times.get(startIdx).time + <span class="string">"-"</span> + times.get(i).time + <span class="string">": "</span> + count);</span><br><span class="line">            startIdx = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (times.get(i).isStart)   count++;</span><br><span class="line">        <span class="keyword">else</span>    count--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/253-Meeting-Rooms-II/" data-id="cjkc9cjqy001vw8vnznoc0jcj" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PQ/">PQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-252-Meeting-Rooms" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/24/252-Meeting-Rooms/" class="article-date">
-  <time datetime="2018-07-25T01:39:31.000Z" itemprop="datePublished">2018-07-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/24/252-Meeting-Rooms/">252. Meeting Rooms</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Description<br>Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],…] (si &lt; ei), determine if a person could attend all meetings.</p>
-<p>Example<br>Given intervals = [[0,30],[5,10],[15,20]], return false.</p>
-<p><br></p>
-<p>先sort by start time, 然后一个一个对比, 如果 no meet condition 就 return False</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of Interval.</span></span><br><span class="line"><span class="string">class Interval(object):</span></span><br><span class="line"><span class="string">    def __init__(self, start, end):</span></span><br><span class="line"><span class="string">        self.start = start</span></span><br><span class="line"><span class="string">        self.end = end</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param intervals: an array of meeting time intervals</span></span><br><span class="line"><span class="string">    @return: if a person could attend all meetings</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">canAttendMeetings</span><span class="params">(self, intervals)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">cmpfuc</span><span class="params">(x,y)</span>:</span></span><br><span class="line">            <span class="keyword">return</span> x.start - y.start</span><br><span class="line"></span><br><span class="line">        intervals.sort(cmp=cmpfuc)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(intervals)):</span><br><span class="line">            <span class="keyword">if</span> intervals[i<span class="number">-1</span>].end &gt; intervals[i].start:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/252-Meeting-Rooms/" data-id="cjkc9cjqw001qw8vn91kifypv" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-78-Subsets" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/24/78-Subsets/" class="article-date">
-  <time datetime="2018-07-25T01:34:03.000Z" itemprop="datePublished">2018-07-24</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/24/78-Subsets/">78. Subsets</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Given a set of distinct integers, nums, return all possible subsets (the power set).</p>
-<p>Note: The solution set must not contain duplicate subsets.</p>
-<p>Example:</p>
-<p>Input: nums = [1,2,3]<br>Output:<br>[<br>  [3],<br>  [1],<br>  [2],<br>  [1,2,3],<br>  [1,3],<br>  [2,3],<br>  [1,2],<br>  []<br>]</p>
-<p><br></p>
-<p>用dfs来做, 每下一层 array 位移一次, 这样下一层不会重复上一层数字.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">     <span class="number">1</span>           <span class="number">2</span>     <span class="number">3</span></span><br><span class="line">  <span class="number">2</span>    <span class="number">3</span>       <span class="number">3</span>   </span><br><span class="line"><span class="number">3</span></span><br></pre></td></tr></table></figure>
-<p><br></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsets</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: List[List[int]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        self.dfs(<span class="number">0</span>,nums,[],res)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,level,nums,tmp,res)</span>:</span></span><br><span class="line"></span><br><span class="line">        res.append(tmp[:])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(level,len(nums)):</span><br><span class="line">            tmp.append(nums[i])</span><br><span class="line">            self.dfs(i+<span class="number">1</span>,nums,tmp,res)</span><br><span class="line">            tmp.pop()</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/78-Subsets/" data-id="cjkc9cjsh0057w8vngd8apmqu" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/79-Word-Search/" data-id="cjkeu3upk0064ukvnhw5tosdn" class="article-share-link">Share</a>
       
       
       
@@ -513,10 +252,10 @@
 
 
   
-    <article id="post-80-Remove-Duplicates-from-Sorted-Array-II" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-117-Populating-Next-Right-Pointers-in-Each-Node-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" class="article-date">
-  <time datetime="2018-07-25T00:54:56.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/26/117-Populating-Next-Right-Pointers-in-Each-Node-II/" class="article-date">
+  <time datetime="2018-07-26T21:48:03.000Z" itemprop="datePublished">2018-07-26</time>
 </a>
     
   </div>
@@ -527,7 +266,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/">80. Remove Duplicates from Sorted Array II</a>
+      <a class="article-title" href="/2018/07/26/117-Populating-Next-Right-Pointers-in-Each-Node-II/">117. Populating Next Right Pointers in Each Node II</a>
     </h1>
   
 
@@ -537,41 +276,64 @@
       
         <!-- Table of Contents -->
         
-        <p>Given a sorted array nums, remove the duplicates in-place such that duplicates appeared at most twice and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.</p>
-<p>Given nums = [1,1,1,2,2,3],</p>
-<p>Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.</p>
-<p>It doesn’t matter what you leave beyond the returned length.</p>
-<p><br></p>
-<p>Remove Duplicates from Sorted Array I</p>
-<p>有个slow pointer 指向要替换的位置，如有符合的条件就slower++并替换，不符合就跳过</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        start = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i<span class="number">-1</span>] != nums[i]:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> start</span><br></pre></td></tr></table></figure>
-<p>Remove Duplicates from Sorted Array II</p>
-<p>同理，只不过是看前2个</p>
-<pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span>
-        <span class="string">"""</span>
-<span class="string">        :type nums: List[int]</span>
-<span class="string">        :rtype: int</span>
-<span class="string">        """</span>
-
-        <span class="keyword">if</span> <span class="keyword">not</span> nums <span class="keyword">or</span> len(nums) &lt; <span class="number">2</span>:
-            <span class="keyword">return</span> len(nums)
-
-        start = <span class="number">2</span>
-
-        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(nums)):
-            <span class="keyword">if</span> nums[start<span class="number">-2</span>] != nums[i]:
-                nums[start] = nums[i]
-                start += <span class="number">1</span>
-
-        <span class="keyword">return</span> start
-</code></pre>
+        <p>The idea is simple: level-order traversal.</p>
+<p>dummy 代表下一层的node<br>root 和 dummy 互相对换<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ex: root = <span class="number">1</span></span><br><span class="line">    dummy -&gt; <span class="number">2</span> -&gt; <span class="number">3</span></span><br><span class="line">    root = <span class="number">2</span> -&gt; <span class="number">3</span>   # second <span class="keyword">while</span> <span class="keyword">loop</span> root = root.next</span><br><span class="line">    dummy -&gt; <span class="number">4</span> -&gt; <span class="number">5</span> -&gt; <span class="number">6</span> -&gt; <span class="number">7</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// without constant space</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">(TreeLinkNode root)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(root != <span class="keyword">null</span>)&#123;</span><br><span class="line">            TreeLinkNode tempChild = <span class="keyword">new</span> TreeLinkNode(<span class="number">0</span>);</span><br><span class="line">            TreeLinkNode currentChild = tempChild;</span><br><span class="line">            <span class="keyword">while</span>(root!=<span class="keyword">null</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">                  currentChild.next = root.left;</span><br><span class="line">                  currentChild = currentChild.next;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span>(root.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">                  currentChild.next = root.right;</span><br><span class="line">                  currentChild = currentChild.next;</span><br><span class="line">                &#125;</span><br><span class="line">                root = root.next;</span><br><span class="line">            &#125;</span><br><span class="line">            root = tempChild.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="comment"># @param root, a tree link node</span></span><br><span class="line">    <span class="comment"># @return nothing</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">connect</span><span class="params">(self, root)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        q = [root]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q != []:</span><br><span class="line"></span><br><span class="line">            size = len(q)</span><br><span class="line">            nextLevel = []</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(size):</span><br><span class="line">                top = q.pop(<span class="number">0</span>)</span><br><span class="line">                nextLevel.append(top)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> top.left:</span><br><span class="line">                    q.append(top.left)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> top.right:</span><br><span class="line">                    q.append(top.right)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nextLevel)<span class="number">-1</span>):</span><br><span class="line">                nextLevel[i].next = nextLevel[i+<span class="number">1</span>]</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/80-Remove-Duplicates-from-Sorted-Array-II/" data-id="cjkc9cjso005fw8vnb4sjeeb9" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/117-Populating-Next-Right-Pointers-in-Each-Node-II/" data-id="cjkeu3ume0004ukvnv9km6lh1" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-283-Move-Zeroes" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/26/283-Move-Zeroes/" class="article-date">
+  <time datetime="2018-07-26T20:09:37.000Z" itemprop="datePublished">2018-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/283-Move-Zeroes/">283. Move Zeroes</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>有2种解法:</p>
+<p>用slow pointer 记录Zero的位置</p>
+<ol>
+<li>把 Non-Zero 放在前面, 然后把剩余的填完 Zero. N operations</li>
+<li>把 Non-Zero 不停的 replace with Zero # of None-Zero operations<br>如果很多 Zero 就用第2种解法</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">moveZeroes</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        start = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != <span class="number">0</span>:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(nums)):</span><br><span class="line">            nums[i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">```      </span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">moveZeroes</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        start = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != <span class="number">0</span>:</span><br><span class="line">                nums[start] , nums[i] = nums[i] , nums[start]</span><br><span class="line">                start += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/26/283-Move-Zeroes/" data-id="cjkeu3uny002rukvnruq6rx7j" class="article-share-link">Share</a>
       
       
       
@@ -585,10 +347,10 @@
 
 
   
-    <article id="post-209-Minimum-Size-Subarray-Sum" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-208-Implement-Trie-Prefix-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/24/209-Minimum-Size-Subarray-Sum/" class="article-date">
-  <time datetime="2018-07-24T08:08:15.000Z" itemprop="datePublished">2018-07-24</time>
+    <a href="/2018/07/25/208-Implement-Trie-Prefix-Tree/" class="article-date">
+  <time datetime="2018-07-26T04:15:13.000Z" itemprop="datePublished">2018-07-25</time>
 </a>
     
   </div>
@@ -599,7 +361,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/24/209-Minimum-Size-Subarray-Sum/">209. Minimum Size Subarray Sum</a>
+      <a class="article-title" href="/2018/07/25/208-Implement-Trie-Prefix-Tree/">208. Implement Trie (Prefix Tree)</a>
     </h1>
   
 
@@ -609,26 +371,197 @@
       
         <!-- Table of Contents -->
         
-        <p>Given an array of n positive integers and a positive integer s, find the minimal length of a contiguous subarray of which the sum ≥ s. If there isn’t one, return 0 instead.</p>
-<p>Example:</p>
-<p>Input: s = 7, nums = [2,3,1,2,4,3]<br>Output: 2<br>Explanation: the subarray [4,3] has the minimal length under the problem constraint.<br>Follow up:<br>If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log n).</p>
-<p><br></p>
-<p>用Sliding Windows做法来做，当移到一个有效位置，就向左减了多余的</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># O(n)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minSubArrayLen</span><span class="params">(self, s, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: int</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = <span class="number">0</span></span><br><span class="line">        summ = <span class="number">0</span></span><br><span class="line">        best = float(<span class="string">'inf'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            summ += nums[j]</span><br><span class="line">            <span class="keyword">while</span> summ &gt;= s:</span><br><span class="line">                best = min(best,j-i)</span><br><span class="line">                summ -= nums[i]</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> best == float(<span class="string">'inf'</span>):</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">return</span> best</span><br></pre></td></tr></table></figure>
-<p>Follow Up:<br>Another O(NLogN) solution that first calculate cumulative sum and then for each starting point binary search for end position. This uses O(N) space</p>
-<p>7<br>[2,3,1,2,4,3]</p>
-<p>[0,2,5,6,8,12,15]</p>
-<p>0 –&gt; 8 (size = 4)<br>2 –&gt; 12 - 7 = 5 (size = 4)<br>5 –&gt; 12 - 7 = 5 (size = 3)<br>6 –&gt; 15 - 7 = 8 (size = 3)<br>8 –&gt; 15 - 7 = 8 (size = 2)<br>12 –&gt; 15 - 7 = 8 return len(nums) + 1</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># O(nlogn)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minSubArrayLen</span><span class="params">(self, s, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: int</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        prefixSum = [<span class="number">0</span>] * (len(nums) + <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        minLen = len(nums) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)+<span class="number">1</span>):</span><br><span class="line">            prefixSum[i] = prefixSum[i<span class="number">-1</span>] + nums[i<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line"></span><br><span class="line">            j = self.findWindowEnd(i+<span class="number">1</span>,prefixSum,s,prefixSum[i])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> j == len(nums) + <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">            minLen = min(minLen,j-i)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> minLen == len(nums) + <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> minLen</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findWindowEnd</span><span class="params">(self,start,prefixSum,s,key)</span>:</span></span><br><span class="line"></span><br><span class="line">        i = start</span><br><span class="line">        j = len(prefixSum) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt;= j:</span><br><span class="line"></span><br><span class="line">            mid = i + (j-i) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> prefixSum[mid] - s &gt;= key:</span><br><span class="line">                j = mid - <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                i = mid + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> i</span><br></pre></td></tr></table></figure>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span><span class="params">(object)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">            self.children = [<span class="keyword">None</span>] * <span class="number">26</span></span><br><span class="line">            self.isWord = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = Trie.TrieNode()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Inserts a word into the trie.</span></span><br><span class="line"><span class="string">        :type word: str</span></span><br><span class="line"><span class="string">        :rtype: void</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p = self.root</span><br><span class="line"></span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> word:</span><br><span class="line">            charIndex = ord(w) - ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> p.children[charIndex] == <span class="keyword">None</span>:</span><br><span class="line">                p.children[charIndex] = Trie.TrieNode()</span><br><span class="line">            p = p.children[charIndex]</span><br><span class="line">        p.isWord = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self,word)</span>:</span></span><br><span class="line"></span><br><span class="line">        p = self.root</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> word:</span><br><span class="line">            charIndex = ord(w) - ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> p.children[charIndex] == <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">            p = p.children[charIndex]</span><br><span class="line">        <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if the word is in the trie.</span></span><br><span class="line"><span class="string">        :type word: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p = self.find(word)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> p:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">        <span class="keyword">return</span> p.isWord</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startsWith</span><span class="params">(self, prefix)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if there is any word in the trie that starts with the given prefix.</span></span><br><span class="line"><span class="string">        :type prefix: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.find(prefix) != <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = Trie()</span></span><br><span class="line"><span class="comment"># obj.insert(word)</span></span><br><span class="line"><span class="comment"># param_2 = obj.search(word)</span></span><br><span class="line"><span class="comment"># param_3 = obj.startsWith(prefix)</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/24/209-Minimum-Size-Subarray-Sum/" data-id="cjkc9cjqj0011w8vnzaxn9fbl" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/25/208-Implement-Trie-Prefix-Tree/" data-id="cjkeu3un9001aukvn1fb5754y" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BinarySearch/">BinarySearch</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FollowUp/">FollowUp</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PrefixSum/">PrefixSum</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SlidingWindows/">SlidingWindows</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Trie/">Trie</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-211-Add-and-Search-Word-Data-structure-design" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/211-Add-and-Search-Word-Data-structure-design/" class="article-date">
+  <time datetime="2018-07-26T02:39:51.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/211-Add-and-Search-Word-Data-structure-design/">211. Add and Search Word - Data structure design</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>using Trie and recursion on find</p>
+<p>added -&gt; bad<br>search -&gt; b..</p>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ans = <span class="built_in">find</span>(<span class="string">'.'</span>,<span class="string">'a'</span>) <span class="keyword">or</span> <span class="built_in">find</span>(<span class="string">'.'</span>,<span class="string">'b'</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">find</span>(<span class="string">'.'</span>,a):</span><br><span class="line">     <span class="built_in">return</span> <span class="built_in">find</span>(<span class="string">''</span>,<span class="string">'d'</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordDictionary</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span><span class="params">(object)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">            self.children = [<span class="keyword">None</span>] * <span class="number">26</span></span><br><span class="line">            self.isWord = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = WordDictionary.TrieNode()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addWord</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Adds a word into the data structure.</span></span><br><span class="line"><span class="string">        :type word: str</span></span><br><span class="line"><span class="string">        :rtype: void</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        p = self.root</span><br><span class="line"></span><br><span class="line">        index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> w <span class="keyword">in</span> word:</span><br><span class="line">            charIndex = ord(w) - ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> p.children[charIndex] == <span class="keyword">None</span>:</span><br><span class="line">                p.children[charIndex] = WordDictionary.TrieNode()</span><br><span class="line">            p = p.children[charIndex]</span><br><span class="line">        p.isWord = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self,word,node)</span>:</span></span><br><span class="line"></span><br><span class="line">        p = node</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word)):</span><br><span class="line">            charIndex = ord(word[i]) - ord(<span class="string">'a'</span>)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> word[i] == <span class="string">'.'</span>:</span><br><span class="line">                ans = <span class="keyword">False</span></span><br><span class="line">                <span class="keyword">for</span> j <span class="keyword">in</span> range(len(p.children)):</span><br><span class="line">                    <span class="keyword">if</span> p.children[j] != <span class="keyword">None</span>:</span><br><span class="line">                        ans |=  self.find(word[i+<span class="number">1</span>:],p.children[j])</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> p.children[charIndex] == <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">            p = p.children[charIndex]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p.isWord</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self, word)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if the word is in the trie.</span></span><br><span class="line"><span class="string">        :type word: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.find(word,self.root)</span><br></pre></td></tr></table></figure>
+<p>搜索返回所有符合wildcard的词</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Your WordDictionary object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = WordDictionary()</span></span><br><span class="line"><span class="comment"># obj.addWord(word)</span></span><br><span class="line"><span class="comment"># param_2 = obj.search(word)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self,word,node,tmp,res)</span>:</span></span><br><span class="line"></span><br><span class="line">    p = node</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word)):</span><br><span class="line"></span><br><span class="line">        charIndex = ord(word[i]) - ord(<span class="string">'a'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> word[i] == <span class="string">'*'</span>:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(p.children)):</span><br><span class="line">                <span class="keyword">if</span> p.children[j] != <span class="keyword">None</span>:</span><br><span class="line">                    <span class="comment">#self.find(word[i+1:],p.children[j],tmp+chr(j+97),res)</span></span><br><span class="line">                    self.find(word[i:],p.children[j],tmp+chr(j+<span class="number">97</span>),res)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">if</span> p.children[charIndex] == <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            tmp += word[i]</span><br><span class="line">            p = p.children[charIndex]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> p != <span class="keyword">None</span> <span class="keyword">and</span> p.isWord:</span><br><span class="line">        res.append(tmp[:])</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/211-Add-and-Search-Word-Data-structure-design/" data-id="cjkeu3une001kukvnq0ytkre3" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Trie/">Trie</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-25-Reverse-Nodes-in-k-Group" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/25-Reverse-Nodes-in-k-Group/" class="article-date">
+  <time datetime="2018-07-26T02:39:36.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/25-Reverse-Nodes-in-k-Group/">25. Reverse Nodes in k-Group </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>注意 cur.next and end.next</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">Definition of ListNode</span></span><br><span class="line"><span class="string">class ListNode(object):</span></span><br><span class="line"><span class="string">    def __init__(self, val, next=None):</span></span><br><span class="line"><span class="string">        self.val = val</span></span><br><span class="line"><span class="string">        self.next = next</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseKGroup</span><span class="params">(self, head, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type head: ListNode</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> head:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">        root = cur = ListNode(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        cur.next = head</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> cur.next:</span><br><span class="line">            end = cur</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(k<span class="number">-1</span>):</span><br><span class="line">                end = end.next</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> end.next:</span><br><span class="line">                    <span class="keyword">return</span> root.next</span><br><span class="line"></span><br><span class="line">            newStart, newEnd = self.reverse(cur.next,end.next,k)</span><br><span class="line"></span><br><span class="line">            cur.next = newStart</span><br><span class="line">            cur = newEnd</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root.next</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self,start,end,k)</span>:</span></span><br><span class="line"></span><br><span class="line">        prev = end.next</span><br><span class="line">        cur = start</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">            curNext = cur.next</span><br><span class="line">            cur.next = prev</span><br><span class="line">            prev = cur</span><br><span class="line">            cur = curNext</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> prev, start</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/25-Reverse-Nodes-in-k-Group/" data-id="cjkeu3unn0025ukvnuv3386u5" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinkedList/">LinkedList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-125-Valid-Palindrome" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/125-Valid-Palindrome/" class="article-date">
+  <time datetime="2018-07-26T02:39:22.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/125-Valid-Palindrome/">125. Valid Palindrome</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        j = len(s) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &lt; j:</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> s[i].isaplha() <span class="keyword">or</span> <span class="keyword">not</span> s[i].isdigit():</span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> s[j].isaplha() <span class="keyword">or</span> <span class="keyword">not</span> s[j].isdigit():</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line">                <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> s[i].lower() != s[j].lower():</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line">            i += <span class="number">1</span></span><br><span class="line">            j -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/125-Valid-Palindrome/" data-id="cjkeu3ume0007ukvn35etgr85" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TwoPointer/">TwoPointer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-23-Merge-k-Sorted-Lists" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/25/23-Merge-k-Sorted-Lists/" class="article-date">
+  <time datetime="2018-07-26T02:13:36.000Z" itemprop="datePublished">2018-07-25</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/25/23-Merge-k-Sorted-Lists/">23. Merge k Sorted Lists</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>可以用mergeSort or PQ來做</p>
+<p>PQ sort by cur.val</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span><span class="params">(self, lists)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type lists: List[ListNode]</span></span><br><span class="line"><span class="string">        :rtype: ListNode</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> lists:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.mergeSort(<span class="number">0</span>,len(lists)<span class="number">-1</span>,lists)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeSort</span><span class="params">(self,start,end,lists)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> start &gt;= end:</span><br><span class="line">            <span class="keyword">return</span> lists[start]</span><br><span class="line"></span><br><span class="line">        mid = start + (end - start) // <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        l1 = self.mergeSort(start,mid,lists)</span><br><span class="line">        l2 = self.mergeSort(mid+<span class="number">1</span>,end,lists)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.merge(l1,l2)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self,l1,l2)</span>:</span></span><br><span class="line"></span><br><span class="line">        root = cur = ListNode(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> l1 <span class="keyword">and</span> l2:</span><br><span class="line">            <span class="keyword">if</span> l1.val &lt; l2.val:</span><br><span class="line">                cur.next = l1</span><br><span class="line">                l1 = l1.next</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                cur.next = l2</span><br><span class="line">                l2 = l2.next</span><br><span class="line">            cur = cur.next</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> l1:</span><br><span class="line">            cur.next = l1</span><br><span class="line">        <span class="keyword">if</span> l2:</span><br><span class="line">            cur.next = l2</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root.next</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> heappush, heappop</span><br><span class="line"></span><br><span class="line"><span class="comment"># Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"># class ListNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.next = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">  <span class="keyword">from</span> heapq <span class="keyword">import</span> heappush,heappop</span><br><span class="line">  <span class="string">"""</span></span><br><span class="line"><span class="string">  Definition of ListNode</span></span><br><span class="line"><span class="string">  class ListNode(object):</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">      def __init__(self, val, next=None):</span></span><br><span class="line"><span class="string">          self.val = val</span></span><br><span class="line"><span class="string">          self.next = next</span></span><br><span class="line"><span class="string">  """</span></span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">      <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span><span class="params">(self, lists)</span>:</span></span><br><span class="line">          <span class="string">"""</span></span><br><span class="line"><span class="string">          :type lists: List[ListNode]</span></span><br><span class="line"><span class="string">          :rtype: ListNode</span></span><br><span class="line"><span class="string">          """</span></span><br><span class="line">          <span class="keyword">if</span> <span class="keyword">not</span> lists:</span><br><span class="line">              <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line"></span><br><span class="line">          pq = []</span><br><span class="line"></span><br><span class="line">          root = cur = ListNode(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">          <span class="keyword">for</span> l <span class="keyword">in</span> lists:</span><br><span class="line">              <span class="keyword">if</span> <span class="keyword">not</span> l:</span><br><span class="line">                  <span class="keyword">continue</span></span><br><span class="line">              heappush(pq,(l.val,l))</span><br><span class="line"></span><br><span class="line">          <span class="keyword">while</span> pq != []:</span><br><span class="line">              x , top = heappop(pq)</span><br><span class="line">              cur.next = top</span><br><span class="line">              cur = cur.next</span><br><span class="line">              top = top.next</span><br><span class="line">              <span class="keyword">if</span> top != <span class="keyword">None</span>:</span><br><span class="line">                  heappush(pq,(top.val,top))</span><br><span class="line"></span><br><span class="line">          <span class="keyword">return</span> root.next</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/25/23-Merge-k-Sorted-Lists/" data-id="cjkeu3unj001xukvncrckwifo" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LinkedList/">LinkedList</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PQ/">PQ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -641,7 +574,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/10/">Next&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/8/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><span class="page-number current">9</span><a class="page-number" href="/page/10/">10</a><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/10/">Next&raquo;</a>
   </nav>
 </section>
            
@@ -664,23 +597,23 @@
       <ul>
         
           <li>
-            <a href="/2018/08/02/721-Accounts-Merge/">721. Accounts Merge </a>
+            <a href="/2018/08/03/22-m-sorted-increasing/">22. m sorted increasing</a>
           </li>
         
           <li>
-            <a href="/2018/08/01/745-Prefix-and-Suffix-Search/">745. Prefix and Suffix Search </a>
+            <a href="/2018/08/03/21-AddMinusOP/">21. AddMinusOP</a>
           </li>
         
           <li>
-            <a href="/2018/08/01/784-Letter-Case-Permutation/">784. Letter Case Permutation </a>
+            <a href="/2018/08/03/20-K-Nearest-Point/">20. K Nearest Point</a>
           </li>
         
           <li>
-            <a href="/2018/08/01/647-Palindromic-Substrings/">647. Palindromic Substrings </a>
+            <a href="/2018/08/03/19-Increaing-or-Decreasing/">19. Increaing or Decreasing</a>
           </li>
         
           <li>
-            <a href="/2018/08/01/680-Valid-Palindrome-II/">680. Valid Palindrome II </a>
+            <a href="/2018/08/03/16-Delete-Double-Linked-List-Node/">16. Delete Double Linked List Node</a>
           </li>
         
       </ul>
