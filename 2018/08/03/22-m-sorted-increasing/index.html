@@ -5,18 +5,18 @@
   
   <title>22. m sorted increasing | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Similar to m sorted array `javapublic List sort(int[] nums) {  List res = new LinkedList&amp;lt;&amp;gt;();//same all the pivot  List index = new LinkedList&amp;lt;&amp;gt;();  index.add(0);  for(int i = 1; i &amp;lt; nu">
+  <meta name="description" content="Similar to m sorted array 123456789101112131415161718192021222324252627public List&amp;lt;Integer&amp;gt; sort(int[] nums) &amp;#123;  List&amp;lt;Integer&amp;gt; res = new LinkedList&amp;lt;&amp;gt;();//same all the pivot  List">
 <meta name="keywords" content="MJ">
 <meta property="og:type" content="article">
 <meta property="og:title" content="22. m sorted increasing">
 <meta property="og:url" content="http://fbnote.netlify.com/2018/08/03/22-m-sorted-increasing/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="Similar to m sorted array `javapublic List sort(int[] nums) {  List res = new LinkedList&amp;lt;&amp;gt;();//same all the pivot  List index = new LinkedList&amp;lt;&amp;gt;();  index.add(0);  for(int i = 1; i &amp;lt; nu">
+<meta property="og:description" content="Similar to m sorted array 123456789101112131415161718192021222324252627public List&amp;lt;Integer&amp;gt; sort(int[] nums) &amp;#123;  List&amp;lt;Integer&amp;gt; res = new LinkedList&amp;lt;&amp;gt;();//same all the pivot  List">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-04T03:04:10.355Z">
+<meta property="og:updated_time" content="2018-08-04T04:11:34.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="22. m sorted increasing">
-<meta name="twitter:description" content="Similar to m sorted array `javapublic List sort(int[] nums) {  List res = new LinkedList&amp;lt;&amp;gt;();//same all the pivot  List index = new LinkedList&amp;lt;&amp;gt;();  index.add(0);  for(int i = 1; i &amp;lt; nu">
+<meta name="twitter:description" content="Similar to m sorted array 123456789101112131415161718192021222324252627public List&amp;lt;Integer&amp;gt; sort(int[] nums) &amp;#123;  List&amp;lt;Integer&amp;gt; res = new LinkedList&amp;lt;&amp;gt;();//same all the pivot  List">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -94,13 +94,12 @@
         <!-- Table of Contents -->
         
         <p>Similar to m sorted array</p>
-<p><code>`</code>java<br>public List<integer> sort(int[] nums) {<br>  List<integer> res = new LinkedList&lt;&gt;();<br>//same all the pivot<br>  List<integer> index = new LinkedList&lt;&gt;();<br>  index.add(0);<br>  for(int i = 1; i &lt; nums.length; i++) {<br>      if(nums[i] &lt;= nums[i - 1]) {<br>        index.add(i);<br>      }<br>  }<br>  PriorityQueue<integer> queue = new PriorityQueue&lt;&gt;((a, b)-&gt;(nums[a] - nums[b]));<br>  Set<integer> set = new HashSet&lt;&gt;();</integer></integer></integer></integer></integer></p>
-<p>  for(int i: index) {<br>  queue.offer(i);<br>  set.add(i);<br>  }<br>  set.add(nums.length);<br>  while(!queue.isEmpty()) {<br>    int cur = queue.poll();<br>    //if cur + 1 is in the set, that means<br>    //the numbers of cur sublist has been used up<br>    if(!set.contains(cur + 1)) queue.offer(cur + 1);<br>    res.add(nums[cur]);<br>  }<br>  return res;<br>}</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line"><span class="comment">//same all the pivot</span></span><br><span class="line">  List&lt;Integer&gt; index = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  index.add(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">      <span class="keyword">if</span>(nums[i] &lt;= nums[i - <span class="number">1</span>]) &#123;</span><br><span class="line">        index.add(i);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  PriorityQueue&lt;Integer&gt; queue = <span class="keyword">new</span> PriorityQueue&lt;&gt;((a, b)-&gt;(nums[a] - nums[b]));</span><br><span class="line">  Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i: index) &#123;</span><br><span class="line">  queue.offer(i);</span><br><span class="line">  set.add(i);</span><br><span class="line">  &#125;</span><br><span class="line">  set.add(nums.length);</span><br><span class="line">  <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">int</span> cur = queue.poll();</span><br><span class="line">    <span class="comment">//if cur + 1 is in the set, that means</span></span><br><span class="line">    <span class="comment">//the numbers of cur sublist has been used up</span></span><br><span class="line">    <span class="keyword">if</span>(!set.contains(cur + <span class="number">1</span>)) queue.offer(cur + <span class="number">1</span>);</span><br><span class="line">    res.add(nums[cur]);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/22-m-sorted-increasing/" data-id="cjkeu3unh001sukvnds5q0lds" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/22-m-sorted-increasing/" data-id="cjkgcj8gj006wl8vnm05plp8b" class="article-share-link">Share</a>
       
       
       
@@ -154,6 +153,15 @@
     
 <nav id="article-nav">
   
+    <a href="/2018/08/04/26-Maxiumum-Island-Permeter/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          26. Maxiumum Island Permeter
+        
+      </div>
+    </a>
+  
   
     <a href="/2018/08/03/21-AddMinusOP/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
@@ -200,23 +208,23 @@
       <ul>
         
           <li>
-            <a href="/2018/08/03/22-m-sorted-increasing/">22. m sorted increasing</a>
+            <a href="/2018/08/04/39-task-schedule-with-order/">39. task schedule with order</a>
           </li>
         
           <li>
-            <a href="/2018/08/03/21-AddMinusOP/">21. AddMinusOP</a>
+            <a href="/2018/08/04/38-Merge-Set/">38. Merge Set</a>
           </li>
         
           <li>
-            <a href="/2018/08/03/20-K-Nearest-Point/">20. K Nearest Point</a>
+            <a href="/2018/08/04/37-Dominoes/">37. Dominoes</a>
           </li>
         
           <li>
-            <a href="/2018/08/03/19-Increaing-or-Decreasing/">19. Increaing or Decreasing</a>
+            <a href="/2018/08/04/35-sort-a-array-pair/">35. sort a array pair</a>
           </li>
         
           <li>
-            <a href="/2018/08/03/16-Delete-Double-Linked-List-Node/">16. Delete Double Linked List Node</a>
+            <a href="/2018/08/04/31-Deepest-Common-Ancestor/">31. Deepest Common Ancestor</a>
           </li>
         
       </ul>
