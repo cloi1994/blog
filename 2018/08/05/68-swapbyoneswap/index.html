@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>49. Group Anagrams  | FB Note</title>
+  <title>68. swapbyoneswap | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="class Solution(object):     def groupAnagrams(self, strs):         &quot;&quot;&quot;         :type strs: List[str]         :rtype: List[List[str]]         &quot;&quot;&quot;          hm = {}         res = []          for s in str">
-<meta name="keywords" content="Easy,Hash">
+  <meta name="description" content="扫一遍，标记递减的。如果递减的为1个，找一找有没有合适的替换。如果递减为两个，把第二个递减的和第一个递减的前面的那个数替换，如果行，也是可以的。超过2个递减的，直接false。 1234567891011121314151617181920212223242526static void sortByOneSwap(int arr[],                          int n)">
+<meta name="keywords" content="MJ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="49. Group Anagrams ">
-<meta property="og:url" content="http://fbnote.netlify.com/2018/07/26/49-Group-Anagrams/index.html">
+<meta property="og:title" content="68. swapbyoneswap">
+<meta property="og:url" content="http://fbnote.netlify.com/2018/08/05/68-swapbyoneswap/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="class Solution(object):     def groupAnagrams(self, strs):         &quot;&quot;&quot;         :type strs: List[str]         :rtype: List[List[str]]         &quot;&quot;&quot;          hm = {}         res = []          for s in str">
+<meta property="og:description" content="扫一遍，标记递减的。如果递减的为1个，找一找有没有合适的替换。如果递减为两个，把第二个递减的和第一个递减的前面的那个数替换，如果行，也是可以的。超过2个递减的，直接false。 1234567891011121314151617181920212223242526static void sortByOneSwap(int arr[],                          int n)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-26T22:58:49.691Z">
+<meta property="og:updated_time" content="2018-08-06T04:31:54.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="49. Group Anagrams ">
-<meta name="twitter:description" content="class Solution(object):     def groupAnagrams(self, strs):         &quot;&quot;&quot;         :type strs: List[str]         :rtype: List[List[str]]         &quot;&quot;&quot;          hm = {}         res = []          for s in str">
+<meta name="twitter:title" content="68. swapbyoneswap">
+<meta name="twitter:description" content="扫一遍，标记递减的。如果递减的为1个，找一找有没有合适的替换。如果递减为两个，把第二个递减的和第一个递减的前面的那个数替换，如果行，也是可以的。超过2个递减的，直接false。 1234567891011121314151617181920212223242526static void sortByOneSwap(int arr[],                          int n)">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -69,10 +69,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-49-Group-Anagrams" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-68-swapbyoneswap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/07/26/49-Group-Anagrams/" class="article-date">
-  <time datetime="2018-07-26T22:58:29.000Z" itemprop="datePublished">2018-07-26</time>
+    <a href="/2018/08/05/68-swapbyoneswap/" class="article-date">
+  <time datetime="2018-08-06T04:27:31.000Z" itemprop="datePublished">2018-08-05</time>
 </a>
     
   </div>
@@ -83,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      49. Group Anagrams 
+      68. swapbyoneswap
     </h1>
   
 
@@ -93,34 +93,17 @@
       
         <!-- Table of Contents -->
         
-        <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span>
-    <span class="function"><span class="keyword">def</span> <span class="title">groupAnagrams</span><span class="params">(self, strs)</span>:</span>
-        <span class="string">"""</span>
-<span class="string">        :type strs: List[str]</span>
-<span class="string">        :rtype: List[List[str]]</span>
-<span class="string">        """</span>
-
-        hm = {}
-        res = []
-
-        <span class="keyword">for</span> s <span class="keyword">in</span> strs:
-            key = <span class="string">''</span>.join(sorted(s))
-            hm[key] = hm.get(key,[]) + [s]
-
-        <span class="keyword">for</span> v <span class="keyword">in</span> hm.values():
-            res.append(v)
-
-        <span class="keyword">return</span> res
-</code></pre>
+        <p>扫一遍，标记递减的。如果递减的为1个，<br>找一找有没有合适的替换。如果递减为两个，<br>把第二个递减的和第一个递减的前面的那个数替换，如果行，<br>也是可以的。超过2个递减的，直接false。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sortByOneSwap</span><span class="params">(<span class="keyword">int</span> arr[],</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Travers the given array</span></span><br><span class="line">    <span class="comment">// from rightmost side</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Check if arr[i]</span></span><br><span class="line">        <span class="comment">// is not in order</span></span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Find the other element</span></span><br><span class="line">            <span class="comment">// to be swapped with arr[i]</span></span><br><span class="line">            <span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; arr[i] &lt; arr[j])</span><br><span class="line">                j--;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Swap the pair</span></span><br><span class="line">            <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">            arr[i] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/49-Group-Anagrams/" data-id="cjkhs4cle004w8cvn8dmkrr1j" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/68-swapbyoneswap/" data-id="cjkhs4cmb006m8cvnrs0zqdw5" class="article-share-link">Share</a>
       
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hash/">Hash</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
 
     </footer>
   </div>
@@ -170,19 +153,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2018/07/26/286-Walls-and-Gates/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          286. Walls and Gates
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/07/26/334-Increasing-Triplet-Subsequence/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2018/08/05/53-LinkedList-Cycle/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">334. Increasing Triplet Subsequence</div>
+      <div class="article-nav-title">53. LinkedList Cycle</div>
     </a>
   
 </nav>

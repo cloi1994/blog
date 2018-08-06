@@ -66,6 +66,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-68-swapbyoneswap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/05/68-swapbyoneswap/" class="article-date">
+  <time datetime="2018-08-06T04:27:31.000Z" itemprop="datePublished">2018-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>扫一遍，标记递减的。如果递减的为1个，<br>找一找有没有合适的替换。如果递减为两个，<br>把第二个递减的和第一个递减的前面的那个数替换，如果行，<br>也是可以的。超过2个递减的，直接false。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sortByOneSwap</span><span class="params">(<span class="keyword">int</span> arr[],</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Travers the given array</span></span><br><span class="line">    <span class="comment">// from rightmost side</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Check if arr[i]</span></span><br><span class="line">        <span class="comment">// is not in order</span></span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Find the other element</span></span><br><span class="line">            <span class="comment">// to be swapped with arr[i]</span></span><br><span class="line">            <span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; arr[i] &lt; arr[j])</span><br><span class="line">                j--;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Swap the pair</span></span><br><span class="line">            <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">            arr[i] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/05/68-swapbyoneswap/" data-id="cjkhs4cmb006m8cvnrs0zqdw5" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-53-LinkedList-Cycle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/05/53-LinkedList-Cycle/" class="article-date">
@@ -96,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/53-LinkedList-Cycle/" data-id="cjkhr6nv8005ajsvnydvpis6c" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/53-LinkedList-Cycle/" data-id="cjkhs4clt005l8cvne6hv1qb0" class="article-share-link">Share</a>
       
       
       
@@ -139,7 +183,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/52-Maximum-Binary-Tree/" data-id="cjkhr6nv80057jsvnsl3cs9m9" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/52-Maximum-Binary-Tree/" data-id="cjkhs4clr005g8cvnkfbr7hh2" class="article-share-link">Share</a>
       
       
       
@@ -182,7 +226,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/49-sparse-vector-dot-product/" data-id="cjkhr6nut004xjsvnpuqrh2bc" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/49-sparse-vector-dot-product/" data-id="cjkhs4clj00568cvns2v69p7h" class="article-share-link">Share</a>
       
       
       
@@ -226,7 +270,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/48-primeNumber/" data-id="cjkhr6nut004sjsvnug9qfm0q" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/48-primeNumber/" data-id="cjkhs4cli00548cvnw8xje4kq" class="article-share-link">Share</a>
       
       
       
@@ -274,7 +318,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/46-Abs-minmax-sorting/" data-id="cjkhr6nut004ljsvns7ynd7je" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/46-Abs-minmax-sorting/" data-id="cjkhs4cld004u8cvn23tjstqz" class="article-share-link">Share</a>
       
       
       
@@ -318,7 +362,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/44-search-for-range-count/" data-id="cjkhr6nut004ijsvnnumlvqw2" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/44-search-for-range-count/" data-id="cjkhs4clc004r8cvnoi6ucwky" class="article-share-link">Share</a>
       
       
       
@@ -361,7 +405,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/42-flatten-multilevel-linkedlist/" data-id="cjkhr6nut004gjsvnupzs3hrw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/42-flatten-multilevel-linkedlist/" data-id="cjkhs4cl9004k8cvnd5vz4kus" class="article-share-link">Share</a>
       
       
       
@@ -405,7 +449,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/39-task-schedule-with-order/" data-id="cjkhr6nud0048jsvn5vsyknh1" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/04/39-task-schedule-with-order/" data-id="cjkhs4cl8004h8cvnaq48luxf" class="article-share-link">Share</a>
       
       
       
@@ -449,54 +493,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/38-Merge-Set/" data-id="cjkhr6nud0043jsvngxuz7ayz" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/04/38-Merge-Set/" data-id="cjkhs4cl7004f8cvnflbybm4h" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-37-Dominoes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/04/37-Dominoes/" class="article-date">
-  <time datetime="2018-08-05T03:54:56.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/04/37-Dominoes/">37. Dominoes</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>骨牌是不是可以直接存2个int 组合起来的string..<br>找的时候..直接reverse下..看看那个string在不在map里.</p>
-<p>每个牌上有两个数字，上下各一个，都在1-6之间，要找出有没有两个match的骨牌，<br>match的定义是两组数加起来都是6，比如一个骨牌是（1,5），<br>那么match的骨牌是（1,5）或者（5,1），总之相当弱智的一题，<br>用哈希表解决，存的时候存个pair，找的时候找两下就行了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/37-Dominoes/" data-id="cjkhr6nud003tjsvnps16sbzy" class="article-share-link">Share</a>
-      
-      
-      
     </footer>
   </div>
   
@@ -520,7 +522,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">36</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">83</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">37</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">83</span></li></ul>
     </div>
   </div>
 
@@ -545,6 +547,10 @@
       <ul>
         
           <li>
+            <a href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
           </li>
         
@@ -558,10 +564,6 @@
         
           <li>
             <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
           </li>
         
       </ul>

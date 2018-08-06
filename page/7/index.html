@@ -66,6 +66,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-17-Letter-Combinations-of-a-Phone-Number" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/" class="article-date">
+  <time datetime="2018-07-30T01:33:13.000Z" itemprop="datePublished">2018-07-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/">17. Letter Combinations of a Phone Number</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">letterCombinations</span><span class="params">(self, digits)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type digits: str</span></span><br><span class="line"><span class="string">        :rtype: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> digits:</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line"></span><br><span class="line">        self.d = &#123;<span class="string">'2'</span>:[<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'c'</span>],<span class="string">'3'</span>:[<span class="string">'d'</span>,<span class="string">'e'</span>,<span class="string">'f'</span>],<span class="string">'4'</span>:[<span class="string">'g'</span>,<span class="string">'h'</span>,<span class="string">'i'</span>],<span class="string">'5'</span>:[<span class="string">'j'</span>,<span class="string">'k'</span>,<span class="string">'l'</span>],<span class="string">'6'</span>:[<span class="string">'m'</span>,<span class="string">'n'</span>,<span class="string">'o'</span>],<span class="string">'7'</span>:[<span class="string">'p'</span>,<span class="string">'q'</span>,<span class="string">'r'</span>,<span class="string">'s'</span>], <span class="string">'8'</span>:[<span class="string">'t'</span>,<span class="string">'u'</span>,<span class="string">'v'</span>],<span class="string">'9'</span>:[<span class="string">'w'</span>,<span class="string">'x'</span>,<span class="string">'y'</span>,<span class="string">'z'</span>]&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        self.dfs(<span class="number">0</span>,digits,[],res)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,idx,digits,tmp,res)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> idx == len(digits):</span><br><span class="line">            res.append(<span class="string">''</span>.join(tmp[:]))</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ele <span class="keyword">in</span> self.d[digits[idx]]:</span><br><span class="line">            tmp.append(ele)</span><br><span class="line">            self.dfs(idx+<span class="number">1</span>,digits,tmp,res)</span><br><span class="line">            tmp.pop()</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/29/17-Letter-Combinations-of-a-Phone-Number/" data-id="cjkhs4cje000r8cvn04ap989p" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-215-Kth-Largest-Element-in-an-Array" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/29/215-Kth-Largest-Element-in-an-Array/" class="article-date">
@@ -114,7 +157,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/215-Kth-Largest-Element-in-an-Array/" data-id="cjkhr6nt2001ijsvnhuf08sd9" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/215-Kth-Largest-Element-in-an-Array/" data-id="cjkhs4cjt001o8cvnwky2v5c6" class="article-share-link">Share</a>
       
       
       
@@ -157,7 +200,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/15-3Sum/" data-id="cjkhr6nsm000ijsvnf2coowyn" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/15-3Sum/" data-id="cjkhs4cj9000k8cvnfikknabj" class="article-share-link">Share</a>
       
       
       
@@ -223,7 +266,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/206-Reverse-Linked-List/" data-id="cjkhr6nt20013jsvnnvvf640v" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/206-Reverse-Linked-List/" data-id="cjkhs4cjm00198cvndmptdrph" class="article-share-link">Share</a>
       
       
       
@@ -280,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/28-Implement-strStr/" data-id="cjkhr6ntx002njsvnlpzo0r1s" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/28-Implement-strStr/" data-id="cjkhs4ckf002w8cvnqb8sbaxa" class="article-share-link">Share</a>
       
       
       
@@ -324,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/282-Expression-Add-Operators/" data-id="cjkhr6ntx002sjsvnzvbz00ft" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/282-Expression-Add-Operators/" data-id="cjkhs4ckh00318cvnaw3yqtub" class="article-share-link">Share</a>
       
       
       
@@ -369,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/29/269-Alien-Dictionary/" data-id="cjkhr6nti002hjsvnpf1qkop8" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/29/269-Alien-Dictionary/" data-id="cjkhs4ckc002p8cvnf2sws9zm" class="article-share-link">Share</a>
       
       
       
@@ -417,7 +460,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/75-Sort-Colors/" data-id="cjkhr6nvo006vjsvn1n6ok3g7" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/75-Sort-Colors/" data-id="cjkhs4cmj00738cvnt3i69bn0" class="article-share-link">Share</a>
       
       
       
@@ -460,7 +503,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/218-The-Skyline-Problem/" data-id="cjkhr6nt2001njsvn951408fy" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/218-The-Skyline-Problem/" data-id="cjkhs4cju001q8cvn89l522or" class="article-share-link">Share</a>
       
       
       
@@ -503,54 +546,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/127-Word-Ladder/" data-id="cjkhr6nsm000ajsvnjtspuwib" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/28/127-Word-Ladder/" data-id="cjkhs4ciz00078cvn3z7lgm4l" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-13-Roman-to-Integer" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/28/13-Roman-to-Integer/" class="article-date">
-  <time datetime="2018-07-29T01:14:53.000Z" itemprop="datePublished">2018-07-28</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/28/13-Roman-to-Integer/">13. Roman to Integer</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">romanToInt</span><span class="params">(self, s)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        dic = &#123;<span class="string">'I'</span>:<span class="number">1</span>,<span class="string">'V'</span>:<span class="number">5</span>,<span class="string">'X'</span>:<span class="number">10</span>,<span class="string">'L'</span>:<span class="number">50</span>,<span class="string">'C'</span>:<span class="number">100</span>,<span class="string">'D'</span>:<span class="number">500</span>,<span class="string">'M'</span>:<span class="number">1000</span>&#125;</span><br><span class="line"></span><br><span class="line">        summ = dic[s[<span class="number">-1</span>]]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s)<span class="number">-2</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">            <span class="keyword">if</span> dic[s[i+<span class="number">1</span>]] &gt; dic[s[i]]:</span><br><span class="line">                summ -= dic[s[i]]</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                summ += dic[s[i]]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> summ</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/28/13-Roman-to-Integer/" data-id="cjkhr6nsm0008jsvn2klteca8" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -586,6 +586,10 @@
       <ul>
         
           <li>
+            <a href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
           </li>
         
@@ -599,10 +603,6 @@
         
           <li>
             <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
           </li>
         
       </ul>

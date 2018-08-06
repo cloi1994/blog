@@ -66,6 +66,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-157-Read-N-Characters-Given-Read4" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/26/157-Read-N-Characters-Given-Read4/" class="article-date">
+  <time datetime="2018-07-27T02:50:15.000Z" itemprop="datePublished">2018-07-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/26/157-Read-N-Characters-Given-Read4/">157. Read N Characters Given Read4</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># @param &#123;char[]&#125; buf destination buffer</span></span><br><span class="line">    <span class="comment"># @param &#123;int&#125; n maximum number of characters to read</span></span><br><span class="line">    <span class="comment"># @return &#123;int&#125; the number of characters read</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(self, buf, n)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line"></span><br><span class="line">        eof = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        tmp = [<span class="string">''</span>] * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> eof <span class="keyword">and</span> total &lt; n:</span><br><span class="line">            count = Reader.read4(tmp)</span><br><span class="line"></span><br><span class="line">            <span class="comment">#check if it's the end of the file</span></span><br><span class="line">            <span class="keyword">if</span> count &lt; <span class="number">4</span>:</span><br><span class="line">                eof = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">#get the actual count</span></span><br><span class="line">            count = min(count,n-total)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(count):</span><br><span class="line">                buf[total] = tmp[i]</span><br><span class="line">                total += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/26/157-Read-N-Characters-Given-Read4/" data-id="cjkhs4cj6000f8cvnsxup79qj" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-90-Subsets-II" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/26/90-Subsets-II/" class="article-date">
@@ -95,7 +138,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/90-Subsets-II/" data-id="cjkhr6nw3007hjsvnr25wqetz" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/90-Subsets-II/" data-id="cjkhs4cmu007s8cvnfbxzmtbz" class="article-share-link">Share</a>
       
       
       
@@ -167,7 +210,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/71-Simplify-Path/" data-id="cjkhr6nvo006njsvnatwqwc14" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/71-Simplify-Path/" data-id="cjkhs4cmh006y8cvnkrzhsjr0" class="article-share-link">Share</a>
       
       
       
@@ -210,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/98-Validate-Binary-Search-Tree/" data-id="cjkhr6nw3007mjsvn0s66uqja" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/98-Validate-Binary-Search-Tree/" data-id="cjkhs4cmx007x8cvn2f0i6z01" class="article-share-link">Share</a>
       
       
       
@@ -280,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/50-Pow-x-n/" data-id="cjkhr6nut0052jsvntsqkp2rw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/50-Pow-x-n/" data-id="cjkhs4clp005d8cvneha7elh7" class="article-share-link">Share</a>
       
       
       
@@ -324,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/286-Walls-and-Gates/" data-id="cjkhr6ntx0030jsvn2os6bz2r" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/286-Walls-and-Gates/" data-id="cjkhs4cko003e8cvn7z9xdh85" class="article-share-link">Share</a>
       
       
       
@@ -383,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/49-Group-Anagrams/" data-id="cjkhr6nut004vjsvngcvgics0" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/49-Group-Anagrams/" data-id="cjkhs4cle004w8cvn8dmkrr1j" class="article-share-link">Share</a>
       
       
       
@@ -427,7 +470,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/334-Increasing-Triplet-Subsequence/" data-id="cjkhr6nud003mjsvnvbolnava" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/334-Increasing-Triplet-Subsequence/" data-id="cjkhs4cky003v8cvnl2805xxh" class="article-share-link">Share</a>
       
       
       
@@ -508,7 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/79-Word-Search/" data-id="cjkhr6nw30074jsvnhrj03hru" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/79-Word-Search/" data-id="cjkhs4cmo007d8cvnef9ad2of" class="article-share-link">Share</a>
       
       
       
@@ -554,60 +597,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/117-Populating-Next-Right-Pointers-in-Each-Node-II/" data-id="cjkhr6nsm0004jsvnw23od3qy" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/117-Populating-Next-Right-Pointers-in-Each-Node-II/" data-id="cjkhs4ciw00048cvnolmc720b" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-283-Move-Zeroes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/26/283-Move-Zeroes/" class="article-date">
-  <time datetime="2018-07-26T20:09:37.000Z" itemprop="datePublished">2018-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/283-Move-Zeroes/">283. Move Zeroes</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>有2种解法:</p>
-<p>用slow pointer 记录Zero的位置</p>
-<ol>
-<li>把 Non-Zero 放在前面, 然后把剩余的填完 Zero. N operations</li>
-<li>把 Non-Zero 不停的 replace with Zero # of None-Zero operations<br>如果很多 Zero 就用第2种解法</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">moveZeroes</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        start = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != <span class="number">0</span>:</span><br><span class="line">                nums[start] = nums[i]</span><br><span class="line">                start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(start,len(nums)):</span><br><span class="line">            nums[i] = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">```      </span><br><span class="line"></span><br><span class="line">```python</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">moveZeroes</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify nums in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        start = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] != <span class="number">0</span>:</span><br><span class="line">                nums[start] , nums[i] = nums[i] , nums[start]</span><br><span class="line">                start += <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/283-Move-Zeroes/" data-id="cjkhr6ntx002vjsvnfvokcvku" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Basic/">Basic</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
 
     </footer>
   </div>
@@ -643,6 +637,10 @@
       <ul>
         
           <li>
+            <a href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
           </li>
         
@@ -656,10 +654,6 @@
         
           <li>
             <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
           </li>
         
       </ul>

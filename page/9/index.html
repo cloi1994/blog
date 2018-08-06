@@ -66,6 +66,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-121-Best-Time-to-Buy-and-Sell-Stock" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" class="article-date">
+  <time datetime="2018-07-28T03:39:10.000Z" itemprop="datePublished">2018-07-27</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/">121. Best Time to Buy and Sell Stock </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>get all the gain in a array and turn it to maximum subarray</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxProfit</span><span class="params">(self, prices)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prices: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> prices <span class="keyword">or</span> len(prices) &lt; <span class="number">2</span>:</span><br><span class="line">          <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        gain = [<span class="number">0</span>] * (len(price)<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">        dp = [<span class="number">0</span>] * len(gain)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(prices)):</span><br><span class="line">            gain[i<span class="number">-1</span>] = prices[i] - prices[i<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">        dp[<span class="number">0</span>] = gain[<span class="number">0</span>]    </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">            dp[i] = max(dp[i<span class="number">-1</span>] + gain[i] , gain[i])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> max(<span class="number">0</span>,max(dp))</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">localMax = gain[<span class="number">0</span>]</span><br><span class="line">globalMax = gain[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(gain)):</span><br><span class="line">    localMax = max(localMax + gain[i] , gain[i])</span><br><span class="line">    globalMax = max(localMax,globalMax)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/07/27/121-Best-Time-to-Buy-and-Sell-Stock/" data-id="cjkhs4cix00058cvn9zw9l38z" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DP/">DP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-236-Lowest-Common-Ancestor-of-a-Binary-Tree" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" class="article-date">
@@ -97,7 +142,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" data-id="cjkhr6nti001xjsvnhroofiug" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/236-Lowest-Common-Ancestor-of-a-Binary-Tree/" data-id="cjkhs4cjz00208cvn3f8pce2t" class="article-share-link">Share</a>
       
       
       
@@ -199,7 +244,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/234-Palindrome-Linked-List/" data-id="cjkhr6nti001sjsvn0lauazfu" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/234-Palindrome-Linked-List/" data-id="cjkhs4cjy001y8cvn8skq4iia" class="article-share-link">Share</a>
       
       
       
@@ -242,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/257-Binary-Tree-Paths/" data-id="cjkhr6nti002cjsvnhwzpcq49" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/257-Binary-Tree-Paths/" data-id="cjkhs4ck7002f8cvnjmdfinx3" class="article-share-link">Share</a>
       
       
       
@@ -285,7 +330,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/69-Sqrt-x/" data-id="cjkhr6nvo006ijsvn8pake9go" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/69-Sqrt-x/" data-id="cjkhs4cmg006w8cvngn5jxp53" class="article-share-link">Share</a>
       
       
       
@@ -328,7 +373,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/102-Binary-Tree-Level-Order-Traversal/" data-id="cjkhr6ns70001jsvncpwll000" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/102-Binary-Tree-Level-Order-Traversal/" data-id="cjkhs4cim00008cvn6a5wqx45" class="article-share-link">Share</a>
       
       
       
@@ -438,7 +483,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/57-Insert-Interval/" data-id="cjkhr6nv8005ojsvnzsvkx380" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/57-Insert-Interval/" data-id="cjkhs4cm0005x8cvn4vguhn10" class="article-share-link">Share</a>
       
       
       
@@ -513,7 +558,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" data-id="cjkhr6ntx003hjsvnp4n7phcf" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" data-id="cjkhs4cku003o8cvnpykknzh6" class="article-share-link">Share</a>
       
       
       
@@ -592,7 +637,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/826-Most-Profit-Assigning-Work/" data-id="cjkhr6nw3007cjsvnolfimkom" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/826-Most-Profit-Assigning-Work/" data-id="cjkhs4cms007n8cvnb09xn036" class="article-share-link">Share</a>
       
       
       
@@ -658,54 +703,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/311-Sparse-Matrix-Multiplication/" data-id="cjkhr6ntx003cjsvn3drnv62s" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/26/311-Sparse-Matrix-Multiplication/" data-id="cjkhs4ckt003l8cvnsg1x27eg" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-157-Read-N-Characters-Given-Read4" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/26/157-Read-N-Characters-Given-Read4/" class="article-date">
-  <time datetime="2018-07-27T02:50:15.000Z" itemprop="datePublished">2018-07-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/26/157-Read-N-Characters-Given-Read4/">157. Read N Characters Given Read4</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># @param &#123;char[]&#125; buf destination buffer</span></span><br><span class="line">    <span class="comment"># @param &#123;int&#125; n maximum number of characters to read</span></span><br><span class="line">    <span class="comment"># @return &#123;int&#125; the number of characters read</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(self, buf, n)</span>:</span></span><br><span class="line">        <span class="comment"># Write your code here</span></span><br><span class="line"></span><br><span class="line">        eof = <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        tmp = [<span class="string">''</span>] * <span class="number">4</span></span><br><span class="line"></span><br><span class="line">        total = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> eof <span class="keyword">and</span> total &lt; n:</span><br><span class="line">            count = Reader.read4(tmp)</span><br><span class="line"></span><br><span class="line">            <span class="comment">#check if it's the end of the file</span></span><br><span class="line">            <span class="keyword">if</span> count &lt; <span class="number">4</span>:</span><br><span class="line">                eof = <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">#get the actual count</span></span><br><span class="line">            count = min(count,n-total)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(count):</span><br><span class="line">                buf[total] = tmp[i]</span><br><span class="line">                total += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> total</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/26/157-Read-N-Characters-Given-Read4/" data-id="cjkhr6nsm000kjsvnqabq96ks" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -741,6 +743,10 @@
       <ul>
         
           <li>
+            <a href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
           </li>
         
@@ -754,10 +760,6 @@
         
           <li>
             <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
           </li>
         
       </ul>

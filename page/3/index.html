@@ -66,6 +66,50 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-16-Delete-Double-Linked-List-Node" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/03/16-Delete-Double-Linked-List-Node/" class="article-date">
+  <time datetime="2018-08-04T02:36:03.000Z" itemprop="datePublished">2018-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/03/16-Delete-Double-Linked-List-Node/">16. Delete Double Linked List Node</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Input is head &amp; target(node), delete target, return head. 因为<br>我⽤用了了dummy head，所以问了了我如果有环怎么办</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">delNode</span><span class="params">(head,target)</span>:</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> target.pre == <span class="keyword">None</span>:</span><br><span class="line">    <span class="keyword">return</span> head.next</span><br><span class="line">  <span class="keyword">if</span> target.next == <span class="keyword">None</span>:</span><br><span class="line">    target.pre.next = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">return</span> head</span><br><span class="line">  <span class="keyword">if</span> target.next == target:</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">  target.pre.next = target.next;</span><br><span class="line">  target.next.pre = target.pre;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/03/16-Delete-Double-Linked-List-Node/" data-id="cjkhs4cjb000n8cvn9upn1z4w" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-9-String-Add-Mult" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/03/9-String-Add-Mult/" class="article-date">
@@ -96,7 +140,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/9-String-Add-Mult/" data-id="cjkhr6nw3007ejsvn50rso1og" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/9-String-Add-Mult/" data-id="cjkhs4cmt007q8cvn80ckad61" class="article-share-link">Share</a>
       
       
       
@@ -141,7 +185,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/8-top-klargest-number-sum/" data-id="cjkhr6nw30077jsvnw16yrakf" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/8-top-klargest-number-sum/" data-id="cjkhs4cmq007i8cvntyc2ax13" class="article-share-link">Share</a>
       
       
       
@@ -187,7 +231,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/7-Longest-Increasing-Subsequence/" data-id="cjkhr6nvo006ljsvn2o3cuqeu" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/7-Longest-Increasing-Subsequence/" data-id="cjkhs4cme006t8cvny9f54y2w" class="article-share-link">Share</a>
       
       
       
@@ -236,7 +280,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/6-Compressed-Dot-Product/" data-id="cjkhr6nv8005wjsvnl36kcooo" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/6-Compressed-Dot-Product/" data-id="cjkhs4cm200628cvn6wxzdhl1" class="article-share-link">Share</a>
       
       
       
@@ -278,7 +322,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/5-SplitMore/" data-id="cjkhr6nv80055jsvnbbxz2g1u" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/5-SplitMore/" data-id="cjkhs4cll005b8cvnxgk65ops" class="article-share-link">Share</a>
       
       
       
@@ -323,7 +367,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/3-findRectangle/" data-id="cjkhr6ntx0035jsvn2cbxn1rs" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/3-findRectangle/" data-id="cjkhs4ckn003b8cvn7gq5eo4i" class="article-share-link">Share</a>
       
       
       
@@ -369,7 +413,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/2-MinStepLeftToRight/" data-id="cjkhr6nt2000yjsvnc7eadgyr" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/2-MinStepLeftToRight/" data-id="cjkhs4cjh000z8cvn9gze04as" class="article-share-link">Share</a>
       
       
       
@@ -413,7 +457,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/03/1-2D-Chess/" data-id="cjkhr6ns70000jsvnmaszfvr0" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/03/1-2D-Chess/" data-id="cjkhs4cir00018cvnu8gal6qv" class="article-share-link">Share</a>
       
       
       
@@ -456,54 +500,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/02/721-Accounts-Merge/" data-id="cjkhr6nvo006qjsvnyejd1469" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/02/721-Accounts-Merge/" data-id="cjkhs4cmi00718cvnyej8dyl6" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UnionFind/">UnionFind</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-745-Prefix-and-Suffix-Search" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/01/745-Prefix-and-Suffix-Search/" class="article-date">
-  <time datetime="2018-08-02T06:23:11.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/745-Prefix-and-Suffix-Search/">745. Prefix and Suffix Search </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TireNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.children = [<span class="keyword">None</span>] * <span class="number">26</span></span><br><span class="line">        self.weightList = []</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordFilter</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, words)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type words: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = TireNode()</span><br><span class="line">        self.reversed_root = TireNode()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(words)):</span><br><span class="line">            self.root.weightList.append(i)</span><br><span class="line">            self.reversed_root.weightList.append(i)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(words)):</span><br><span class="line">            self.add(words[i],i)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,word,weight)</span>:</span></span><br><span class="line">        self.insert(word,self.root,weight)</span><br><span class="line">        self.insert(word[::<span class="number">-1</span>],self.reversed_root,weight)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self,word,p,weight)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word)):</span><br><span class="line">            idx = ord(word[i]) - ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> p.children[idx] == <span class="keyword">None</span>:</span><br><span class="line">                p.children[idx] = TireNode()</span><br><span class="line"></span><br><span class="line">            p = p.children[idx]</span><br><span class="line">            p.weightList.append(weight)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self,word,p)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word)):</span><br><span class="line">            idx = ord(word[i]) - ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> p.children[idx] == <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">            p = p.children[idx]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p.weightList</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(self, prefix, suffix)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prefix: str</span></span><br><span class="line"><span class="string">        :type suffix: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        pre = self.search(prefix,self.root)</span><br><span class="line">        suf = self.search(suffix[::<span class="number">-1</span>],self.reversed_root)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> pre == <span class="keyword">None</span> <span class="keyword">or</span> suf == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        i = len(pre) - <span class="number">1</span></span><br><span class="line">        j = len(suf) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">and</span> j &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> pre[i] == suf[j]:</span><br><span class="line">                <span class="keyword">return</span> pre[i]</span><br><span class="line">            <span class="keyword">elif</span> pre[i] &gt; suf[j]:</span><br><span class="line">                i -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your WordFilter object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = WordFilter(words)</span></span><br><span class="line"><span class="comment"># param_1 = obj.f(prefix,suffix)</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/01/745-Prefix-and-Suffix-Search/" data-id="cjkhr6nvo006sjsvncd4cjbky" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
 
     </footer>
   </div>
@@ -539,6 +540,10 @@
       <ul>
         
           <li>
+            <a href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+          </li>
+        
+          <li>
             <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
           </li>
         
@@ -552,10 +557,6 @@
         
           <li>
             <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
-          </li>
-        
-          <li>
-            <a href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
           </li>
         
       </ul>
