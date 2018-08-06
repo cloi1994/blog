@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="FB Note">
 <meta property="og:description" content="Input: {1,2},{2,3},{3,4}{5,6,7},{7,8},{9},{9}Output: {1,2,3,4},{5,6,7,8},{9}能不能够维护一个hashmap&amp;lt;num, set_id&amp;gt; 比如1-&amp;gt;{1,2}同时维护一个map存set间关系碰到{2, 3}时找2和3没有没在hashmap中，发现2在，则将{2, 3}的father标记为{1,2}，。。。最后">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-08-05T04:17:41.208Z">
+<meta property="og:updated_time" content="2018-08-06T01:20:32.454Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="38. Merge Set">
 <meta name="twitter:description" content="Input: {1,2},{2,3},{3,4}{5,6,7},{7,8},{9},{9}Output: {1,2,3,4},{5,6,7,8},{9}能不能够维护一个hashmap&amp;lt;num, set_id&amp;gt; 比如1-&amp;gt;{1,2}同时维护一个map存set间关系碰到{2, 3}时找2和3没有没在hashmap中，发现2在，则将{2, 3}的father标记为{1,2}，。。。最后">
@@ -94,12 +94,12 @@
         <!-- Table of Contents -->
         
         <p>Input: {1,2},{2,3},{3,4}{5,6,7},{7,8},{9},{9}<br>Output: {1,2,3,4},{5,6,7,8},{9}<br>能不能够维护一个hashmap&lt;num, set_id&gt; 比如1-&gt;{1,2}<br>同时维护一个map存set间关系<br>碰到{2, 3}时找2和3没有没在hashmap中，发现2在，<br>则将{2, 3}的father标记为{1,2}，。。。最后从每个点向父亲走并合并set内容<br>如果有N个set，平均长度M，建立set关系要N<em>M，合并需要N</em>M</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">arr = [[<span class="number">1</span>,<span class="number">2</span>],[<span class="number">2</span>,<span class="number">3</span>],[<span class="number">3</span>,<span class="number">4</span>],[<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>],[<span class="number">7</span>,<span class="number">8</span>],[<span class="number">9</span>],[<span class="number">9</span>]]</span><br><span class="line"></span><br><span class="line">d = &#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> arr:</span><br><span class="line">    notInSet = []</span><br><span class="line">    foundSet = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">for</span> ele <span class="keyword">in</span> a:</span><br><span class="line">        <span class="keyword">if</span> ele <span class="keyword">in</span> d:</span><br><span class="line">            foundSet = d[ele]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            notInSet.append(ele)</span><br><span class="line"></span><br><span class="line">    sets = <span class="keyword">None</span></span><br><span class="line">    <span class="keyword">if</span> foundSet != <span class="keyword">None</span>:</span><br><span class="line">        sets = foundSet</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        sets = set()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> ele <span class="keyword">in</span> notInSet:</span><br><span class="line">        sets.add(ele)</span><br><span class="line">        d[ele] = sets</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> d</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">accountsMerge</span><span class="params">(self, accounts)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type accounts: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: List[List[str]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        root = &#123;&#125;</span><br><span class="line">        owner = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        hm = &#123;&#125;</span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">                owner[a[i]] = a[<span class="number">0</span>]</span><br><span class="line">                root[a[i]] = a[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line"></span><br><span class="line">            p = self.find(a[<span class="number">0</span>],root)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(a)):</span><br><span class="line">                root[self.find(a[i],root)] = p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">                key = root[self.find(a[i],root)]</span><br><span class="line">                hm[key] = hm.get(key,[]) + [a[i]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> hm.keys():</span><br><span class="line">            v = sorted(list(set(hm[k])))</span><br><span class="line">            res.append(v)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self,p,root)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> root[p] == p:</span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line">        <span class="keyword">return</span> self.find(root[p],root)</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/38-Merge-Set/" data-id="cjkgcj8fn004yl8vnq85vp7gj" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/04/38-Merge-Set/" data-id="cjkhr6nud0043jsvngxuz7ayz" class="article-share-link">Share</a>
       
       
       
@@ -208,23 +208,23 @@
       <ul>
         
           <li>
-            <a href="/2018/08/04/39-task-schedule-with-order/">39. task schedule with order</a>
+            <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/38-Merge-Set/">38. Merge Set</a>
+            <a href="/2018/08/05/52-Maximum-Binary-Tree/">52. Maximum Binary Tree</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/37-Dominoes/">37. Dominoes</a>
+            <a href="/2018/08/05/49-sparse-vector-dot-product/">49. sparse vector dot product</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/35-sort-a-array-pair/">35. sort a array pair</a>
+            <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/31-Deepest-Common-Ancestor/">31. Deepest Common Ancestor</a>
+            <a href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
           </li>
         
       </ul>

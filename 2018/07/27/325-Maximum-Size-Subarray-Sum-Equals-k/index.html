@@ -5,18 +5,18 @@
   
   <title>325. Maximum Size Subarray Sum Equals k | FB Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="nums: [-2, -1, 2, 1], k = 1 sums: [-2, -3, -1, 0] 我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同， cur_">
+  <meta name="description" content="nums: [-2, -1, 2, 1], k = 1 sums: [-2, -3, -1, 0] 我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同， 全部是正">
 <meta name="keywords" content="Remember,PrefixSum">
 <meta property="og:type" content="article">
 <meta property="og:title" content="325. Maximum Size Subarray Sum Equals k">
 <meta property="og:url" content="http://fbnote.netlify.com/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/index.html">
 <meta property="og:site_name" content="FB Note">
-<meta property="og:description" content="nums: [-2, -1, 2, 1], k = 1 sums: [-2, -3, -1, 0] 我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同， cur_">
+<meta property="og:description" content="nums: [-2, -1, 2, 1], k = 1 sums: [-2, -3, -1, 0] 我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同， 全部是正">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-28T11:33:56.000Z">
+<meta property="og:updated_time" content="2018-08-06T02:42:16.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="325. Maximum Size Subarray Sum Equals k">
-<meta name="twitter:description" content="nums: [-2, -1, 2, 1], k = 1 sums: [-2, -3, -1, 0] 我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同， cur_">
+<meta name="twitter:description" content="nums: [-2, -1, 2, 1], k = 1 sums: [-2, -3, -1, 0] 我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同， 全部是正">
   
     <link rel="alternate" href="/atom.xml" title="FB Note" type="application/atom+xml">
   
@@ -96,6 +96,7 @@
         <p>nums: [-2, -1, 2, 1], k = 1</p>
 <p>sums: [-2, -3, -1, 0]</p>
 <p>我们发现累积和中没有数字等于k，但是我们知道这个例子的答案是[-1, 2]，<br>那么我们看累积和数组的第一和第三个数字，我们是否能看出一些规律呢，<br>没错，第三个数字-1减去k，得到第一个数字，这就是规律，这也是累积和求区间和的方法，<br>但是由于累计和数组中可能会有重复数字，而哈希表的关键字不能相同，</p>
+<p>全部是正数的时候可以⽤two pointer做到时空最优，因为sum是递增的；但是如果 有负数的话<br>就只能⽤用hashmap</p>
 <p>cur_sum - k in hm == [i:j] inclusive</p>
 <p>i = hm[cur_sum - k]</p>
 <pre><code class="python"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span>
@@ -129,7 +130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" data-id="cjkgcj8fn004ql8vnbhwpnlmo" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/07/27/325-Maximum-Size-Subarray-Sum-Equals-k/" data-id="cjkhr6ntx003hjsvnp4n7phcf" class="article-share-link">Share</a>
       
       
       
@@ -238,23 +239,23 @@
       <ul>
         
           <li>
-            <a href="/2018/08/04/39-task-schedule-with-order/">39. task schedule with order</a>
+            <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/38-Merge-Set/">38. Merge Set</a>
+            <a href="/2018/08/05/52-Maximum-Binary-Tree/">52. Maximum Binary Tree</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/37-Dominoes/">37. Dominoes</a>
+            <a href="/2018/08/05/49-sparse-vector-dot-product/">49. sparse vector dot product</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/35-sort-a-array-pair/">35. sort a array pair</a>
+            <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
           </li>
         
           <li>
-            <a href="/2018/08/04/31-Deepest-Common-Ancestor/">31. Deepest Common Ancestor</a>
+            <a href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
           </li>
         
       </ul>
