@@ -66,6 +66,402 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-67-replaceChars" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/67-replaceChars/" class="article-date">
+  <time datetime="2018-08-07T06:27:46.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/67-replaceChars/">67. replaceChars</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>给⼀一个Map&lt;String, List<string>&gt; sub.<br>其中key是要被替换的字⺟母，list可以替换的⼀一堆字⺟母，输<br>出所有可能<br>E.G. ‘a’ -&gt; {‘b’, ‘c’, ‘d’}<br>那么⼀个word例例如是abc，所有a都要被替换，那么输出就是{’cbc’,’bbc’,’dbc’}<br>代码：</string></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;String&gt; <span class="title">replaceChars</span><span class="params">(Map&lt;String, List&lt;String&gt;&gt; map, String word)</span> </span>&#123;</span><br><span class="line">  List&lt;String&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; word.length(); i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= i; j++) &#123;</span><br><span class="line">    <span class="comment">//[j, i] is the substitude candidate</span></span><br><span class="line">      String cand = word.substring(j, i + <span class="number">1</span>);</span><br><span class="line">      <span class="keyword">if</span>(map.containsKey(cand)) &#123;</span><br><span class="line">        List&lt;String&gt; subs = map.get(cand);</span><br><span class="line">        <span class="keyword">for</span>(String sub: subs) &#123;</span><br><span class="line">          res.add(word.substring(<span class="number">0</span>, j) + sub + word.substring(i + <span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/67-replaceChars/" data-id="cjkjbsg7d006znwvny9o2fbql" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-63-shortestPaths" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/63-shortestPaths/" class="article-date">
+  <time datetime="2018-08-07T06:17:42.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/63-shortestPaths/">63. shortestPaths</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>find the length of shortest path between two nodes in a tree</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">shortestPaths</span><span class="params">(TreeNode root, TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  LinkedList&lt;Integer&gt; res1 = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  LinkedList&lt;Integer&gt; res2 = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  Map&lt;TreeNode, TreeNode&gt; parent = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  dfs(root, parent);</span><br><span class="line">  Set&lt;TreeNode&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">  set.add(p);</span><br><span class="line">  TreeNode scanner = p;</span><br><span class="line">  <span class="keyword">while</span>(parent.containsKey(scanner)) &#123;</span><br><span class="line">    set.add(parent.get(scanner));</span><br><span class="line">    scanner = parent.get(scanner);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">while</span>(!set.contains(q)) &#123;</span><br><span class="line">    res1.add(q.val);</span><br><span class="line">    q = parent.get(q);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  TreeNode common = q;</span><br><span class="line">  res1.add(q.val);</span><br><span class="line">  <span class="keyword">while</span>(p != q) &#123;</span><br><span class="line">    res2.addFirst(p.val);</span><br><span class="line">    p = parent.get(p);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(Integer i: res2)</span><br><span class="line">    res1.add(i);</span><br><span class="line">  <span class="keyword">return</span> res1</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode root, Map&lt;TreeNode, TreeNode&gt; parent)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(root.left != <span class="keyword">null</span>) &#123;</span><br><span class="line">      parent.put(root.left, root);</span><br><span class="line">      dfs(root.left, parent);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(root.right != <span class="keyword">null</span>) &#123;</span><br><span class="line">      parent.put(root.right, root);</span><br><span class="line">      dfs(root.right, parent);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/63-shortestPaths/" data-id="cjkjbsg74006inwvnk3cnzirv" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-60-4SUM" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/60-4SUM/" class="article-date">
+  <time datetime="2018-08-07T06:16:21.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/60-4SUM/">60. 4SUM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; fourSum(vector&lt;<span class="keyword">int</span>&gt; &amp;nums, <span class="keyword">int</span> target) &#123;</span><br><span class="line">        set&lt;vector&lt;<span class="keyword">int</span>&gt;&gt; res;</span><br><span class="line">        sort(nums.begin(), nums.end());</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="keyword">int</span>(nums.size() - <span class="number">3</span>); ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; <span class="keyword">int</span>(nums.size() - <span class="number">2</span>); ++j) &#123;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; i + <span class="number">1</span> &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">                <span class="keyword">int</span> left = j + <span class="number">1</span>, right = nums.size() - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">                    <span class="keyword">int</span> sum = nums[i] + nums[j] + nums[left] + nums[right];</span><br><span class="line">                    <span class="keyword">if</span> (sum == target) &#123;</span><br><span class="line">                        vector&lt;<span class="keyword">int</span>&gt; out&#123;nums[i], nums[j], nums[left], nums[right]&#125;;</span><br><span class="line">                        res.insert(out);</span><br><span class="line">                        ++left; --right;</span><br><span class="line">                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum &lt; target) ++left;</span><br><span class="line">                    <span class="keyword">else</span> --right;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> vector&lt;vector&lt;<span class="keyword">int</span>&gt;&gt;(res.begin(), res.end());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/60-4SUM/" data-id="cjkjbsg72006dnwvnutf8axdf" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-57-changeAlph" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/57-changeAlph/" class="article-date">
+  <time datetime="2018-08-07T06:11:57.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/57-changeAlph/">57. changeAlph</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>Sort an input string using an arbitrary alphabet-google<br>For example: custom alphabet: xyzabc<br>input to sort according to custom alphabet: cyxz<br>output according to custom alphabet: xyzc .<br>因为alphabet有限，可以⽤用bucket sort，将alph存进map，设<br>alpg⻓长度为m，输⼊入长度n，那么空间<br>O(M), 时间max(m ,n<br>或者直接存⼊入26个字⺟母表的bucket，然后找找alph的顺序输出。空间26，时间⼀一样</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">changeAlph</span><span class="params">(String alph, String word)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] bucket = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">char</span> c: word.toCharArray()) &#123;</span><br><span class="line">    bucket[c - <span class="string">'a'</span>]++;</span><br><span class="line">  &#125;</span><br><span class="line">  StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">char</span> c: alph.toCharArray()) &#123;</span><br><span class="line">    <span class="keyword">while</span>(bucket[c - <span class="string">'a'</span>]-- &gt; <span class="number">0</span>) sb.append(c);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/57-changeAlph/" data-id="cjkjbsg6z0066nwvnebl7b0eu" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-32-input-string" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/32-input-string/" class="article-date">
+  <time datetime="2018-08-07T06:05:55.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/32-input-string/">32. input string</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>去除string中重复的character，返回⼀一个新的string； abcad，返回abcd.<br>如果不确定只有⼩小写字⺟母就⽤用set存就好了了<br>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">removeDuplicate</span><span class="params">(String input)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(input.length() &lt; <span class="number">2</span>) <span class="keyword">return</span> input;</span><br><span class="line">  <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">  StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">char</span> c: input.toCharArray()) &#123;</span><br><span class="line">    <span class="keyword">if</span>(count[c - <span class="string">'a'</span>] == <span class="number">0</span>) sb.append(c);</span><br><span class="line">    count[c - <span class="string">'a'</span>]++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/32-input-string/" data-id="cjkjbsg5v003wnwvn2h3sxxat" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-18-sorted-DDL-to-BST" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/18-sorted-DDL-to-BST/" class="article-date">
+  <time datetime="2018-08-07T06:03:22.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/18-sorted-DDL-to-BST/">18. sorted DDL to BST</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">dLLtoBST</span><span class="params">(<span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  Node left = dLLtoBST(size / <span class="number">2</span>);</span><br><span class="line">  Node root = head;</span><br><span class="line">  root.prev = left;</span><br><span class="line">  head = head.next;</span><br><span class="line">  root.next = dLLtoBST(size-(size / <span class="number">2</span>)-<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/18-sorted-DDL-to-BST/" data-id="cjkjbsg4h0010nwvnnwkzbmo2" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-13-BST-to-circle-double-linked-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/13-BST-to-circle-double-linked-list/" class="article-date">
+  <time datetime="2018-08-07T05:46:29.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/13-BST-to-circle-double-linked-list/">13. BST to circle double linked list</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">TreeNode head = <span class="keyword">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bstTodll</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  bstTodll(root.left);</span><br><span class="line">  <span class="keyword">if</span>(pre == <span class="keyword">null</span>) &#123;</span><br><span class="line">    head = root;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    pre.right = root;</span><br><span class="line">    root.left = pre;</span><br><span class="line">  &#125;</span><br><span class="line">  pre = root;</span><br><span class="line">  bstTodll(root.right);</span><br><span class="line">  <span class="keyword">if</span> (root.right == <span class="keyword">null</span>)&#123;</span><br><span class="line">    tail = root</span><br><span class="line">    head.left = tail</span><br><span class="line">    tail.right = head</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/13-BST-to-circle-double-linked-list/" data-id="cjkjbsg44000cnwvnrbckgeo6" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-12-BST-to-double-linked-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/12-BST-to-double-linked-list/" class="article-date">
+  <time datetime="2018-08-07T05:45:18.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/12-BST-to-double-linked-list/">12. BST to double linked list</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>reference:<br><a href="http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/" target="_blank" rel="noopener">http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/</a><br>思路：用递归转成inOrder的dll</p>
+<p>followup: pseudo code for doublely linked list to BST,<br> the simplest method for finding the mid<br>node (oral discussion only), complexity<br> 如果用这个方法来找中点，整个把linked list转回BST的复杂<br>度是什么</p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">TreeNode head = <span class="keyword">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bstTodll</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  bstTodll(root.left);</span><br><span class="line">  <span class="keyword">if</span>(pre == <span class="keyword">null</span>) &#123;</span><br><span class="line">    head = root;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    pre.right = root;</span><br><span class="line">    root.left = pre;</span><br><span class="line">  &#125;</span><br><span class="line">  pre = root;</span><br><span class="line">  bstTodll(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/12-BST-to-double-linked-list/" data-id="cjkjbsg410008nwvnrssp97jv" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-11-BST-to-MinHeap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/11-BST-to-MinHeap/" class="article-date">
+  <time datetime="2018-08-07T05:33:06.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/11-BST-to-MinHeap/">11. BST to MinHeap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>思路：inorder traverse the BST and get the array,<br>then preorder traverse and put the items in array<br>one by on into the tree or we can traverse the tree level to level<br>follow up: do it in place?<br>reference: <a href="http://www.geeksforgeeks.org/in-place-convert-bst-into-a-min-heap/" target="_blank" rel="noopener">http://www.geeksforgeeks.org/in-place-convert-bst-into-a-min-heap/</a><br>solution: convert the BST to sorted linked list first and<br>then use a queue to construct the tree<br>not in place, O(N) space代码:</p>
+<p><code>`</code>java<br>public TreeNode bstToMinHeap(TreeNode root) {<br>  if(root == null) return null;<br>  LinkedList<treenode> list = new LinkedList&lt;&gt;();<br>  constructList(root, list);<br>  Queue<treenode> queue = new LinkedList&lt;&gt;();<br>  TreeNode newRoot = new TreeNode(list.removeFirst());<br>  queue.offer(newRoot);</treenode></treenode></p>
+<p>  while(!queue.isEmpty()) {<br>    int n = queue.size();<br>    while(n– &gt; 0) {<br>    TreeNode cur = queue.poll();<br>    if(list.size() == 0) return newRoot;<br>    cur.left = new TreeNode(list.removeFirst());<br>    if(list.size() == 0) return newRoot;<br>    cur.right = new TreeNode(list.removeFirst());<br>    queue.offer(cur.left);<br>    queue.offer(cur.right);<br>  }<br>  }<br>  return newRoot;<br>}<br>public void constructList(TreeNode root, List<treenode> list) {<br>  if(root == null) return;<br>  constructList(root.left, list);<br>  list.add(root);<br>  constructList(root.right, list);<br>}</treenode></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/11-BST-to-MinHeap/" data-id="cjkjbsg3u0001nwvnxgzzawky" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-68-swapbyoneswap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/05/68-swapbyoneswap/" class="article-date">
@@ -96,404 +492,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/68-swapbyoneswap/" data-id="cjkhs4cmb006m8cvnrs0zqdw5" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-53-LinkedList-Cycle" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/53-LinkedList-Cycle/" class="article-date">
-  <time datetime="2018-08-06T03:57:25.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span><span class="params">(self, head)</span>:</span></span><br><span class="line"></span><br><span class="line">    slow = head</span><br><span class="line">    fast = head</span><br><span class="line">    <span class="keyword">while</span> fast.next <span class="keyword">and</span> fast.next.next:</span><br><span class="line">          slow = slow.next</span><br><span class="line">          fast = fast.next.next</span><br><span class="line"></span><br><span class="line">          <span class="keyword">if</span> slow == fast:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">False</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    ListNode *detectCycle(ListNode *head) &#123;</span><br><span class="line">        ListNode *slow = head, *fast = head;</span><br><span class="line">        <span class="keyword">while</span> (fast &amp;&amp; fast-&gt;next) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next-&gt;next;</span><br><span class="line">            <span class="keyword">if</span> (slow == fast) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (!fast || !fast-&gt;next) <span class="keyword">return</span> NULL;</span><br><span class="line">        slow = head;</span><br><span class="line">        <span class="keyword">while</span> (slow != fast) &#123;</span><br><span class="line">            slow = slow-&gt;next;</span><br><span class="line">            fast = fast-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> fast;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/53-LinkedList-Cycle/" data-id="cjkhs4clt005l8cvne6hv1qb0" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-52-Maximum-Binary-Tree" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/52-Maximum-Binary-Tree/" class="article-date">
-  <time datetime="2018-08-06T03:52:33.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/52-Maximum-Binary-Tree/">52. Maximum Binary Tree</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">constructMaximumBinaryTree</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (nums == <span class="keyword">null</span>) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">return</span> build(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> TreeNode <span class="title">build</span><span class="params">(<span class="keyword">int</span>[] nums, <span class="keyword">int</span> start, <span class="keyword">int</span> end)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (start &gt; end) <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> idxMax = start;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = start + <span class="number">1</span>; i &lt;= end; i++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (nums[i] &gt; nums[idxMax]) &#123;</span><br><span class="line">                idxMax = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        TreeNode root = <span class="keyword">new</span> TreeNode(nums[idxMax]);</span><br><span class="line"></span><br><span class="line">        root.left = build(nums, start, idxMax - <span class="number">1</span>);</span><br><span class="line">        root.right = build(nums, idxMax + <span class="number">1</span>, end);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/52-Maximum-Binary-Tree/" data-id="cjkhs4clr005g8cvnkfbr7hh2" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-49-sparse-vector-dot-product" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/49-sparse-vector-dot-product/" class="article-date">
-  <time datetime="2018-08-06T03:40:34.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/49-sparse-vector-dot-product/">49. sparse vector dot product</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sparseVector</span><span class="params">(List&lt;Integer&gt; list1, List&lt;Integer&gt; list2)</span> </span>&#123;</span><br><span class="line">  Map&lt;Integer, Integer&gt; map1 = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  Map&lt;Integer, Integer&gt; map2 = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list1.size(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(list1.get(i) != <span class="number">0</span>)</span><br><span class="line">      map1.put(i, list1.get(i));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; list2.size(); i++) &#123;</span><br><span class="line">    <span class="keyword">if</span>(list2.get(i) != <span class="number">0</span>)</span><br><span class="line">      map2.put(i, list2.get(i));</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> item: map1.keySet()) &#123;</span><br><span class="line">    <span class="keyword">if</span>(map2.containsKey(item))</span><br><span class="line">      res += map1.get(item) * map2.get(item);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/49-sparse-vector-dot-product/" data-id="cjkhs4clj00568cvns2v69p7h" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-48-primeNumber" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/48-primeNumber/" class="article-date">
-  <time datetime="2018-08-06T03:40:07.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>给一个质数数组，没有重复元素，比如[2, 3, 5]，<br>要求返回所有元素之间可能的乘积，比如结果是[2, 3, 5, 6, 10, 15, 30]，<br>每个数最多用一次，结果不一定需要是有序的。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> List&lt;Integer&gt; <span class="title">primeNumber</span><span class="params">(List&lt;Integer&gt; nums)</span> </span>&#123;</span><br><span class="line">  List&lt;Integer&gt; res = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  res.add(<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">boolean</span> hasOne = <span class="keyword">false</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> num: nums) &#123;</span><br><span class="line">    <span class="keyword">if</span>(num == <span class="number">1</span>) &#123;</span><br><span class="line">      hasOne = <span class="keyword">true</span>;</span><br><span class="line">      <span class="keyword">continue</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    List&lt;Integer&gt; temp = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; res.size(); i++) &#123;</span><br><span class="line">      <span class="keyword">int</span> cur = res.get(i);</span><br><span class="line">      cur *= num;</span><br><span class="line">      temp.add(cur);</span><br><span class="line">    &#125;</span><br><span class="line">    res.addAll(temp);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span>(!hasOne) res.remove(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/48-primeNumber/" data-id="cjkhs4cli00548cvnw8xje4kq" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-46-Abs-minmax-sorting" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/46-Abs-minmax-sorting/" class="article-date">
-  <time datetime="2018-08-06T03:30:47.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>给⼀个有正有负的递增数列，返回⼀个按绝对值大小排列的数列<br>分为正负两个部分做插入</p>
-<p>[-12,2,3,4,8,9]</p>
-<p>= 2 3 4 8 9 -12</p>
-<p>如果是已经排好序的没必要找0吧，从两侧向中间走就可以吧，两侧绝对值一定最大<br>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] absIncreasing(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">  <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">  <span class="keyword">if</span>(nums.length == <span class="number">0</span> || nums[<span class="number">0</span>] &gt;= <span class="number">0</span>) <span class="keyword">return</span> nums;</span><br><span class="line">  <span class="keyword">int</span> start = <span class="number">0</span>, end = nums.length - <span class="number">1</span>, index = nums.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(start &lt;= end) &#123;</span><br><span class="line">    <span class="keyword">if</span>(Math.abs(nums[start]) &gt;= Math.abs(nums[end]))</span><br><span class="line">        res[index--] = nums[start++];</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        res[index--] = nums[end--];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>in place的话⽤用quick sort</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/46-Abs-minmax-sorting/" data-id="cjkhs4cld004u8cvn23tjstqz" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-44-search-for-range-count" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/44-search-for-range-count/" class="article-date">
-  <time datetime="2018-08-06T02:33:19.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/44-search-for-range-count/">44. search for range count</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>One slight optimization here would be to do an initial<br>search for an index that is in the target range, and then when<br>doing the search for the lower bound, use low to mid,<br>and then for upper bound, mid to high.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findFirst</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        left, right = <span class="number">0</span>, len(nums)<span class="number">-1</span></span><br><span class="line">        index = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid]&gt;=target:</span><br><span class="line">                right = mid<span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nums[mid]== target:</span><br><span class="line">                index = mid</span><br><span class="line">        <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLast</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        left, right = <span class="number">0</span>, len(nums)<span class="number">-1</span></span><br><span class="line">        index = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid]&lt;=target:</span><br><span class="line">                left = mid+<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nums[mid]== target:</span><br><span class="line">                index = mid</span><br><span class="line">        <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchRange</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        first = self.findFirst(nums, target)</span><br><span class="line">        last = self.findLast(nums,target)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [first, last]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/44-search-for-range-count/" data-id="cjkhs4clc004r8cvnoi6ucwky" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-42-flatten-multilevel-linkedlist" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/42-flatten-multilevel-linkedlist/" class="article-date">
-  <time datetime="2018-08-06T02:06:47.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/42-flatten-multilevel-linkedlist/">42. flatten multilevel linkedlist </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flattenList</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*Base case*/</span></span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Node tmp = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Find tail node of first level linked list */</span></span><br><span class="line">        Node tail = node;</span><br><span class="line">        <span class="keyword">while</span> (tail.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            tail = tail.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// One by one traverse through all nodes of first level</span></span><br><span class="line">        <span class="comment">// linked list till we reach the tail node</span></span><br><span class="line">        Node cur = node;</span><br><span class="line">        <span class="keyword">while</span> (cur != tail) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// If current node has a child</span></span><br><span class="line">            <span class="keyword">if</span> (cur.child != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// then append the child at the end of current list</span></span><br><span class="line">                tail.next = cur.child;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// and update the tail to new last node</span></span><br><span class="line">                tmp = cur.child;</span><br><span class="line">                <span class="keyword">while</span> (tmp.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    tmp = tmp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                tail = tmp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Change current node</span></span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/42-flatten-multilevel-linkedlist/" data-id="cjkhs4cl9004k8cvnd5vz4kus" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-39-task-schedule-with-order" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/04/39-task-schedule-with-order/" class="article-date">
-  <time datetime="2018-08-05T03:55:34.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/04/39-task-schedule-with-order/">39. task schedule with order</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p><a href="https://bit.ly/2Mkm1Xh" target="_blank" rel="noopener">https://bit.ly/2Mkm1Xh</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">leastInterval</span><span class="params">(<span class="keyword">char</span>[] tasks, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">  <span class="keyword">int</span>[] pos = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">  Arrays.fill(pos, -n-<span class="number">1</span>);</span><br><span class="line">  Queue&lt;Character&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  <span class="keyword">char</span> pre = <span class="string">' '</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">char</span> c: tasks) &#123;</span><br><span class="line">    <span class="keyword">if</span>(c != pre) queue.offer(c);</span><br><span class="line">    pre = c;</span><br><span class="line">    count[c]++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> counter = <span class="number">0</span>;<span class="comment">//exclusive</span></span><br><span class="line">  <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">char</span> cur = queue.poll();</span><br><span class="line">    System.out.println(cur);</span><br><span class="line">    <span class="keyword">if</span>(counter - pos[cur] &gt; n) &#123;</span><br><span class="line">      pos[cur] = counter;</span><br><span class="line">      counter++;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      pos[cur] = pos[cur] + n + <span class="number">1</span>;</span><br><span class="line">      counter = pos[cur] + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    count[cur]--;</span><br><span class="line">    <span class="keyword">if</span>(count[cur] &gt; <span class="number">0</span>) queue.offer(cur);</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">taskSchedule2</span><span class="params">(<span class="keyword">int</span>[] tasks, <span class="keyword">int</span> cooldown)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (tasks == <span class="keyword">null</span> || tasks.length == <span class="number">0</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();<span class="comment">//store tasks that are waiting for cooldown?</span></span><br><span class="line">     HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();<span class="comment">//store indices, where cooldown stops, of tasks in window</span></span><br><span class="line">     <span class="keyword">int</span> slots = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> task : tasks) &#123;</span><br><span class="line">         <span class="keyword">if</span> (map.containsKey(task) &amp;&amp; map.get(task) &gt; slots) &#123;</span><br><span class="line">             <span class="comment">//add this code if our output is a string, eg.AA, 2 -&gt; A__A</span></span><br><span class="line">             <span class="comment">//int waitingTime = map.get(task) - slots;</span></span><br><span class="line">             <span class="comment">//for (int i = 0; i &lt; waitingTime; i++) &#123;</span></span><br><span class="line">             <span class="comment">//    sb.append("_");</span></span><br><span class="line">             <span class="comment">//&#125;</span></span><br><span class="line">             slots = map.get(task);<span class="comment">//if we need to wait for the cooldown of the same task, just update the slots</span></span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">if</span> (queue.size() == cooldown + <span class="number">1</span>) &#123;</span><br><span class="line">             map.remove(queue.poll());<span class="comment">//we should do this after updating the slots, cuz we store indices of cooldown</span></span><br><span class="line">         &#125;<span class="comment">//stops, we don't know whether we have any idol period between these two same tasks yet, so update it first</span></span><br><span class="line">         map.put(task, slots + cooldown + <span class="number">1</span>);<span class="comment">//update the time slot to the time when curr task can be done again</span></span><br><span class="line">         queue.offer(task);</span><br><span class="line">         slots++;<span class="comment">//update the used 1 slot of curr task</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> slots;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/39-task-schedule-with-order/" data-id="cjkhs4cl8004h8cvnaq48luxf" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-38-Merge-Set" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/04/38-Merge-Set/" class="article-date">
-  <time datetime="2018-08-05T03:55:14.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/04/38-Merge-Set/">38. Merge Set</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Input: {1,2},{2,3},{3,4}{5,6,7},{7,8},{9},{9}<br>Output: {1,2,3,4},{5,6,7,8},{9}<br>能不能够维护一个hashmap&lt;num, set_id&gt; 比如1-&gt;{1,2}<br>同时维护一个map存set间关系<br>碰到{2, 3}时找2和3没有没在hashmap中，发现2在，<br>则将{2, 3}的father标记为{1,2}，。。。最后从每个点向父亲走并合并set内容<br>如果有N个set，平均长度M，建立set关系要N<em>M，合并需要N</em>M</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">accountsMerge</span><span class="params">(self, accounts)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type accounts: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: List[List[str]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        root = &#123;&#125;</span><br><span class="line">        owner = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        hm = &#123;&#125;</span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">                owner[a[i]] = a[<span class="number">0</span>]</span><br><span class="line">                root[a[i]] = a[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line"></span><br><span class="line">            p = self.find(a[<span class="number">0</span>],root)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(a)):</span><br><span class="line">                root[self.find(a[i],root)] = p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">                key = root[self.find(a[i],root)]</span><br><span class="line">                hm[key] = hm.get(key,[]) + [a[i]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> hm.keys():</span><br><span class="line">            v = sorted(list(set(hm[k])))</span><br><span class="line">            res.append(v)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self,p,root)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> root[p] == p:</span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line">        <span class="keyword">return</span> self.find(root[p],root)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/38-Merge-Set/" data-id="cjkhs4cl7004f8cvnflbybm4h" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/68-swapbyoneswap/" data-id="cjkjbsg9900d9nwvnzsbiqz6i" class="article-share-link">Share</a>
       
       
       
@@ -510,7 +509,7 @@
 
 
   <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/12/">12</a><a class="extend next" rel="next" href="/page/2/">Next&raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next&raquo;</a>
   </nav>
 </section>
            
@@ -522,7 +521,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title archive">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">37</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">83</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/08/">August 2018</a><span class="archive-list-count">46</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a><span class="archive-list-count">83</span></li></ul>
     </div>
   </div>
 
@@ -535,7 +534,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title tagcloud">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Basic/" style="font-size: 16.54px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 17.38px;">BinarySearch</a> <a href="/tags/DP/" style="font-size: 15.69px;">DP</a> <a href="/tags/Design/" style="font-size: 19.08px;">Design</a> <a href="/tags/Easy/" style="font-size: 23.31px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 15.69px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 15.69px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 17.38px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 20.77px;">Hard</a> <a href="/tags/Hash/" style="font-size: 14.85px;">Hash</a> <a href="/tags/LinkedList/" style="font-size: 16.54px;">LinkedList</a> <a href="/tags/MJ/" style="font-size: 22.46px;">MJ</a> <a href="/tags/Math/" style="font-size: 15.69px;">Math</a> <a href="/tags/Medium/" style="font-size: 24.15px;">Medium</a> <a href="/tags/PQ/" style="font-size: 14.85px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 15.69px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 25px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/Stack/" style="font-size: 16.54px;">Stack</a> <a href="/tags/Tree/" style="font-size: 18.23px;">Tree</a> <a href="/tags/Trie/" style="font-size: 14.85px;">Trie</a> <a href="/tags/TwoPointer/" style="font-size: 14.85px;">TwoPointer</a> <a href="/tags/UnionFind/" style="font-size: 14px;">UnionFind</a> <a href="/tags/bfs/" style="font-size: 19.92px;">bfs</a> <a href="/tags/dfs/" style="font-size: 21.62px;">dfs</a> <a href="/tags/dp/" style="font-size: 14.85px;">dp</a>
+      <a href="/tags/Basic/" style="font-size: 16.54px;">Basic</a> <a href="/tags/BinarySearch/" style="font-size: 17.38px;">BinarySearch</a> <a href="/tags/DP/" style="font-size: 15.69px;">DP</a> <a href="/tags/Design/" style="font-size: 19.08px;">Design</a> <a href="/tags/Easy/" style="font-size: 22.46px;">Easy</a> <a href="/tags/FollowUp/" style="font-size: 15.69px;">FollowUp</a> <a href="/tags/Graph/" style="font-size: 15.69px;">Graph</a> <a href="/tags/Greedy/" style="font-size: 17.38px;">Greedy</a> <a href="/tags/Hard/" style="font-size: 20.77px;">Hard</a> <a href="/tags/Hash/" style="font-size: 14.85px;">Hash</a> <a href="/tags/LinkedList/" style="font-size: 16.54px;">LinkedList</a> <a href="/tags/MJ/" style="font-size: 23.31px;">MJ</a> <a href="/tags/Math/" style="font-size: 15.69px;">Math</a> <a href="/tags/Medium/" style="font-size: 24.15px;">Medium</a> <a href="/tags/PQ/" style="font-size: 14.85px;">PQ</a> <a href="/tags/PrefixSum/" style="font-size: 15.69px;">PrefixSum</a> <a href="/tags/Remember/" style="font-size: 25px;">Remember</a> <a href="/tags/SlidingWindows/" style="font-size: 14px;">SlidingWindows</a> <a href="/tags/Stack/" style="font-size: 16.54px;">Stack</a> <a href="/tags/Tree/" style="font-size: 18.23px;">Tree</a> <a href="/tags/Trie/" style="font-size: 14.85px;">Trie</a> <a href="/tags/TwoPointer/" style="font-size: 14.85px;">TwoPointer</a> <a href="/tags/UnionFind/" style="font-size: 14px;">UnionFind</a> <a href="/tags/bfs/" style="font-size: 19.92px;">bfs</a> <a href="/tags/dfs/" style="font-size: 21.62px;">dfs</a> <a href="/tags/dp/" style="font-size: 14.85px;">dp</a>
     </div>
   </div>
 
@@ -547,23 +546,23 @@
       <ul>
         
           <li>
-            <a href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+            <a href="/2018/08/06/67-replaceChars/">67. replaceChars</a>
           </li>
         
           <li>
-            <a href="/2018/08/05/53-LinkedList-Cycle/">53. LinkedList Cycle</a>
+            <a href="/2018/08/06/63-shortestPaths/">63. shortestPaths</a>
           </li>
         
           <li>
-            <a href="/2018/08/05/52-Maximum-Binary-Tree/">52. Maximum Binary Tree</a>
+            <a href="/2018/08/06/60-4SUM/">60. 4SUM</a>
           </li>
         
           <li>
-            <a href="/2018/08/05/49-sparse-vector-dot-product/">49. sparse vector dot product</a>
+            <a href="/2018/08/06/57-changeAlph/">57. changeAlph</a>
           </li>
         
           <li>
-            <a href="/2018/08/05/48-primeNumber/">48. primeNumber</a>
+            <a href="/2018/08/06/32-input-string/">32. input string</a>
           </li>
         
       </ul>
