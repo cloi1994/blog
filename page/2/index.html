@@ -66,6 +66,271 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-32-input-string" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/32-input-string/" class="article-date">
+  <time datetime="2018-08-07T06:05:55.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/32-input-string/">32. input string</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>去除string中重复的character，返回⼀一个新的string； abcad，返回abcd.<br>如果不确定只有⼩小写字⺟母就⽤用set存就好了了<br>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">removeDuplicate</span><span class="params">(String input)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(input.length() &lt; <span class="number">2</span>) <span class="keyword">return</span> input;</span><br><span class="line">  <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">26</span>];</span><br><span class="line">  StringBuilder sb = <span class="keyword">new</span> StringBuilder();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">char</span> c: input.toCharArray()) &#123;</span><br><span class="line">    <span class="keyword">if</span>(count[c - <span class="string">'a'</span>] == <span class="number">0</span>) sb.append(c);</span><br><span class="line">    count[c - <span class="string">'a'</span>]++;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> sb.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/32-input-string/" data-id="cjkkg5mqs004cvovnvgwoo7dg" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-18-sorted-DDL-to-BST" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/18-sorted-DDL-to-BST/" class="article-date">
+  <time datetime="2018-08-07T06:03:22.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/18-sorted-DDL-to-BST/">18. sorted DDL to BST</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Node <span class="title">dLLtoBST</span><span class="params">(<span class="keyword">int</span> size)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (size &lt;= <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  Node left = dLLtoBST(size / <span class="number">2</span>);</span><br><span class="line">  Node root = head;</span><br><span class="line">  root.prev = left;</span><br><span class="line">  head = head.next;</span><br><span class="line">  root.next = dLLtoBST(size-(size / <span class="number">2</span>)-<span class="number">1</span>);</span><br><span class="line">  <span class="keyword">return</span> root;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/18-sorted-DDL-to-BST/" data-id="cjkkg5mpb001jvovn9raci72q" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-13-BST-to-circle-double-linked-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/13-BST-to-circle-double-linked-list/" class="article-date">
+  <time datetime="2018-08-07T05:46:29.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/13-BST-to-circle-double-linked-list/">13. BST to circle double linked list</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">TreeNode head = <span class="keyword">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bstTodll</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  bstTodll(root.left);</span><br><span class="line">  <span class="keyword">if</span>(pre == <span class="keyword">null</span>) &#123;</span><br><span class="line">    head = root;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    pre.right = root;</span><br><span class="line">    root.left = pre;</span><br><span class="line">  &#125;</span><br><span class="line">  pre = root;</span><br><span class="line">  bstTodll(root.right);</span><br><span class="line">  <span class="keyword">if</span> (root.right == <span class="keyword">null</span>)&#123;</span><br><span class="line">    tail = root</span><br><span class="line">    head.left = tail</span><br><span class="line">    tail.right = head</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/13-BST-to-circle-double-linked-list/" data-id="cjkkg5mou000tvovn7yi014x2" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-12-BST-to-double-linked-list" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/12-BST-to-double-linked-list/" class="article-date">
+  <time datetime="2018-08-07T05:45:18.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/12-BST-to-double-linked-list/">12. BST to double linked list</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>reference:<br><a href="http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/" target="_blank" rel="noopener">http://www.geeksforgeeks.org/convert-given-binary-tree-doubly-linked-list-set-3/</a><br>思路：用递归转成inOrder的dll</p>
+<p>followup: pseudo code for doublely linked list to BST,<br> the simplest method for finding the mid<br>node (oral discussion only), complexity<br> 如果用这个方法来找中点，整个把linked list转回BST的复杂<br>度是什么</p>
+<p>代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">TreeNode pre = <span class="keyword">null</span>;</span><br><span class="line">TreeNode head = <span class="keyword">null</span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bstTodll</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(root == <span class="keyword">null</span>) <span class="keyword">return</span>;</span><br><span class="line">  bstTodll(root.left);</span><br><span class="line">  <span class="keyword">if</span>(pre == <span class="keyword">null</span>) &#123;</span><br><span class="line">    head = root;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> &#123;</span><br><span class="line">    pre.right = root;</span><br><span class="line">    root.left = pre;</span><br><span class="line">  &#125;</span><br><span class="line">  pre = root;</span><br><span class="line">  bstTodll(root.right);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/12-BST-to-double-linked-list/" data-id="cjkkg5mon000kvovn28tstp6s" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-11-BST-to-MinHeap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/06/11-BST-to-MinHeap/" class="article-date">
+  <time datetime="2018-08-07T05:33:06.000Z" itemprop="datePublished">2018-08-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/06/11-BST-to-MinHeap/">11. BST to MinHeap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>思路：inorder traverse the BST and get the array,<br>then preorder traverse and put the items in array<br>one by on into the tree or we can traverse the tree level to level<br>follow up: do it in place?<br>reference: <a href="http://www.geeksforgeeks.org/in-place-convert-bst-into-a-min-heap/" target="_blank" rel="noopener">http://www.geeksforgeeks.org/in-place-convert-bst-into-a-min-heap/</a><br>solution: convert the BST to sorted linked list first and<br>then use a queue to construct the tree<br>not in place, O(N) space代码:</p>
+<p><code>`</code>java<br>public TreeNode bstToMinHeap(TreeNode root) {<br>  if(root == null) return null;<br>  LinkedList<treenode> list = new LinkedList&lt;&gt;();<br>  constructList(root, list);<br>  Queue<treenode> queue = new LinkedList&lt;&gt;();<br>  TreeNode newRoot = new TreeNode(list.removeFirst());<br>  queue.offer(newRoot);</treenode></treenode></p>
+<p>  while(!queue.isEmpty()) {<br>    int n = queue.size();<br>    while(n– &gt; 0) {<br>    TreeNode cur = queue.poll();<br>    if(list.size() == 0) return newRoot;<br>    cur.left = new TreeNode(list.removeFirst());<br>    if(list.size() == 0) return newRoot;<br>    cur.right = new TreeNode(list.removeFirst());<br>    queue.offer(cur.left);<br>    queue.offer(cur.right);<br>  }<br>  }<br>  return newRoot;<br>}<br>public void constructList(TreeNode root, List<treenode> list) {<br>  if(root == null) return;<br>  constructList(root.left, list);<br>  list.add(root);<br>  constructList(root.right, list);<br>}</treenode></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/06/11-BST-to-MinHeap/" data-id="cjkkg5mop000mvovnyw0tr3ta" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-68-swapbyoneswap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/05/68-swapbyoneswap/" class="article-date">
+  <time datetime="2018-08-06T04:27:31.000Z" itemprop="datePublished">2018-08-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/05/68-swapbyoneswap/">68. swapbyoneswap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>扫一遍，标记递减的。如果递减的为1个，<br>找一找有没有合适的替换。如果递减为两个，<br>把第二个递减的和第一个递减的前面的那个数替换，如果行，<br>也是可以的。超过2个递减的，直接false。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sortByOneSwap</span><span class="params">(<span class="keyword">int</span> arr[],</span></span></span><br><span class="line"><span class="function"><span class="params">                          <span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// Travers the given array</span></span><br><span class="line">    <span class="comment">// from rightmost side</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = n - <span class="number">1</span>; i &gt; <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// Check if arr[i]</span></span><br><span class="line">        <span class="comment">// is not in order</span></span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>])</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// Find the other element</span></span><br><span class="line">            <span class="comment">// to be swapped with arr[i]</span></span><br><span class="line">            <span class="keyword">int</span> j = i - <span class="number">1</span>;</span><br><span class="line">            <span class="keyword">while</span> (j &gt;= <span class="number">0</span> &amp;&amp; arr[i] &lt; arr[j])</span><br><span class="line">                j--;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Swap the pair</span></span><br><span class="line">            <span class="keyword">int</span> temp = arr[i];</span><br><span class="line">            arr[i] = arr[j + <span class="number">1</span>];</span><br><span class="line">            arr[j + <span class="number">1</span>] = temp;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/05/68-swapbyoneswap/" data-id="cjkkg5ms6007avovn2zk7uqw4" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-53-LinkedList-Cycle" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/05/53-LinkedList-Cycle/" class="article-date">
@@ -96,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/53-LinkedList-Cycle/" data-id="cjkjbsg6r005rnwvnec4zlcx8" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/53-LinkedList-Cycle/" data-id="cjkkg5ms7007cvovn097jv9vf" class="article-share-link">Share</a>
       
       
       
@@ -139,7 +404,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/52-Maximum-Binary-Tree/" data-id="cjkjbsg6p005mnwvnku9uj3kj" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/52-Maximum-Binary-Tree/" data-id="cjkkg5mrk005wvovn3upp8iuc" class="article-share-link">Share</a>
       
       
       
@@ -182,7 +447,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/49-sparse-vector-dot-product/" data-id="cjkjbsg6m005enwvnn5pcecvu" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/49-sparse-vector-dot-product/" data-id="cjkkg5mrd005ovovn4nehk96c" class="article-share-link">Share</a>
       
       
       
@@ -226,277 +491,12 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/48-primeNumber/" data-id="cjkjbsg6k0059nwvne1xevi6c" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/05/48-primeNumber/" data-id="cjkkg5mre005qvovnggdesspm" class="article-share-link">Share</a>
       
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
 
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-46-Abs-minmax-sorting" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/46-Abs-minmax-sorting/" class="article-date">
-  <time datetime="2018-08-06T03:30:47.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/46-Abs-minmax-sorting/">46. Abs minmax sorting</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>给⼀个有正有负的递增数列，返回⼀个按绝对值大小排列的数列<br>分为正负两个部分做插入</p>
-<p>[-12,2,3,4,8,9]</p>
-<p>= 2 3 4 8 9 -12</p>
-<p>如果是已经排好序的没必要找0吧，从两侧向中间走就可以吧，两侧绝对值一定最大<br>代码：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] absIncreasing(<span class="keyword">int</span>[] nums) &#123;</span><br><span class="line">  <span class="keyword">int</span>[] res = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">  <span class="keyword">if</span>(nums.length == <span class="number">0</span> || nums[<span class="number">0</span>] &gt;= <span class="number">0</span>) <span class="keyword">return</span> nums;</span><br><span class="line">  <span class="keyword">int</span> start = <span class="number">0</span>, end = nums.length - <span class="number">1</span>, index = nums.length - <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">while</span>(start &lt;= end) &#123;</span><br><span class="line">    <span class="keyword">if</span>(Math.abs(nums[start]) &gt;= Math.abs(nums[end]))</span><br><span class="line">        res[index--] = nums[start++];</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        res[index--] = nums[end--];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>in place的话⽤用quick sort</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/46-Abs-minmax-sorting/" data-id="cjkjbsg6h0052nwvn497rw73w" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-44-search-for-range-count" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/44-search-for-range-count/" class="article-date">
-  <time datetime="2018-08-06T02:33:19.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/44-search-for-range-count/">44. search for range count</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>One slight optimization here would be to do an initial<br>search for an index that is in the target range, and then when<br>doing the search for the lower bound, use low to mid,<br>and then for upper bound, mid to high.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findFirst</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        left, right = <span class="number">0</span>, len(nums)<span class="number">-1</span></span><br><span class="line">        index = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid]&gt;=target:</span><br><span class="line">                right = mid<span class="number">-1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                left = mid+<span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nums[mid]== target:</span><br><span class="line">                index = mid</span><br><span class="line">        <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLast</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        left, right = <span class="number">0</span>, len(nums)<span class="number">-1</span></span><br><span class="line">        index = <span class="number">-1</span></span><br><span class="line">        <span class="keyword">while</span> left &lt;= right:</span><br><span class="line">            mid = left + (right-left)//<span class="number">2</span></span><br><span class="line">            <span class="keyword">if</span> nums[mid]&lt;=target:</span><br><span class="line">                left = mid+<span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                right = mid<span class="number">-1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> nums[mid]== target:</span><br><span class="line">                index = mid</span><br><span class="line">        <span class="keyword">return</span> index</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">searchRange</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :type target: int</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        first = self.findFirst(nums, target)</span><br><span class="line">        last = self.findLast(nums,target)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> [first, last]</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/44-search-for-range-count/" data-id="cjkjbsg6g0050nwvngj80i4p1" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-42-flatten-multilevel-linkedlist" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/05/42-flatten-multilevel-linkedlist/" class="article-date">
-  <time datetime="2018-08-06T02:06:47.000Z" itemprop="datePublished">2018-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/05/42-flatten-multilevel-linkedlist/">42. flatten multilevel linkedlist </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">flattenList</span><span class="params">(Node node)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/*Base case*/</span></span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Node tmp = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">/* Find tail node of first level linked list */</span></span><br><span class="line">        Node tail = node;</span><br><span class="line">        <span class="keyword">while</span> (tail.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">            tail = tail.next;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// One by one traverse through all nodes of first level</span></span><br><span class="line">        <span class="comment">// linked list till we reach the tail node</span></span><br><span class="line">        Node cur = node;</span><br><span class="line">        <span class="keyword">while</span> (cur != tail) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// If current node has a child</span></span><br><span class="line">            <span class="keyword">if</span> (cur.child != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// then append the child at the end of current list</span></span><br><span class="line">                tail.next = cur.child;</span><br><span class="line"></span><br><span class="line">                <span class="comment">// and update the tail to new last node</span></span><br><span class="line">                tmp = cur.child;</span><br><span class="line">                <span class="keyword">while</span> (tmp.next != <span class="keyword">null</span>) &#123;</span><br><span class="line">                    tmp = tmp.next;</span><br><span class="line">                &#125;</span><br><span class="line">                tail = tmp;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// Change current node</span></span><br><span class="line">            cur = cur.next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/05/42-flatten-multilevel-linkedlist/" data-id="cjkjbsg6f004xnwvnp8gi0235" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-39-task-schedule-with-order" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/04/39-task-schedule-with-order/" class="article-date">
-  <time datetime="2018-08-05T03:55:34.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/04/39-task-schedule-with-order/">39. task schedule with order</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p><a href="https://bit.ly/2Mkm1Xh" target="_blank" rel="noopener">https://bit.ly/2Mkm1Xh</a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">leastInterval</span><span class="params">(<span class="keyword">char</span>[] tasks, <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span>[] count = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">  <span class="keyword">int</span>[] pos = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">128</span>];</span><br><span class="line">  Arrays.fill(pos, -n-<span class="number">1</span>);</span><br><span class="line">  Queue&lt;Character&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();</span><br><span class="line">  <span class="keyword">char</span> pre = <span class="string">' '</span>;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">char</span> c: tasks) &#123;</span><br><span class="line">    <span class="keyword">if</span>(c != pre) queue.offer(c);</span><br><span class="line">    pre = c;</span><br><span class="line">    count[c]++;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> counter = <span class="number">0</span>;<span class="comment">//exclusive</span></span><br><span class="line">  <span class="keyword">while</span>(!queue.isEmpty()) &#123;</span><br><span class="line">    <span class="keyword">char</span> cur = queue.poll();</span><br><span class="line">    System.out.println(cur);</span><br><span class="line">    <span class="keyword">if</span>(counter - pos[cur] &gt; n) &#123;</span><br><span class="line">      pos[cur] = counter;</span><br><span class="line">      counter++;</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">      pos[cur] = pos[cur] + n + <span class="number">1</span>;</span><br><span class="line">      counter = pos[cur] + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    count[cur]--;</span><br><span class="line">    <span class="keyword">if</span>(count[cur] &gt; <span class="number">0</span>) queue.offer(cur);</span><br><span class="line">  &#125;</span><br><span class="line">    <span class="keyword">return</span> counter;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">taskSchedule2</span><span class="params">(<span class="keyword">int</span>[] tasks, <span class="keyword">int</span> cooldown)</span> </span>&#123;</span><br><span class="line">     <span class="keyword">if</span> (tasks == <span class="keyword">null</span> || tasks.length == <span class="number">0</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">     &#125;</span><br><span class="line">     Queue&lt;Integer&gt; queue = <span class="keyword">new</span> LinkedList&lt;&gt;();<span class="comment">//store tasks that are waiting for cooldown?</span></span><br><span class="line">     HashMap&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();<span class="comment">//store indices, where cooldown stops, of tasks in window</span></span><br><span class="line">     <span class="keyword">int</span> slots = <span class="number">0</span>;</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">int</span> task : tasks) &#123;</span><br><span class="line">         <span class="keyword">if</span> (map.containsKey(task) &amp;&amp; map.get(task) &gt; slots) &#123;</span><br><span class="line">             <span class="comment">//add this code if our output is a string, eg.AA, 2 -&gt; A__A</span></span><br><span class="line">             <span class="comment">//int waitingTime = map.get(task) - slots;</span></span><br><span class="line">             <span class="comment">//for (int i = 0; i &lt; waitingTime; i++) &#123;</span></span><br><span class="line">             <span class="comment">//    sb.append("_");</span></span><br><span class="line">             <span class="comment">//&#125;</span></span><br><span class="line">             slots = map.get(task);<span class="comment">//if we need to wait for the cooldown of the same task, just update the slots</span></span><br><span class="line">         &#125;</span><br><span class="line">         <span class="keyword">if</span> (queue.size() == cooldown + <span class="number">1</span>) &#123;</span><br><span class="line">             map.remove(queue.poll());<span class="comment">//we should do this after updating the slots, cuz we store indices of cooldown</span></span><br><span class="line">         &#125;<span class="comment">//stops, we don't know whether we have any idol period between these two same tasks yet, so update it first</span></span><br><span class="line">         map.put(task, slots + cooldown + <span class="number">1</span>);<span class="comment">//update the time slot to the time when curr task can be done again</span></span><br><span class="line">         queue.offer(task);</span><br><span class="line">         slots++;<span class="comment">//update the used 1 slot of curr task</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="keyword">return</span> slots;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/39-task-schedule-with-order/" data-id="cjkjbsg6c004qnwvnhllwis3u" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-38-Merge-Set" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/04/38-Merge-Set/" class="article-date">
-  <time datetime="2018-08-05T03:55:14.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/04/38-Merge-Set/">38. Merge Set</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>Input: {1,2},{2,3},{3,4}{5,6,7},{7,8},{9},{9}<br>Output: {1,2,3,4},{5,6,7,8},{9}<br>能不能够维护一个hashmap&lt;num, set_id&gt; 比如1-&gt;{1,2}<br>同时维护一个map存set间关系<br>碰到{2, 3}时找2和3没有没在hashmap中，发现2在，<br>则将{2, 3}的father标记为{1,2}，。。。最后从每个点向父亲走并合并set内容<br>如果有N个set，平均长度M，建立set关系要N<em>M，合并需要N</em>M</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">accountsMerge</span><span class="params">(self, accounts)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type accounts: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: List[List[str]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        root = &#123;&#125;</span><br><span class="line">        owner = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        hm = &#123;&#125;</span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">                owner[a[i]] = a[<span class="number">0</span>]</span><br><span class="line">                root[a[i]] = a[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line"></span><br><span class="line">            p = self.find(a[<span class="number">0</span>],root)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(a)):</span><br><span class="line">                root[self.find(a[i],root)] = p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(len(a)):</span><br><span class="line">                key = root[self.find(a[i],root)]</span><br><span class="line">                hm[key] = hm.get(key,[]) + [a[i]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> hm.keys():</span><br><span class="line">            v = sorted(list(set(hm[k])))</span><br><span class="line">            res.append(v)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self,p,root)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> root[p] == p:</span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line">        <span class="keyword">return</span> self.find(root[p],root)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/38-Merge-Set/" data-id="cjkjbsg6b004lnwvncytd1u5h" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-37-Dominoes" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/04/37-Dominoes/" class="article-date">
-  <time datetime="2018-08-05T03:54:56.000Z" itemprop="datePublished">2018-08-04</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/04/37-Dominoes/">37. Dominoes</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>骨牌是不是可以直接存2个int 组合起来的string..<br>找的时候..直接reverse下..看看那个string在不在map里.</p>
-<p>每个牌上有两个数字，上下各一个，都在1-6之间，要找出有没有两个match的骨牌，<br>match的定义是两组数加起来都是6，比如一个骨牌是（1,5），<br>那么match的骨牌是（1,5）或者（5,1），总之相当弱智的一题，<br>用哈希表解决，存的时候存个pair，找的时候找两下就行了。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/04/37-Dominoes/" data-id="cjkjbsg66004bnwvnk2nui2ep" class="article-share-link">Share</a>
-      
-      
-      
     </footer>
   </div>
   
@@ -508,7 +508,7 @@
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/3/">Next&raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/3/">Next&raquo;</a>
   </nav>
 </section>
            
@@ -531,23 +531,23 @@
       <ul>
         
           <li>
-            <a href="/2018/08/06/67-replaceChars/">67. replaceChars</a>
+            <a href="/2018/08/07/99-Recover-Binary-Search-Tree/">99. Recover Binary Search Tree</a>
           </li>
         
           <li>
-            <a href="/2018/08/06/63-shortestPaths/">63. shortestPaths</a>
+            <a href="/2018/08/07/65-Valid-Number/">65. Valid Number</a>
           </li>
         
           <li>
-            <a href="/2018/08/06/60-4SUM/">60. 4SUM</a>
+            <a href="/2018/08/07/710-Random-Pick-with-Blacklist/">710. Random Pick with Blacklist </a>
           </li>
         
           <li>
-            <a href="/2018/08/06/57-changeAlph/">57. changeAlph</a>
+            <a href="/2018/08/07/340-Longest-Substring-with-At-Most-K-Distinct-Characters/">340. Longest Substring with At Most K Distinct Characters</a>
           </li>
         
           <li>
-            <a href="/2018/08/06/32-input-string/">32. input string</a>
+            <a href="/2018/08/07/51-Robot-cleaning/">51. Robot cleaning</a>
           </li>
         
       </ul>

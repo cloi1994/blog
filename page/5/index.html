@@ -66,6 +66,269 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-5-SplitMore" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/03/5-SplitMore/" class="article-date">
+  <time datetime="2018-08-04T01:14:22.000Z" itemprop="datePublished">2018-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/03/5-SplitMore/">5. SplitMore</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/03/5-SplitMore/" data-id="cjkkg5mrf005svovn1l4raolg" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-3-findRectangle" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/03/3-findRectangle/" class="article-date">
+  <time datetime="2018-08-04T01:00:25.000Z" itemprop="datePublished">2018-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/03/3-findRectangle/">3. findRectangle</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>一个set，问能不不能找到四个点组成平⾏行行于坐标轴的矩形</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">findRectangle</span><span class="params">(<span class="keyword">int</span>[][] points)</span> </span>&#123;</span><br><span class="line">  Set&lt;List&lt;Integer&gt;&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span>[] point: points)</span><br><span class="line">      set.add(Arrays.asList(point[<span class="number">0</span>], point[<span class="number">1</span>]));</span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; points.length; i++) &#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; points.length; j++) &#123;</span><br><span class="line">        <span class="keyword">if</span>(points[i][<span class="number">0</span>] == points[j][<span class="number">0</span>] || points[i][<span class="number">1</span>] == points[j][<span class="number">1</span>])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">      <span class="keyword">if</span>(set.contains(Arrays.asList(points[i][<span class="number">0</span>], points[j][<span class="number">1</span>])) &amp;&amp;</span><br><span class="line">           set.contains(Arrays.asList(points[j][<span class="number">0</span>], points[i][<span class="number">1</span>])))</span><br><span class="line">              <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>follow up: 若四边不不⼀一定平⾏行行于坐标轴？<br>思路：算三个点，满⾜足勾股定理的话找第四个点，<br>第四个点横纵坐标分别为两个对⻆角点相加减去另外⼀一个点</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/03/3-findRectangle/" data-id="cjkkg5mqm0040vovn7uh5fo6z" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-2-MinStepLeftToRight" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/03/2-MinStepLeftToRight/" class="article-date">
+  <time datetime="2018-08-04T00:20:20.000Z" itemprop="datePublished">2018-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/03/2-MinStepLeftToRight/">2. MinStepLeftToRight </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <p>|X|X|O|O|O|<br>|O|X|O|O|O|<br>|O|O|O|O|O|<br>|O|O|O|O|O| * 5 steps</p>
+<p>从最左边走到最右边最少几步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(self, board)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type board: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: void Do not return anything, modify board in-place instead.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        q = []</span><br><span class="line">        step = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        lastCol = len(board[<span class="number">0</span>]) <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">        dirs = [[<span class="number">-1</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>],[<span class="number">0</span>,<span class="number">-1</span>],[<span class="number">0</span>,<span class="number">1</span>]]</span><br><span class="line"></span><br><span class="line">        visited = [[ <span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(board[<span class="number">0</span>]))] <span class="keyword">for</span> _ <span class="keyword">in</span> range(len(board))]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(board)):</span><br><span class="line">            <span class="keyword">if</span> board[i][<span class="number">0</span>] == <span class="string">'O'</span>:</span><br><span class="line">                q.append([i,<span class="number">0</span>])</span><br><span class="line">                visited[i][<span class="number">0</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> q != []:</span><br><span class="line">            size = len(q)</span><br><span class="line">            step += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> range(size):</span><br><span class="line">                cur = q.pop(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> cur[<span class="number">1</span>] == lastCol <span class="keyword">and</span> board[cur[<span class="number">0</span>]][cur[<span class="number">1</span>]] == <span class="string">'O'</span>:</span><br><span class="line">                    <span class="keyword">return</span> step</span><br><span class="line"></span><br><span class="line">                <span class="keyword">for</span> d <span class="keyword">in</span> dirs:</span><br><span class="line">                    newRow = cur[<span class="number">0</span>] + d[<span class="number">0</span>]</span><br><span class="line">                    newCol = cur[<span class="number">1</span>] + d[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> newRow &lt; <span class="number">0</span> <span class="keyword">or</span> newCol &lt; <span class="number">0</span> <span class="keyword">or</span> newRow &gt;= len(board) <span class="keyword">or</span> newCol &gt;= len(board[<span class="number">0</span>]):</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line">                    <span class="keyword">if</span> visited[newRow][newCol] == <span class="number">1</span> <span class="keyword">or</span> board[newRow][newCol] == <span class="string">'X'</span>:</span><br><span class="line">                        <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">                    visited[newRow][newCol] = <span class="number">1</span></span><br><span class="line">                    q.append([newRow,newCol])</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>followup 解答：<br>思路路：由于每个点只有⼀一个前继点，所以⽤map来存⼀一下是由哪个点过来的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/03/2-MinStepLeftToRight/" data-id="cjkkg5mpf001rvovnmot6qemd" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bfs/">bfs</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-1-2D-Chess" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/03/1-2D-Chess/" class="article-date">
+  <time datetime="2018-08-03T23:32:53.000Z" itemprop="datePublished">2018-08-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/03/1-2D-Chess/">1. 2D Chess </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">012</span></span><br><span class="line"><span class="number">345</span></span><br><span class="line"><span class="number">678</span></span><br><span class="line"><span class="number">.9</span>.</span><br><span class="line"></span><br><span class="line">给定以上<span class="number">2</span>d array作为棋盘，起始位置为<span class="number">0</span>，移动方式为走L型</span><br><span class="line">（<span class="number">0</span>可以到<span class="number">5</span>和<span class="number">7</span>，<span class="number">1</span>可以到<span class="number">6</span>，<span class="number">8</span>， <span class="number">3</span>可以到<span class="number">2</span>，<span class="number">8</span>，<span class="number">9</span>）。问给定步数n，有几种走法</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">numOfPaths</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n][<span class="number">10</span>];</span><br><span class="line">    <span class="keyword">return</span> dfs(n, <span class="number">0</span>, dp);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> n, <span class="keyword">int</span> curr, <span class="keyword">int</span>[][] dp)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">0</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(dp[n-<span class="number">1</span>][curr] &gt; <span class="number">0</span>) <span class="keyword">return</span> dp[n-<span class="number">1</span>][curr];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(curr == <span class="number">0</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">5</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">7</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">1</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">6</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">8</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">2</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">3</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">7</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">3</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">2</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">8</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">9</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">4</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = <span class="number">0</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">5</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">0</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">6</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">9</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">6</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">1</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">5</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">7</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">0</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">2</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(curr == <span class="number">8</span>) &#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">1</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">3</span>, dp);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      dp[n-<span class="number">1</span>][curr] = dfs(n-<span class="number">1</span>, <span class="number">3</span>, dp) + dfs(n-<span class="number">1</span>, <span class="number">5</span>, dp);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dp[n-<span class="number">1</span>][curr];</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/03/1-2D-Chess/" data-id="cjkkg5mn00001vovnda9ceha7" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MJ/">MJ</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dfs/">dfs</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/dp/">dp</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-721-Accounts-Merge" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/02/721-Accounts-Merge/" class="article-date">
+  <time datetime="2018-08-02T07:37:15.000Z" itemprop="datePublished">2018-08-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/02/721-Accounts-Merge/">721. Accounts Merge </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">accountsMerge</span><span class="params">(self, accounts)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type accounts: List[List[str]]</span></span><br><span class="line"><span class="string">        :rtype: List[List[str]]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        root = &#123;&#125;</span><br><span class="line">        owner = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        hm = &#123;&#125;</span><br><span class="line">        res = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(a)):</span><br><span class="line">                owner[a[i]] = a[<span class="number">0</span>]</span><br><span class="line">                root[a[i]] = a[i]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line"></span><br><span class="line">            p = self.find(a[<span class="number">1</span>],root)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,len(a)):</span><br><span class="line">                root[self.find(a[i],root)] = p</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> a <span class="keyword">in</span> accounts:</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(a)):</span><br><span class="line">                key = root[self.find(a[i],root)]</span><br><span class="line">                hm[key] = hm.get(key,[]) + [a[i]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> hm.keys():</span><br><span class="line">            v = sorted(list(set(hm[k])))</span><br><span class="line">            res.append([owner[k]] + v)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">find</span><span class="params">(self,p,root)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> root[p] == p:</span><br><span class="line">            <span class="keyword">return</span> p</span><br><span class="line">        <span class="keyword">return</span> self.find(root[p],root)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/02/721-Accounts-Merge/" data-id="cjkkg5msc007ovovncq0osu3v" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UnionFind/">UnionFind</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
+    <article id="post-745-Prefix-and-Suffix-Search" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/08/01/745-Prefix-and-Suffix-Search/" class="article-date">
+  <time datetime="2018-08-02T06:23:11.000Z" itemprop="datePublished">2018-08-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/08/01/745-Prefix-and-Suffix-Search/">745. Prefix and Suffix Search </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <!-- Table of Contents -->
+        
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TireNode</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.children = [<span class="keyword">None</span>] * <span class="number">26</span></span><br><span class="line">        self.weightList = []</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">WordFilter</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, words)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type words: List[str]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = TireNode()</span><br><span class="line">        self.reversed_root = TireNode()</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(words)):</span><br><span class="line">            self.root.weightList.append(i)</span><br><span class="line">            self.reversed_root.weightList.append(i)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(words)):</span><br><span class="line">            self.add(words[i],i)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,word,weight)</span>:</span></span><br><span class="line">        self.insert(word,self.root,weight)</span><br><span class="line">        self.insert(word[::<span class="number">-1</span>],self.reversed_root,weight)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span><span class="params">(self,word,p,weight)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word)):</span><br><span class="line">            idx = ord(word[i]) - ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> p.children[idx] == <span class="keyword">None</span>:</span><br><span class="line">                p.children[idx] = TireNode()</span><br><span class="line"></span><br><span class="line">            p = p.children[idx]</span><br><span class="line">            p.weightList.append(weight)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self,word,p)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(word)):</span><br><span class="line">            idx = ord(word[i]) - ord(<span class="string">'a'</span>)</span><br><span class="line">            <span class="keyword">if</span> p.children[idx] == <span class="keyword">None</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">            p = p.children[idx]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> p.weightList</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(self, prefix, suffix)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type prefix: str</span></span><br><span class="line"><span class="string">        :type suffix: str</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        pre = self.search(prefix,self.root)</span><br><span class="line">        suf = self.search(suffix[::<span class="number">-1</span>],self.reversed_root)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> pre == <span class="keyword">None</span> <span class="keyword">or</span> suf == <span class="keyword">None</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">        i = len(pre) - <span class="number">1</span></span><br><span class="line">        j = len(suf) - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> i &gt;= <span class="number">0</span> <span class="keyword">and</span> j &gt;= <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">if</span> pre[i] == suf[j]:</span><br><span class="line">                <span class="keyword">return</span> pre[i]</span><br><span class="line">            <span class="keyword">elif</span> pre[i] &gt; suf[j]:</span><br><span class="line">                i -= <span class="number">1</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                j -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your WordFilter object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = WordFilter(words)</span></span><br><span class="line"><span class="comment"># param_1 = obj.f(prefix,suffix)</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://fbnote.netlify.com/2018/08/01/745-Prefix-and-Suffix-Search/" data-id="cjkkg5msd007qvovn50d6askt" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Design/">Design</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+ 
+
+
+  
     <article id="post-784-Letter-Case-Permutation" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/08/01/784-Letter-Case-Permutation/" class="article-date">
@@ -95,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/01/784-Letter-Case-Permutation/" data-id="cjkjbsg7q007tnwvn0kduq3o0" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/01/784-Letter-Case-Permutation/" data-id="cjkkg5mso008dvovnq03ktnur" class="article-share-link">Share</a>
       
       
       
@@ -138,7 +401,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/01/647-Palindromic-Substrings/" data-id="cjkjbsg77006qnwvnsc5zinlo" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/01/647-Palindromic-Substrings/" data-id="cjkkg5ms1006yvovngsejvvyh" class="article-share-link">Share</a>
       
       
       
@@ -182,7 +445,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/01/680-Valid-Palindrome-II/" data-id="cjkjbsg7g0077nwvnw6vh3wfw" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/01/680-Valid-Palindrome-II/" data-id="cjkkg5msa007kvovnur7b7tz5" class="article-share-link">Share</a>
       
       
       
@@ -228,7 +491,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/01/670-Maximum-Swap/" data-id="cjkjbsg7f0074nwvn3eul6iup" class="article-share-link">Share</a>
+      <a data-url="http://fbnote.netlify.com/2018/08/01/670-Maximum-Swap/" data-id="cjkkg5ms40074vovnpq3f87k5" class="article-share-link">Share</a>
       
       
       
@@ -242,272 +505,10 @@
 
 
   
-    <article id="post-674-Longest-Continuous-Increasing-Subsequence" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/01/674-Longest-Continuous-Increasing-Subsequence/" class="article-date">
-  <time datetime="2018-08-02T03:47:43.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/674-Longest-Continuous-Increasing-Subsequence/">674. Longest Continuous Increasing Subsequence </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findLengthOfLCIS</span><span class="params">(self, nums)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type nums: List[int]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> nums:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        curLen = <span class="number">1</span></span><br><span class="line">        res = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,len(nums)):</span><br><span class="line">            <span class="keyword">if</span> nums[i] &gt; nums[i<span class="number">-1</span>]:</span><br><span class="line">                curLen += <span class="number">1</span></span><br><span class="line">                res = max(res,curLen)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                curLen = <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/01/674-Longest-Continuous-Increasing-Subsequence/" data-id="cjkjbsg7e0072nwvnvytu4met" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-653-Two-Sum-IV-Input-is-a-BST" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/08/01/653-Two-Sum-IV-Input-is-a-BST/" class="article-date">
-  <time datetime="2018-08-02T03:07:13.000Z" itemprop="datePublished">2018-08-01</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/01/653-Two-Sum-IV-Input-is-a-BST/">653. Two Sum IV - Input is a BST </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>The idea is to use binary search method. For each node,<br>we check if k - node.val exists in this BST.</p>
-<p>Time Complexity: O(nh), Space Complexity: O(h). h is the height of the tree,<br>which is logn at best case, and n at worst case.</p>
-<p>Another way is<br>we check if the hashtable contains k - node.val.<br>Time Complexity: O(n), Space Complexity: O(n).</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode(object):</span></span><br><span class="line"><span class="comment">#     def __init__(self, x):</span></span><br><span class="line"><span class="comment">#         self.val = x</span></span><br><span class="line"><span class="comment">#         self.left = None</span></span><br><span class="line"><span class="comment">#         self.right = None</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">findTarget</span><span class="params">(self, root, k)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type root: TreeNode</span></span><br><span class="line"><span class="string">        :type k: int</span></span><br><span class="line"><span class="string">        :rtype: bool</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        <span class="keyword">return</span> self.dfs(root,k)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self,root,cur,k)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.search(root,cur,k-root.val)</span><br><span class="line">        <span class="keyword">or</span> self.dfs(root,cur.left,k) <span class="keyword">or</span> self.dfs(root,cur.right,k)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">(self,root,cur,target)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> root.val == target <span class="keyword">and</span> cur != root:</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self.search(root.left,cur,target)</span><br><span class="line">         <span class="keyword">or</span> self.search(root.right,cur,target)</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/08/01/653-Two-Sum-IV-Input-is-a-BST/" data-id="cjkjbsg7a006unwvn37sjwsi0" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Easy/">Easy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tree/">Tree</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-76-Minimum-Window-Substring" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/31/76-Minimum-Window-Substring/" class="article-date">
-  <time datetime="2018-08-01T03:49:23.000Z" itemprop="datePublished">2018-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/31/76-Minimum-Window-Substring/">76. Minimum Window Substring </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minWindow</span><span class="params">(self, s, t)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type s: str</span></span><br><span class="line"><span class="string">        :type t: str</span></span><br><span class="line"><span class="string">        :rtype: str</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        tmap = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> ele <span class="keyword">in</span> t:</span><br><span class="line">            tmap[ele] = tmap.get(ele,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        count = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        minLen = len(s) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        res = <span class="string">""</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(s)):</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> s[j] <span class="keyword">in</span> tmap:</span><br><span class="line"></span><br><span class="line">                tmap[s[j]] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> tmap[s[j]] &gt;= <span class="number">0</span>:</span><br><span class="line">                    count += <span class="number">1</span></span><br><span class="line">             <span class="comment"># minimize</span></span><br><span class="line">            <span class="keyword">while</span> count == len(t):</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> minLen &gt; j - i + <span class="number">1</span>:</span><br><span class="line">                    minLen = j -i + <span class="number">1</span></span><br><span class="line">                    res = s[i:j+<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> s[i] <span class="keyword">in</span> tmap:</span><br><span class="line">                    tmap[s[i]] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                    <span class="keyword">if</span> tmap[s[i]] &gt; <span class="number">0</span>:</span><br><span class="line">                        count -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">                i += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/31/76-Minimum-Window-Substring/" data-id="cjkjbsg7n007mnwvn286fog17" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hard/">Hard</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-621-Task-Scheduler" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/31/621-Task-Scheduler/" class="article-date">
-  <time datetime="2018-08-01T03:32:23.000Z" itemprop="datePublished">2018-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/31/621-Task-Scheduler/">621. Task Scheduler </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <p>思路是建立一个优先队列，然后把统计好的个数都存入优先队列中，那么大的次数会在队列的前面。<br>这题还是要分块，每块能装n+1个任务，装任务是从优先队列中取，每个任务取一个，<br>装到一个临时数组中，然后遍历取出的任务，对于每个任务，将其哈希表映射的次数减1，<br>如果减1后，次数仍大于0，则将此任务次数再次排入队列中，遍历完后如果队列不为空，<br>说明该块全部被填满，则结果加上n+1。<br>我们之前在队列中取任务是用个变量cnt来记录取出任务的个数，<br>我们想取出n+1个，如果队列中任务数少于n+1个，那就用cnt来记录真实取出的个数，<br>当队列为空时，就加上cnt的个数，参见代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> heapq <span class="keyword">import</span> heappush,heappop</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">leastInterval</span><span class="params">(self, tasks, n)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type tasks: List[str]</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        hm = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> t <span class="keyword">in</span> tasks:</span><br><span class="line">            hm[t] = hm.get(t,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        hq = []</span><br><span class="line"></span><br><span class="line">        res = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> v <span class="keyword">in</span> hm.values():</span><br><span class="line">            heappush(hq,-v)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> hq != []:</span><br><span class="line"></span><br><span class="line">            tmp = []</span><br><span class="line"></span><br><span class="line">            k = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(n+<span class="number">1</span>):</span><br><span class="line">                <span class="keyword">if</span> hq != []:</span><br><span class="line">                    k += <span class="number">1</span></span><br><span class="line">                    top = heappop(hq)</span><br><span class="line">                    tmp.append(top)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> t <span class="keyword">in</span> tmp:</span><br><span class="line">                <span class="keyword">if</span> t + <span class="number">1</span> &lt; <span class="number">0</span>:</span><br><span class="line">                    heappush(hq,t+<span class="number">1</span>)   </span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> hq == []:</span><br><span class="line">                res += k</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                res += n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/31/621-Task-Scheduler/" data-id="cjkjbsg75006lnwvnp9u8hz0p" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Greedy/">Greedy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Remember/">Remember</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-636-Exclusive-Time-of-Functions" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/31/636-Exclusive-Time-of-Functions/" class="article-date">
-  <time datetime="2018-08-01T02:55:28.000Z" itemprop="datePublished">2018-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/31/636-Exclusive-Time-of-Functions/">636. Exclusive Time of Functions </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">exclusiveTime</span><span class="params">(self, n, logs)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type n: int</span></span><br><span class="line"><span class="string">        :type logs: List[str]</span></span><br><span class="line"><span class="string">        :rtype: List[int]</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        task = [<span class="number">0</span>] * n</span><br><span class="line"></span><br><span class="line">        stack = []</span><br><span class="line"></span><br><span class="line">        prev = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> log <span class="keyword">in</span> logs:</span><br><span class="line">            pid, event, curTime = log.split(<span class="string">':'</span>)</span><br><span class="line"></span><br><span class="line">            pid = int(pid)</span><br><span class="line">            curTime = int(curTime)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> event == <span class="string">'start'</span>:</span><br><span class="line">                <span class="keyword">if</span> stack != []:</span><br><span class="line">                    task[stack[<span class="number">-1</span>]] += curTime - prev</span><br><span class="line">                stack.append(pid)</span><br><span class="line">                prev = curTime</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment">#task[top]</span></span><br><span class="line">                task[pid] += curTime - prev + <span class="number">1</span></span><br><span class="line">                stack.pop()</span><br><span class="line">                prev = curTime + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> task</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/31/636-Exclusive-Time-of-Functions/" data-id="cjkjbsg76006nnwvnt2ny8s14" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Stack/">Stack</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
-    <article id="post-554-Brick-Wall" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/07/31/554-Brick-Wall/" class="article-date">
-  <time datetime="2018-08-01T02:33:38.000Z" itemprop="datePublished">2018-07-31</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/07/31/554-Brick-Wall/">554. Brick Wall </a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <!-- Table of Contents -->
-        
-        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">leastBricks</span><span class="params">(self, wall)</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        :type wall: List[List[int]]</span></span><br><span class="line"><span class="string">        :rtype: int</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line"></span><br><span class="line">        hm = &#123;&#125;</span><br><span class="line"></span><br><span class="line">        mx = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(wall)):</span><br><span class="line">            summ = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> range(len(wall[i])<span class="number">-1</span>):</span><br><span class="line">                summ += wall[i][j]</span><br><span class="line">                hm[summ] = hm.get(summ,<span class="number">0</span>) + <span class="number">1</span></span><br><span class="line">                mx = max(mx,hm[summ])</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> len(wall) - mx</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://fbnote.netlify.com/2018/07/31/554-Brick-Wall/" data-id="cjkjbsg6w0061nwvn9t32esah" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hash/">Hash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Medium/">Medium</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
- 
-
-
-  
 
 
   <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/6/">Next&raquo;</a>
+    <a class="extend prev" rel="prev" href="/page/4/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="space">&hellip;</span><a class="page-number" href="/page/14/">14</a><a class="extend next" rel="next" href="/page/6/">Next&raquo;</a>
   </nav>
 </section>
            
@@ -530,23 +531,23 @@
       <ul>
         
           <li>
-            <a href="/2018/08/06/67-replaceChars/">67. replaceChars</a>
+            <a href="/2018/08/07/99-Recover-Binary-Search-Tree/">99. Recover Binary Search Tree</a>
           </li>
         
           <li>
-            <a href="/2018/08/06/63-shortestPaths/">63. shortestPaths</a>
+            <a href="/2018/08/07/65-Valid-Number/">65. Valid Number</a>
           </li>
         
           <li>
-            <a href="/2018/08/06/60-4SUM/">60. 4SUM</a>
+            <a href="/2018/08/07/710-Random-Pick-with-Blacklist/">710. Random Pick with Blacklist </a>
           </li>
         
           <li>
-            <a href="/2018/08/06/57-changeAlph/">57. changeAlph</a>
+            <a href="/2018/08/07/340-Longest-Substring-with-At-Most-K-Distinct-Characters/">340. Longest Substring with At Most K Distinct Characters</a>
           </li>
         
           <li>
-            <a href="/2018/08/06/32-input-string/">32. input string</a>
+            <a href="/2018/08/07/51-Robot-cleaning/">51. Robot cleaning</a>
           </li>
         
       </ul>
